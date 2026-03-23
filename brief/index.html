@@ -469,6 +469,21 @@
     </div>
 
     <div class="field">
+      <label>Number of ad sets <span class="req">*</span></label>
+      <p class="hint">One ad set = one creative concept across your selected sizes. Need 3 different visuals? That's 3 ad sets.</p>
+      <select id="adSetCount" style="width:100%;padding:9px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);font-size:14px;font-family:inherit;color:#2C2C2A;background:white;outline:none;cursor:pointer;">
+        <option value="">Select…</option>
+        <option value="1">1 ad set</option>
+        <option value="2">2 ad sets</option>
+        <option value="3">3 ad sets</option>
+        <option value="4">4 ad sets</option>
+        <option value="5">5 ad sets</option>
+        <option value="6-10">6–10 ad sets</option>
+        <option value="10+">10+ ad sets</option>
+      </select>
+    </div>
+
+    <div class="field">
       <label>Campaign goal(s) <span class="req">*</span></label>
       <div class="chip-group" id="goals"></div>
     </div>
@@ -684,7 +699,7 @@ function validate() {
   } else if (currentId === 'step-brand') {
     valid = val('logoNotes') || val('colors');
   } else if (currentId === 'step-campaign') {
-    valid = val('campaignName') && selectedSizes.length > 0 && val('cta');
+    valid = val('campaignName') && val('adSetCount') && selectedSizes.length > 0 && val('cta');
   } else if (currentId === 'step-review') {
     valid = true;
   }
@@ -698,6 +713,7 @@ function validate() {
  'campaignName','headline','cta','landingUrl','deadline'].forEach(id => {
   document.getElementById(id).addEventListener('input', validate);
 });
+document.getElementById('adSetCount').addEventListener('change', validate);
 
 // ── Navigation ──
 function showStep() {
@@ -771,6 +787,7 @@ function buildReview() {
 
   out += `\n— CAMPAIGN BRIEF ${'─'.repeat(34)}\n\n`;
   out += line('Campaign:', val('campaignName')) + '\n';
+  out += line('Ad sets:', val('adSetCount')) + '\n';
   out += line('Goal(s):', selectedGoals.join(', ')) + '\n';
   out += line('Ad sizes:', selectedSizes.join(', ')) + '\n';
   out += line('Headline:', val('headline')) + '\n';
@@ -802,6 +819,7 @@ async function submitBrief() {
     clientType,
     isNew,
     campaignName: val('campaignName'),
+    adSetCount: val('adSetCount'),
     goals: selectedGoals.join(', '),
     sizes: selectedSizes.join(', '),
     headline: val('headline'),
