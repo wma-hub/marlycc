@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Brief — Marly Creative Concepts</title>
+  <meta name="description" content="Submit your creative brief and brand assets to start your animated HTML5 ad production.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+      background: #FAFAF8;
+      color: #2C2C2A;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Header ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888780;
+      margin-bottom: 10px;
+    }
+    .page h1 {
+      font-size: 28px;
+      font-weight: 500;
+      color: #2C2C2A;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .page .subtitle {
+      font-size: 15px;
+      color: #888780;
+      line-height: 1.5;
+      margin-bottom: 40px;
+    }
+
+    /* ── Progress bar ── */
+    .progress {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 36px;
+    }
+    .progress-segment {
+      flex: 1;
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(0,0,0,0.07);
+      transition: background 0.35s ease;
+    }
+    .progress-segment.active {
+      background: #1D9E75;
+    }
+
+    /* ── Section headers ── */
+    .section-header {
+      margin-bottom: 28px;
+    }
+    .section-header .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .section-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #1D9E75;
+      color: white;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: 500;
+      color: #2C2C2A;
+    }
+    .section-header .desc {
+      font-size: 13px;
+      color: #888780;
+      line-height: 1.5;
+      margin-left: 34px;
+    }
+
+    /* ── Form fields ── */
+    .field {
+      margin-bottom: 22px;
+    }
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #2C2C2A;
+      margin-bottom: 6px;
+    }
+    .field label .req {
+      color: #E24B4A;
+      margin-left: 2px;
+    }
+    .field .hint {
+      font-size: 12px;
+      color: #888780;
+      line-height: 1.45;
+      margin-bottom: 6px;
+    }
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="url"],
+    .field textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.12);
+      font-size: 14px;
+      font-family: inherit;
+      color: #2C2C2A;
+      background: white;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .field textarea {
+      padding: 10px 12px;
+      resize: vertical;
+      min-height: 72px;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: #1D9E75;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #B4B2A9;
+    }
+
+    /* ── Chips ── */
+    .chip-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: transparent;
+      color: #444;
+      font-size: 13px;
+      font-weight: 400;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .chip:hover {
+      border-color: rgba(0,0,0,0.25);
+    }
+    .chip.selected {
+      border: 1.5px solid #1D9E75;
+      background: rgba(29,158,117,0.08);
+      color: #0F6E56;
+      font-weight: 500;
+    }
+
+    /* ── Size grid ── */
+    .size-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 8px;
+    }
+    .size-btn {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: white;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .size-btn:hover {
+      border-color: rgba(0,0,0,0.25);
+    }
+    .size-btn.selected {
+      border: 1.5px solid #1D9E75;
+      background: rgba(29,158,117,0.06);
+    }
+    .size-btn .size-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2C2C2A;
+      display: block;
+    }
+    .size-btn.selected .size-label {
+      color: #0F6E56;
+    }
+    .size-btn .size-desc {
+      font-size: 11px;
+      color: #888780;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ── Animation cards ── */
+    .anim-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .anim-btn {
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: white;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .anim-btn.selected {
+      border: 1.5px solid #1D9E75;
+      background: rgba(29,158,117,0.06);
+    }
+    .anim-btn .anim-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2C2C2A;
+      display: block;
+    }
+    .anim-btn.selected .anim-name {
+      color: #0F6E56;
+    }
+    .anim-btn .anim-desc {
+      font-size: 12px;
+      color: #888780;
+      line-height: 1.4;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ── Review block ── */
+    .review-block {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .review-block pre {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 12px;
+      line-height: 1.65;
+      color: #2C2C2A;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0;
+    }
+
+    /* ── Buttons ── */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .btn {
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: none;
+    }
+    .btn-back {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.12);
+      color: #2C2C2A;
+    }
+    .btn-back:hover { border-color: rgba(0,0,0,0.3); }
+    .btn-next {
+      background: #2C2C2A;
+      color: white;
+    }
+    .btn-next:hover { background: #1a1a19; }
+    .btn-next:disabled {
+      background: rgba(0,0,0,0.08);
+      color: rgba(0,0,0,0.3);
+      cursor: not-allowed;
+    }
+    .btn-submit {
+      background: #2C2C2A;
+      color: white;
+      width: 100%;
+      padding: 12px 24px;
+      font-size: 15px;
+    }
+    .btn-submit:hover { background: #1a1a19; }
+    .btn-copy {
+      background: transparent;
+      color: #888780;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 10px 16px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    .btn-copy:hover { border-color: rgba(0,0,0,0.25); }
+
+    .submit-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .submit-alt {
+      text-align: center;
+    }
+
+    .success-msg {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .success-msg .check {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(29,158,117,0.1);
+      color: #1D9E75;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .success-msg h2 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .success-msg p {
+      font-size: 14px;
+      color: #888780;
+      line-height: 1.5;
+    }
+
+    /* ── Step visibility ── */
+    .step { display: none; }
+    .step.active { display: block; }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .page { padding: 32px 16px 60px; }
+      .page h1 { font-size: 24px; }
+      .size-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <p class="eyebrow">Marly Creative Concepts</p>
+  <h1>Creative brief</h1>
+  <p class="subtitle">Everything I need to start building your animated ad set. Takes about 5 minutes.</p>
+
+  <div class="progress" id="progress"></div>
+
+  <!-- ═══════════ STEP 0: About you ═══════════ -->
+  <div class="step active" id="step-0">
+    <div class="section-header">
+      <div class="row"><span class="section-num">1</span><h2>About you</h2></div>
+      <p class="desc">Tell us about your company so we can set up your project.</p>
+    </div>
+
+    <div class="field">
+      <label>Company name <span class="req">*</span></label>
+      <input type="text" id="company" placeholder="Acme Inc.">
+    </div>
+    <div class="field">
+      <label>Your name <span class="req">*</span></label>
+      <input type="text" id="contact" placeholder="Jane Smith">
+    </div>
+    <div class="field">
+      <label>Email <span class="req">*</span></label>
+      <input type="email" id="email" placeholder="jane@acme.com">
+    </div>
+    <div class="field">
+      <label>Website <span class="req">*</span></label>
+      <input type="url" id="website" placeholder="https://acme.com">
+    </div>
+
+    <div class="field">
+      <label>I am a… <span class="req">*</span></label>
+      <div class="chip-group" id="clientType">
+        <button class="chip" data-val="brand">Brand / D2C company</button>
+        <button class="chip" data-val="agency">Agency</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Have we worked together before? <span class="req">*</span></label>
+      <div class="chip-group" id="isNew">
+        <button class="chip" data-val="returning">Yes, returning client</button>
+        <button class="chip" data-val="new">No, first time</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ STEP 1: Brand setup (new clients) ═══════════ -->
+  <div class="step" id="step-brand">
+    <div class="section-header">
+      <div class="row"><span class="section-num">2</span><h2>Brand setup</h2></div>
+      <p class="desc">I'll use these assets to build your creative foundation. This is a one-time setup — future campaigns reference it automatically.</p>
+    </div>
+
+    <div class="field">
+      <label>Logo files <span class="req">*</span></label>
+      <p class="hint">Vector formats preferred (SVG, AI, EPS). PNG/JPG also accepted — highest resolution available.</p>
+      <input type="text" id="logoNotes" placeholder="Dropbox / Drive link, or describe what you'll send">
+    </div>
+    <div class="field">
+      <label>Brand colors <span class="req">*</span></label>
+      <p class="hint">Hex codes for primary, secondary, and accent colors. Not sure? Share your guidelines or website and I'll extract them.</p>
+      <input type="text" id="colors" placeholder="#1A2B3C, #FF6B35, ...">
+    </div>
+    <div class="field">
+      <label>Typography <span class="req">*</span></label>
+      <p class="hint">Font family names and weights. If you have font files (.otf, .ttf, .woff), include them with your logos.</p>
+      <input type="text" id="fonts" placeholder="Helvetica Neue (Bold, Regular), GT Walsheim...">
+    </div>
+    <div class="field">
+      <label>Brand guidelines</label>
+      <p class="hint">Link to your brand guidelines PDF. Not required — I can work from your website and assets.</p>
+      <input type="text" id="guidelinesLink" placeholder="https://drive.google.com/...">
+    </div>
+    <div class="field">
+      <label>Existing creative</label>
+      <p class="hint">Previous ads, social posts, or campaigns I should reference for tone and style.</p>
+      <textarea id="existingCreative" placeholder="Links to previous ads or visual references that represent your brand well..."></textarea>
+    </div>
+  </div>
+
+  <!-- ═══════════ STEP 2: Campaign brief ═══════════ -->
+  <div class="step" id="step-campaign">
+    <div class="section-header">
+      <div class="row"><span class="section-num" id="campaignNum">2</span><h2>Campaign brief</h2></div>
+      <p class="desc">Details for this specific ad set. The more context, the faster I can deliver.</p>
+    </div>
+
+    <div class="field">
+      <label>Campaign name <span class="req">*</span></label>
+      <input type="text" id="campaignName" placeholder="Summer Sale 2026, Product Launch, Q3 Retargeting...">
+    </div>
+
+    <div class="field">
+      <label>Campaign goal(s) <span class="req">*</span></label>
+      <div class="chip-group" id="goals"></div>
+    </div>
+
+    <div class="field">
+      <label>Ad sizes needed <span class="req">*</span></label>
+      <p class="hint">Select all that apply. Standard IAB sizes — custom sizes available on request.</p>
+      <div class="size-grid" id="sizes"></div>
+    </div>
+
+    <div class="field">
+      <label>Headline copy <span class="req">*</span></label>
+      <input type="text" id="headline" placeholder="Your attention-grabbing headline">
+    </div>
+    <div class="field">
+      <label>Body copy</label>
+      <textarea id="bodyCopy" placeholder="Supporting message or offer details"></textarea>
+    </div>
+    <div class="field">
+      <label>CTA text <span class="req">*</span></label>
+      <input type="text" id="cta" placeholder="Shop Now, Learn More, Get Started...">
+    </div>
+    <div class="field">
+      <label>Landing page URL <span class="req">*</span></label>
+      <input type="url" id="landingUrl" placeholder="https://acme.com/summer-sale">
+    </div>
+    <div class="field">
+      <label>Product imagery &amp; photography</label>
+      <p class="hint">High-resolution images preferred. Share via Dropbox, Google Drive, or WeTransfer.</p>
+      <textarea id="imageryNotes" placeholder="Links to hero product shots, lifestyle photography, or a shared folder..."></textarea>
+    </div>
+
+    <div class="field">
+      <label>Animation style</label>
+      <p class="hint">How much motion do you want in the ads?</p>
+      <div class="anim-stack" id="animLevel"></div>
+    </div>
+
+    <div class="field">
+      <label>Ad network(s)</label>
+      <div class="chip-group" id="networks"></div>
+    </div>
+
+    <div class="field">
+      <label>Deadline <span class="req">*</span></label>
+      <input type="text" id="deadline" placeholder="e.g., April 15, 2026 or ASAP">
+    </div>
+    <div class="field">
+      <label>Anything else?</label>
+      <textarea id="additionalNotes" placeholder="Competitor examples you like, specific animation ideas, layout preferences, must-have elements..."></textarea>
+    </div>
+  </div>
+
+  <!-- ═══════════ STEP 3: Review ═══════════ -->
+  <div class="step" id="step-review">
+    <div class="section-header">
+      <div class="row"><span class="section-num" id="reviewNum">3</span><h2>Review your brief</h2></div>
+      <p class="desc">Everything looks good? Hit submit and I'll get started.</p>
+    </div>
+    <div class="review-block">
+      <pre id="reviewText"></pre>
+    </div>
+    <div class="submit-row">
+      <button class="btn btn-submit" id="submitBtn" onclick="submitBrief()">Submit brief</button>
+      <div class="submit-alt">
+        <button class="btn btn-copy" id="copyBtn" onclick="copyBrief()">or copy to clipboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ Success ═══════════ -->
+  <div class="step" id="step-success">
+    <div class="success-msg">
+      <div class="check">✓</div>
+      <h2>Brief received</h2>
+      <p>I'll review everything and follow up within 24 hours.<br>If you have assets to share, reply to the confirmation email.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════ Nav ═══════════ -->
+  <div class="nav-bar" id="navBar">
+    <button class="btn btn-back" id="backBtn" onclick="goBack()" style="visibility:hidden">Back</button>
+    <button class="btn btn-next" id="nextBtn" onclick="goNext()" disabled>Continue</button>
+  </div>
+</div>
+
+<script>
+// ── Data ──
+const AD_SIZES = [
+  { label: '300×250', desc: 'Medium rectangle' },
+  { label: '728×90',  desc: 'Leaderboard' },
+  { label: '160×600', desc: 'Wide skyscraper' },
+  { label: '320×50',  desc: 'Mobile banner' },
+  { label: '970×250', desc: 'Billboard' },
+  { label: '336×280', desc: 'Large rectangle' },
+  { label: '300×600', desc: 'Half page' },
+  { label: '320×480', desc: 'Mobile interstitial' },
+];
+
+const GOALS = ['Brand awareness','Product launch','Retargeting','Seasonal / promo','Event / announcement','Evergreen / always-on'];
+const NETWORKS = ['Google Display Network','Programmatic (DV360, TTD, etc.)','Meta / Instagram','Connected TV','Other / unsure'];
+const ANIM_LEVELS = [
+  { id: 'standard', name: 'Standard', desc: 'Clean entrance transitions and fade effects. Ideal for most campaigns.' },
+  { id: 'dynamic',  name: 'Dynamic',  desc: 'Sequenced motion, layered reveals, kinetic typography. Great for product launches.' },
+  { id: 'high-impact', name: 'High-impact', desc: 'Rich, immersive animation with complex choreography. Premium placements and hero units.' },
+];
+
+// ── State ──
+let step = 0;
+let clientType = null;
+let isNew = null;
+let selectedGoals = [];
+let selectedSizes = [];
+let selectedNetworks = [];
+let animLevel = 'standard';
+
+// ── Step sequence (dynamic based on isNew) ──
+function getSteps() {
+  if (isNew) return ['step-0', 'step-brand', 'step-campaign', 'step-review'];
+  return ['step-0', 'step-campaign', 'step-review'];
+}
+function totalSteps() { return getSteps().length; }
+
+// ── Init chip groups ──
+function initGoals() {
+  const el = document.getElementById('goals');
+  GOALS.forEach(g => {
+    const btn = document.createElement('button');
+    btn.className = 'chip';
+    btn.textContent = g;
+    btn.onclick = () => {
+      if (selectedGoals.includes(g)) selectedGoals = selectedGoals.filter(v => v !== g);
+      else selectedGoals.push(g);
+      btn.classList.toggle('selected', selectedGoals.includes(g));
+      validate();
+    };
+    el.appendChild(btn);
+  });
+}
+
+function initSizes() {
+  const el = document.getElementById('sizes');
+  AD_SIZES.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'size-btn';
+    btn.innerHTML = `<span class="size-label">${s.label}</span><span class="size-desc">${s.desc}</span>`;
+    btn.onclick = () => {
+      if (selectedSizes.includes(s.label)) selectedSizes = selectedSizes.filter(v => v !== s.label);
+      else selectedSizes.push(s.label);
+      btn.classList.toggle('selected', selectedSizes.includes(s.label));
+      validate();
+    };
+    el.appendChild(btn);
+  });
+}
+
+function initNetworks() {
+  const el = document.getElementById('networks');
+  NETWORKS.forEach(n => {
+    const btn = document.createElement('button');
+    btn.className = 'chip';
+    btn.textContent = n;
+    btn.onclick = () => {
+      if (selectedNetworks.includes(n)) selectedNetworks = selectedNetworks.filter(v => v !== n);
+      else selectedNetworks.push(n);
+      btn.classList.toggle('selected', selectedNetworks.includes(n));
+    };
+    el.appendChild(btn);
+  });
+}
+
+function initAnimLevels() {
+  const el = document.getElementById('animLevel');
+  ANIM_LEVELS.forEach(a => {
+    const btn = document.createElement('button');
+    btn.className = 'anim-btn' + (a.id === animLevel ? ' selected' : '');
+    btn.dataset.id = a.id;
+    btn.innerHTML = `<span class="anim-name">${a.name}</span><span class="anim-desc">${a.desc}</span>`;
+    btn.onclick = () => {
+      animLevel = a.id;
+      el.querySelectorAll('.anim-btn').forEach(b => b.classList.toggle('selected', b.dataset.id === a.id));
+    };
+    el.appendChild(btn);
+  });
+}
+
+// ── Single-select chip groups (step 0) ──
+document.querySelectorAll('#clientType .chip').forEach(btn => {
+  btn.onclick = () => {
+    clientType = btn.dataset.val;
+    document.querySelectorAll('#clientType .chip').forEach(b => b.classList.toggle('selected', b === btn));
+    validate();
+  };
+});
+document.querySelectorAll('#isNew .chip').forEach(btn => {
+  btn.onclick = () => {
+    isNew = btn.dataset.val === 'new';
+    document.querySelectorAll('#isNew .chip').forEach(b => b.classList.toggle('selected', b === btn));
+    validate();
+  };
+});
+
+// ── Validation ──
+function val(id) { return document.getElementById(id).value.trim(); }
+
+function validate() {
+  const steps = getSteps();
+  const currentId = steps[step];
+  let valid = false;
+
+  if (currentId === 'step-0') {
+    valid = val('company') && val('contact') && val('email') && clientType && isNew !== null;
+  } else if (currentId === 'step-brand') {
+    valid = val('logoNotes') || val('colors');
+  } else if (currentId === 'step-campaign') {
+    valid = val('campaignName') && selectedSizes.length > 0 && val('cta');
+  } else if (currentId === 'step-review') {
+    valid = true;
+  }
+
+  document.getElementById('nextBtn').disabled = !valid;
+  return valid;
+}
+
+// ── Attach live validation to inputs ──
+['company','contact','email','website','logoNotes','colors','fonts','guidelinesLink',
+ 'campaignName','headline','cta','landingUrl','deadline'].forEach(id => {
+  document.getElementById(id).addEventListener('input', validate);
+});
+
+// ── Navigation ──
+function showStep() {
+  const steps = getSteps();
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById(steps[step]).classList.add('active');
+
+  // Update step numbers for campaign and review
+  if (isNew) {
+    document.getElementById('campaignNum').textContent = '3';
+    document.getElementById('reviewNum').textContent = '4';
+  } else {
+    document.getElementById('campaignNum').textContent = '2';
+    document.getElementById('reviewNum').textContent = '3';
+  }
+
+  // Progress bar
+  const prog = document.getElementById('progress');
+  prog.innerHTML = '';
+  for (let i = 0; i < steps.length; i++) {
+    const seg = document.createElement('div');
+    seg.className = 'progress-segment' + (i <= step ? ' active' : '');
+    prog.appendChild(seg);
+  }
+
+  // Nav buttons
+  document.getElementById('backBtn').style.visibility = step === 0 ? 'hidden' : 'visible';
+  const isReview = steps[step] === 'step-review';
+  const isSuccess = steps[step] === 'step-success';
+  document.getElementById('nextBtn').style.display = isReview || isSuccess ? 'none' : '';
+  document.getElementById('navBar').style.display = isSuccess ? 'none' : '';
+
+  // Build review text
+  if (isReview) buildReview();
+
+  validate();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goNext() {
+  if (!validate()) return;
+  step++;
+  showStep();
+}
+
+function goBack() {
+  if (step > 0) { step--; showStep(); }
+}
+
+// ── Build review text ──
+function buildReview() {
+  const sep = '═'.repeat(48);
+  const line = (label, value) => `${label.padEnd(18)}${value || '—'}`;
+  let out = `MARLY CREATIVE CONCEPTS — CLIENT BRIEF\n${sep}\n\n`;
+  out += line('Company:', val('company')) + '\n';
+  out += line('Contact:', val('contact')) + '\n';
+  out += line('Email:', val('email')) + '\n';
+  out += line('Website:', val('website')) + '\n';
+  out += line('Client type:', clientType === 'brand' ? 'Brand (direct)' : 'Agency partner') + '\n';
+  out += line('Status:', isNew ? 'New client' : 'Returning client') + '\n';
+
+  if (isNew) {
+    out += `\n— BRAND SETUP ${'─'.repeat(36)}\n\n`;
+    out += line('Logo notes:', val('logoNotes')) + '\n';
+    out += line('Brand colors:', val('colors')) + '\n';
+    out += line('Typography:', val('fonts')) + '\n';
+    out += line('Guidelines:', val('guidelinesLink')) + '\n';
+    const ec = val('existingCreative');
+    out += `Existing creative:${ec ? '\n  ' + ec : ' —'}\n`;
+  }
+
+  out += `\n— CAMPAIGN BRIEF ${'─'.repeat(34)}\n\n`;
+  out += line('Campaign:', val('campaignName')) + '\n';
+  out += line('Goal(s):', selectedGoals.join(', ')) + '\n';
+  out += line('Ad sizes:', selectedSizes.join(', ')) + '\n';
+  out += line('Headline:', val('headline')) + '\n';
+  out += line('Body copy:', val('bodyCopy')) + '\n';
+  out += line('CTA:', val('cta')) + '\n';
+  out += line('Landing URL:', val('landingUrl')) + '\n';
+  out += line('Imagery notes:', val('imageryNotes')) + '\n';
+  const animName = ANIM_LEVELS.find(a => a.id === animLevel)?.name || '—';
+  out += line('Animation:', animName) + '\n';
+  out += line('Network(s):', selectedNetworks.join(', ')) + '\n';
+  out += line('Deadline:', val('deadline')) + '\n';
+  const notes = val('additionalNotes');
+  if (notes) out += `\nAdditional notes:\n  ${notes}\n`;
+
+  document.getElementById('reviewText').textContent = out;
+}
+
+// ── Submit (via Formspree — replace YOUR_FORM_ID) ──
+async function submitBrief() {
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  const data = {
+    company: val('company'),
+    contact: val('contact'),
+    email: val('email'),
+    website: val('website'),
+    clientType,
+    isNew,
+    campaignName: val('campaignName'),
+    goals: selectedGoals.join(', '),
+    sizes: selectedSizes.join(', '),
+    headline: val('headline'),
+    body: val('bodyCopy'),
+    cta: val('cta'),
+    landingUrl: val('landingUrl'),
+    imageryNotes: val('imageryNotes'),
+    animationLevel: animLevel,
+    networks: selectedNetworks.join(', '),
+    deadline: val('deadline'),
+    additionalNotes: val('additionalNotes'),
+    _fullBrief: document.getElementById('reviewText').textContent,
+  };
+
+  if (isNew) {
+    data.logoNotes = val('logoNotes');
+    data.colors = val('colors');
+    data.fonts = val('fonts');
+    data.guidelinesLink = val('guidelinesLink');
+    data.existingCreative = val('existingCreative');
+  }
+
+  try {
+    // ┌─────────────────────────────────────────────────┐
+    // │  REPLACE with your Formspree endpoint:          │
+    // │  https://formspree.io/f/YOUR_FORM_ID            │
+    // │                                                 │
+    // │  1. Go to formspree.io and create a free form   │
+    // │  2. Copy your form ID                           │
+    // │  3. Replace YOUR_FORM_ID below                  │
+    // └─────────────────────────────────────────────────┘
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-success').classList.add('active');
+      document.getElementById('navBar').style.display = 'none';
+      document.getElementById('progress').innerHTML = '';
+    } else {
+      throw new Error('Submit failed');
+    }
+  } catch (e) {
+    btn.textContent = 'Submit brief';
+    btn.disabled = false;
+    alert('Something went wrong — your brief has been copied to clipboard instead. Please email it to hello@marly.cc');
+    copyBrief();
+  }
+}
+
+function copyBrief() {
+  const text = document.getElementById('reviewText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'or copy to clipboard'; }, 2000);
+  });
+}
+
+// ── Init ──
+initGoals();
+initSizes();
+initNetworks();
+initAnimLevels();
+showStep();
+</script>
+
+</body>
+</html>
