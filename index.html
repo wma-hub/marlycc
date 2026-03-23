@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marly Creative Concepts — HTML5 Ad Production</title>
+  <meta name="description" content="Animated HTML5 ad creative for agencies and brands. Brief to delivery in 48 hours.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #080808;
+      --surface: #0f0f0f;
+      --border:  #1c1c1c;
+      --text:    #ededed;
+      --muted:   #444;
+      --dim:     #787878;
+      --accent:  #c8ff00;
+      --max:     1120px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 36px;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.92);
+      border-color: var(--border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .nav-logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid currentColor;
+      padding: 9px 20px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #000; }
+
+    /* ─── SHARED LAYOUT ───────────────────────────────── */
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 36px;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 36px 100px;
+    }
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .hero-headline {
+      font-size: clamp(64px, 11vw, 144px);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      margin-bottom: 40px;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-value {
+      font-size: clamp(15px, 1.8vw, 20px);
+      color: var(--dim);
+      line-height: 1.55;
+      max-width: 420px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--accent);
+      transition: color 0.18s;
+    }
+    .hero-cta:hover { color: var(--accent); }
+    .arrow { display: inline-block; animation: bob 1.8s ease-in-out infinite; }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(7px); }
+    }
+
+    /* ─── SECTION DIVIDER ─────────────────────────────── */
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ─── WORK ────────────────────────────────────────── */
+    #work { padding: 100px 0 120px; }
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .work-title {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .work-note {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .ads-stack { display: flex; flex-direction: column; gap: 48px; }
+    .ad-block { display: flex; flex-direction: column; gap: 14px; }
+    .ad-meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .ad-meta-brand { color: var(--text); font-weight: 600; }
+    .ad-meta-sep   { color: var(--muted); }
+    .ad-meta-fmt   { color: var(--muted); }
+    .ad-stage {
+      background: #111;
+      overflow: hidden;
+      position: relative;
+    }
+    .ad-stage.light { background: #efefeb; }
+
+    /* replay btn */
+    .replay-btn {
+      position: absolute;
+      top: 10px; right: 10px;
+      z-index: 10;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 5px 10px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .light .replay-btn { background: rgba(255,255,255,0.6); color: rgba(0,0,0,0.5); border-color: rgba(0,0,0,0.15); }
+    .ad-stage:hover .replay-btn { opacity: 1; }
+    .replay-btn:hover { opacity: 1 !important; background: rgba(0,0,0,0.8); color: #fff; }
+
+    /* ── AD 1: APEX 728×90 Leaderboard ── */
+    .ad-apex {
+      width: 100%;
+      aspect-ratio: 728 / 90;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      gap: 20px;
+    }
+    .apex-left { display: flex; align-items: center; gap: 20px; min-width: 0; }
+    .apex-logo {
+      font-size: clamp(16px, 2.4vw, 22px);
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      flex-shrink: 0;
+      opacity: 0;
+      animation: aFadeUp 0.5s 0.25s forwards;
+    }
+    .apex-divider {
+      width: 1px; height: 26px;
+      background: #2a2a2a;
+      flex-shrink: 0;
+      opacity: 0;
+      animation: aFadeIn 0.3s 0.65s forwards;
+    }
+    .apex-copy { overflow: hidden; min-width: 0; }
+    .apex-headline {
+      font-size: clamp(13px, 1.9vw, 17px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      opacity: 0;
+      transform: translateX(-16px);
+      animation: aSlideRight 0.45s 0.8s forwards;
+    }
+    .apex-sub {
+      font-size: clamp(8px, 1vw, 10px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+      opacity: 0;
+      animation: aFadeIn 0.4s 1.15s forwards;
+    }
+    .apex-cta {
+      font-size: clamp(9px, 1.1vw, 11px);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #000;
+      background: var(--accent);
+      padding: clamp(7px, 1.2vw, 11px) clamp(12px, 2vw, 22px);
+      flex-shrink: 0;
+      opacity: 0;
+      animation: aFadeIn 0.4s 1.35s forwards;
+    }
+
+    /* ── AD 2: NOMAD COFFEE 300×250 ── */
+    .ad-nomad-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .ad-nomad {
+      width: 300px;
+      height: 250px;
+      background: #0c0804;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .nomad-glow {
+      position: absolute;
+      inset: -60px -40px auto;
+      width: 380px;
+      height: 340px;
+      background: radial-gradient(circle at 40% 30%, rgba(190,120,40,0.35) 0%, transparent 65%);
+      animation: glowPulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes glowPulse {
+      from { opacity: 0.6; transform: scale(1); }
+      to   { opacity: 1;   transform: scale(1.08); }
+    }
+    .nomad-inner {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 26px 22px;
+    }
+    .nomad-eyebrow {
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #b8802e;
+      opacity: 0;
+      animation: aFadeIn 0.5s 0.3s forwards;
+    }
+    .nomad-headline {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+    .nomad-headline .l1 { display: block; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 0.55s forwards; }
+    .nomad-headline .l2 { display: block; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 0.78s forwards; }
+    .nomad-headline .l3 { display: block; font-style: italic; color: #c8912e; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 1.0s forwards; }
+    .nomad-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      opacity: 0;
+      animation: aFadeIn 0.5s 1.5s forwards;
+    }
+    .nomad-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+    .nomad-btn  {
+      font-size: 9px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #000;
+      background: #c8912e; padding: 8px 13px;
+    }
+
+    /* ── AD 3: VELA STUDIO 1:1 ── */
+    .ad-vela-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .ad-vela {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 1;
+      background: #f0efeb;
+      overflow: hidden;
+      position: relative;
+    }
+    .vela-inner {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 40px;
+      position: relative;
+    }
+    .vela-line {
+      position: absolute;
+      height: 1px;
+      background: #1a1a1a;
+      left: 28px; right: 28px;
+      transform-origin: left;
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    .vela-line-t { top: 28px;    animation: aExpandLine 0.7s 0.4s forwards; }
+    .vela-line-b { bottom: 28px; transform-origin: right; animation: aExpandLine 0.7s 0.55s forwards; }
+    @keyframes aExpandLine { to { opacity: 1; transform: scaleX(1); } }
+    .vela-eyebrow {
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: #aaa; margin-bottom: 22px;
+      opacity: 0; animation: aFadeIn 0.5s 1.0s forwards;
+    }
+    .vela-headline {
+      font-size: clamp(54px, 10vw, 72px);
+      font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
+      color: #0a0a0a; margin-bottom: 18px;
+    }
+    .vela-headline .v1 { display: block; opacity: 0; transform: translateY(28px); animation: aFadeUp 0.5s 1.2s forwards; }
+    .vela-headline .v2 { display: block; opacity: 0; transform: translateY(28px); animation: aFadeUp 0.5s 1.42s forwards; }
+    .vela-tagline {
+      font-size: 11px; letter-spacing: 0.08em; color: #999; margin-bottom: 28px;
+      opacity: 0; animation: aFadeIn 0.5s 1.85s forwards;
+    }
+    .vela-btn {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #f0efeb;
+      background: #0a0a0a; padding: 12px 26px;
+      opacity: 0; animation: aFadeIn 0.5s 2.1s forwards;
+    }
+
+    /* ── AD 4: PULSE 9:16 vertical ── */
+    .ad-pulse-wrap { display: flex; align-items: flex-start; gap: 48px; flex-wrap: wrap; }
+    .ad-pulse {
+      width: 180px;
+      height: 320px;
+      background: #050510;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .pulse-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(100,60,255,0.4) 0%, transparent 70%);
+      animation: glowPulse 3s ease-in-out infinite alternate;
+    }
+    .pulse-inner {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 18px;
+    }
+    .pulse-tag {
+      font-size: 8px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 10px;
+      opacity: 0; animation: aFadeIn 0.5s 0.4s forwards;
+    }
+    .pulse-headline {
+      font-size: 30px; font-weight: 900; line-height: 0.92;
+      letter-spacing: -0.04em; color: #fff;
+      margin-bottom: 20px;
+    }
+    .pulse-headline .p1 { display: block; opacity: 0; transform: translateY(20px); animation: aFadeUp 0.45s 0.65s forwards; }
+    .pulse-headline .p2 { display: block; opacity: 0; transform: translateY(20px); animation: aFadeUp 0.45s 0.88s forwards; }
+    .pulse-headline .p3 {
+      display: block; color: #b490ff;
+      opacity: 0; transform: translateY(20px);
+      animation: aFadeUp 0.45s 1.1s forwards;
+    }
+    .pulse-bar {
+      width: 0%; height: 2px;
+      background: linear-gradient(90deg, #7c4fff, #c490ff);
+      animation: aBar 0.8s 1.5s forwards;
+      margin-bottom: 16px;
+    }
+    @keyframes aBar { to { width: 100%; } }
+    .pulse-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      opacity: 0; animation: aFadeIn 0.4s 2.0s forwards;
+    }
+    .pulse-logo { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; }
+    .pulse-btn  {
+      font-size: 8px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #000;
+      background: #b490ff; padding: 7px 11px;
+    }
+
+    /* shared animation keyframes */
+    @keyframes aFadeIn    { to { opacity: 1; } }
+    @keyframes aFadeUp    { to { opacity: 1; transform: translateY(0); } }
+    @keyframes aSlideRight { to { opacity: 1; transform: translateX(0); } }
+
+    /* ─── HOW IT WORKS ────────────────────────────────── */
+    #how { padding: 100px 0 120px; }
+    .how-header { margin-bottom: 72px; }
+    .how-title {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800; letter-spacing: -0.03em;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .step {
+      padding: 0 40px 0 0;
+      border-right: 1px solid var(--border);
+    }
+    .step:last-child  { border-right: none; padding-right: 0; padding-left: 40px; }
+    .step:nth-child(2){ padding-left: 40px; }
+    .step-num {
+      font-size: 10px; letter-spacing: 0.2em;
+      color: var(--muted); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .step-num::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--border); }
+    .step-name { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+    .step-time {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+    }
+    .step-desc { font-size: 14px; color: var(--dim); line-height: 1.65; }
+
+    /* ─── FORMATS ─────────────────────────────────────── */
+    #formats { padding: 100px 0 120px; }
+    .formats-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 64px; flex-wrap: wrap; gap: 10px;
+    }
+    .formats-title { font-size: clamp(28px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; }
+    .formats-note  { font-size: 12px; color: var(--muted); }
+    .formats-grid  {
+      display: flex;
+      gap: 32px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .fmt-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .fmt-box {
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .fmt-item:hover .fmt-box { border-color: var(--accent); }
+    .fmt-name { font-size: 11px; letter-spacing: 0.1em; color: var(--dim); text-align: center; white-space: nowrap; }
+    .fmt-desc { font-size: 10px; color: var(--muted); text-align: center; white-space: nowrap; }
+
+    /* proportional boxes, aligned to 96px reference height */
+    .f-1x1   { width: 96px;  height: 96px;  }
+    .f-4x5   { width: 77px;  height: 96px;  }
+    .f-9x16  { width: 54px;  height: 96px;  }
+    .f-16x9  { width: 171px; height: 96px;  }
+    .f-300   { width: 115px; height: 96px;  }   /* 300×250 → ~115×96 */
+    .f-728   { width: 160px; height: 20px;  }   /* 728×90 → ~160×20 */
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    #contact { padding: 120px 0 140px; text-align: center; }
+    .contact-inner { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+    .contact-q {
+      font-size: clamp(36px, 6.5vw, 80px);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1.0;
+      margin-bottom: 48px;
+    }
+    .contact-q em { font-style: italic; color: var(--accent); }
+    .contact-email {
+      font-size: clamp(16px, 2.2vw, 22px);
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--muted);
+      padding-bottom: 4px;
+      transition: color 0.18s, border-color 0.18s;
+    }
+    .contact-email:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      padding: 36px 36px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .footer-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .footer-note { font-size: 11px; color: var(--muted); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      #hero { padding: 0 20px 80px; }
+      .section-inner { padding: 0 20px; }
+      footer { padding: 28px 20px; flex-direction: column; gap: 10px; text-align: center; }
+      .steps { grid-template-columns: 1fr; gap: 0; }
+      .step, .step:last-child, .step:nth-child(2) {
+        border-right: none; border-bottom: 1px solid var(--border);
+        padding: 36px 0; padding-left: 0;
+      }
+      .step:last-child { border-bottom: none; }
+      .ad-nomad-wrap, .ad-vela-wrap, .ad-pulse-wrap { gap: 24px; }
+      .ad-vela { max-width: 100%; }
+      .formats-grid { gap: 20px; }
+      .work-header, .formats-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ▌NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Marly CC</a>
+  <a href="#contact" class="nav-cta">Get in touch</a>
+</nav>
+
+<!-- ▌HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-label">HTML5 Ad Production</p>
+    <h1 class="hero-headline">
+      Ads that<br>
+      actually<br>
+      <em>move.</em>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-value">Animated HTML5 creative for agencies and brands. Brief to delivery in 48 hours — without the production overhead.</p>
+      <a href="#work" class="hero-cta">See the work <span class="arrow">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ▌WORK -->
+<section id="work">
+  <div class="section-inner">
+    <div class="work-header">
+      <h2 class="work-title">The work</h2>
+      <span class="work-note">Live HTML5 — not screenshots</span>
+    </div>
+
+    <div class="ads-stack">
+
+      <!-- Ad 1: APEX 728×90 -->
+      <div class="ad-block">
+        <div class="ad-meta">
+          <span class="ad-meta-brand">APEX Sportswear</span>
+          <span class="ad-meta-sep">·</span>
+          <span class="ad-meta-fmt">728×90 Leaderboard</span>
+        </div>
+        <div class="ad-stage" style="width:100%; aspect-ratio:728/90;" id="stage-apex">
+          <button class="replay-btn" onclick="replayAd('stage-apex')">↺ replay</button>
+          <div class="ad-apex">
+            <div class="apex-left">
+              <div class="apex-logo">APEX</div>
+              <div class="apex-divider"></div>
+              <div class="apex-copy">
+                <div class="apex-headline">The new standard in performance.</div>
+                <div class="apex-sub">Spring Collection 2025</div>
+              </div>
+            </div>
+            <div class="apex-cta">Shop Now</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ad 2: NOMAD 300×250 -->
+      <div class="ad-block">
+        <div class="ad-meta">
+          <span class="ad-meta-brand">Nomad Coffee</span>
+          <span class="ad-meta-sep">·</span>
+          <span class="ad-meta-fmt">300×250 Medium Rectangle</span>
+        </div>
+        <div class="ad-nomad-wrap">
+          <div class="ad-stage" style="width:300px; height:250px; flex-shrink:0;" id="stage-nomad">
+            <button class="replay-btn" onclick="replayAd('stage-nomad')">↺ replay</button>
+            <div class="ad-nomad" style="width:300px;height:250px;">
+              <div class="nomad-glow"></div>
+              <div class="nomad-inner">
+                <div class="nomad-eyebrow">Single Origin · Small Batch</div>
+                <div class="nomad-headline">
+                  <span class="l1">Your</span>
+                  <span class="l2">Morning.</span>
+                  <span class="l3">Redefined.</span>
+                </div>
+                <div class="nomad-foot">
+                  <div class="nomad-logo">Nomad</div>
+                  <div class="nomad-btn">Order Now</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ad 3: VELA 1:1 -->
+      <div class="ad-block">
+        <div class="ad-meta">
+          <span class="ad-meta-brand">VELA Studio</span>
+          <span class="ad-meta-sep">·</span>
+          <span class="ad-meta-fmt">1:1 Social / Display</span>
+        </div>
+        <div class="ad-vela-wrap">
+          <div class="ad-stage light" style="width:100%; max-width:480px; aspect-ratio:1;" id="stage-vela">
+            <button class="replay-btn" onclick="replayAd('stage-vela')">↺ replay</button>
+            <div class="ad-vela" style="width:100%;height:100%;">
+              <div class="vela-inner">
+                <div class="vela-line vela-line-t"></div>
+                <div class="vela-line vela-line-b"></div>
+                <div class="vela-eyebrow">New Arrivals — SS25</div>
+                <div class="vela-headline">
+                  <span class="v1">WEAR</span>
+                  <span class="v2">LESS.</span>
+                </div>
+                <div class="vela-tagline">Minimalist essentials since 2019</div>
+                <div class="vela-btn">Explore Collection</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ad 4: PULSE 9:16 -->
+      <div class="ad-block">
+        <div class="ad-meta">
+          <span class="ad-meta-brand">Pulse Audio</span>
+          <span class="ad-meta-sep">·</span>
+          <span class="ad-meta-fmt">9:16 Story / Reels</span>
+        </div>
+        <div class="ad-pulse-wrap">
+          <div class="ad-stage" style="width:180px; height:320px; flex-shrink:0;" id="stage-pulse">
+            <button class="replay-btn" onclick="replayAd('stage-pulse')">↺ replay</button>
+            <div class="ad-pulse" style="width:180px;height:320px;">
+              <div class="pulse-bg"></div>
+              <div class="pulse-inner">
+                <div class="pulse-tag">Premium Audio</div>
+                <div class="pulse-headline">
+                  <span class="p1">FEEL</span>
+                  <span class="p2">EVERY</span>
+                  <span class="p3">BEAT.</span>
+                </div>
+                <div class="pulse-bar"></div>
+                <div class="pulse-foot">
+                  <div class="pulse-logo">Pulse</div>
+                  <div class="pulse-btn">Shop Now</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ▌HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="how-header">
+      <p class="section-label">Process</p>
+      <h2 class="how-title">Brief to live in 48 hours</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-name">Brief</div>
+        <div class="step-time">30 seconds</div>
+        <p class="step-desc">Send your brand kit, copy, and target formats. A short form, a Loom, or a Notion doc — your call.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-name">Generation</div>
+        <div class="step-time">Under 2 hours</div>
+        <p class="step-desc">We build animated HTML5 ads that respect your brand guidelines — served code, not rendered video.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-name">Delivery</div>
+        <div class="step-time">48-hr turnaround</div>
+        <p class="step-desc">Clean .zip with ad files ready for DV360, Google Ads, or any programmatic platform — no handoff friction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ▌FORMATS -->
+<section id="formats">
+  <div class="section-inner">
+    <div class="formats-header">
+      <h2 class="formats-title">Supported formats</h2>
+      <span class="formats-note">Custom sizes on request</span>
+    </div>
+    <div class="formats-grid">
+      <div class="fmt-item">
+        <div class="fmt-box f-1x1"></div>
+        <div class="fmt-name">1:1</div>
+        <div class="fmt-desc">Social / Display</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-4x5"></div>
+        <div class="fmt-name">4:5</div>
+        <div class="fmt-desc">Instagram Feed</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-9x16"></div>
+        <div class="fmt-name">9:16</div>
+        <div class="fmt-desc">Story / Reels</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-16x9"></div>
+        <div class="fmt-name">16:9</div>
+        <div class="fmt-desc">Landscape / OTT</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-300"></div>
+        <div class="fmt-name">300×250</div>
+        <div class="fmt-desc">Medium Rectangle</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-728"></div>
+        <div class="fmt-name">728×90</div>
+        <div class="fmt-desc">Leaderboard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ▌CONTACT -->
+<section id="contact">
+  <div class="section-inner contact-inner">
+    <h2 class="contact-q">Ready to<br>move <em>fast?</em></h2>
+    <a href="mailto:hello@marly.cc" class="contact-email">hello@marly.cc</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Marly Creative Concepts</div>
+  <div class="footer-note">© 2025 · marly.cc</div>
+</footer>
+
+<script>
+  // ── Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Ad replay
+  function replayAd(stageId) {
+    const stage = document.getElementById(stageId);
+    if (!stage) return;
+    const els = stage.querySelectorAll('*:not(.replay-btn)');
+    els.forEach(el => { el.style.animation = 'none'; });
+    void stage.offsetWidth; // force reflow
+    els.forEach(el => { el.style.animation = ''; });
+  }
+
+  // ── Auto-loop ads when visible
+  const adStages = document.querySelectorAll('.ad-stage[id]');
+  const loopTimers = {};
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      if (entry.isIntersecting) {
+        // start loop timer
+        if (!loopTimers[id]) {
+          loopTimers[id] = setInterval(() => replayAd(id), 7000);
+        }
+      } else {
+        // clear loop timer when off-screen
+        if (loopTimers[id]) {
+          clearInterval(loopTimers[id]);
+          delete loopTimers[id];
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+
+  adStages.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
