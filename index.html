@@ -83,7 +83,7 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 48px;
+      margin-bottom: 12px;
     }
 
     /* ─── HERO ────────────────────────────────────────── */
@@ -163,13 +163,60 @@
     /* ─── SECTION DIVIDER ─────────────────────────────── */
     .divider { border: none; border-top: 1px solid var(--border); }
 
+    /* ─── LOGO CAROUSEL ───────────────────────────────── */
+    #clients { padding: 48px 0 64px; }
+    .clients-inner { max-width: var(--max); margin: 0 auto; padding: 0 36px; }
+    .clients-label {
+      font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 20px;
+    }
+    .carousel-track-outer {
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      padding: 18px 0;
+      position: relative;
+    }
+    .carousel-track-outer::before,
+    .carousel-track-outer::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 60px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .carousel-track-outer::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+    .carousel-track-outer::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+    .carousel-track {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      width: max-content;
+      animation: ribbon 18s linear infinite;
+    }
+    .carousel-track:hover { animation-play-state: paused; }
+    @keyframes ribbon {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .logo-slot {
+      width: 120px; height: 36px;
+      background: var(--surface);
+      border-radius: 2px;
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+
     /* ─── WORK ────────────────────────────────────────── */
     #work { padding: 100px 0 120px; }
     .work-header {
+      margin-bottom: 64px;
+    }
+    .work-title-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 64px;
       flex-wrap: wrap;
       gap: 12px;
     }
@@ -503,8 +550,11 @@
     /* ─── FORMATS ─────────────────────────────────────── */
     #formats { padding: 100px 0 120px; }
     .formats-header {
+      margin-bottom: 64px;
+    }
+    .formats-title-row {
       display: flex; justify-content: space-between; align-items: baseline;
-      margin-bottom: 64px; flex-wrap: wrap; gap: 10px;
+      flex-wrap: wrap; gap: 10px;
     }
     .formats-title { font-size: clamp(28px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; }
     .formats-note  { font-size: 12px; color: var(--muted); }
@@ -626,14 +676,79 @@
   </div>
 </section>
 
+<!-- ▌LOGO CAROUSEL -->
+<section id="clients">
+  <div class="clients-inner">
+    <p class="clients-label">Trusted by</p>
+    <div class="carousel-track-outer">
+      <div class="carousel-track" id="carousel">
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <!-- duplicated for seamless loop -->
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+        <div class="logo-slot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ▌HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="how-header">
+      <p class="section-label">Process</p>
+      <h2 class="how-title">Brief to live in 72 hours</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-name">Brief</div>
+        <div class="step-time">30 seconds</div>
+        <p class="step-desc">Send over your brand kit, copy, and target sizes. A short form, a Loom, a Notion doc. Whatever works for you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-name">Build</div>
+        <div class="step-time">Under 2 hours</div>
+        <p class="step-desc">We build the ads as real HTML5 code. Animated, on-brand, and built to spec for wherever they're running.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-name">Review</div>
+        <div class="step-time">Your private portal</div>
+        <p class="step-desc">You get a private link to review everything live in the browser. Leave notes, request changes. No screenshots, no email chains.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-name">Delivery</div>
+        <div class="step-time">72-hr turnaround</div>
+        <p class="step-desc">A clean .zip, organized by size, ready to traffic. Works with DV360, Google Ads, and most programmatic platforms out of the box.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <hr class="divider">
 
 <!-- ▌WORK -->
 <section id="work">
   <div class="section-inner">
     <div class="work-header">
-      <h2 class="work-title">The work</h2>
-      <span class="work-note">Live HTML5 — not screenshots</span>
+      <p class="section-label">Work</p>
+      <div class="work-title-row">
+        <h2 class="work-title">The work</h2>
+        <span class="work-note">Live HTML5 — not screenshots</span>
+      </div>
     </div>
 
     <div class="ads-stack">
@@ -753,50 +868,15 @@
 
 <hr class="divider">
 
-<!-- ▌HOW IT WORKS -->
-<section id="how">
-  <div class="section-inner">
-    <div class="how-header">
-      <p class="section-label">Process</p>
-      <h2 class="how-title">Brief to live in 72 hours</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-name">Brief</div>
-        <div class="step-time">30 seconds</div>
-        <p class="step-desc">Send over your brand kit, copy, and target sizes. A short form, a Loom, a Notion doc. Whatever works for you.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-name">Build</div>
-        <div class="step-time">Under 2 hours</div>
-        <p class="step-desc">We build the ads as real HTML5 code. Animated, on-brand, and built to spec for wherever they're running.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-name">Review</div>
-        <div class="step-time">Your private portal</div>
-        <p class="step-desc">You get a private link to review everything live in the browser. Leave notes, request changes. No screenshots, no email chains.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-name">Delivery</div>
-        <div class="step-time">72-hr turnaround</div>
-        <p class="step-desc">A clean .zip, organized by size, ready to traffic. Works with DV360, Google Ads, and most programmatic platforms out of the box.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
 <!-- ▌FORMATS -->
 <section id="formats">
   <div class="section-inner">
     <div class="formats-header">
-      <h2 class="formats-title">Supported formats</h2>
-      <span class="formats-note">Custom sizes on request</span>
+      <p class="section-label">Formats</p>
+      <div class="formats-title-row">
+        <h2 class="formats-title">Supported formats</h2>
+        <span class="formats-note">Custom sizes on request</span>
+      </div>
     </div>
     <div class="formats-grid">
       <div class="fmt-item">
