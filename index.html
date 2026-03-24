@@ -488,35 +488,43 @@
     .step-desc { font-size: 14px; color: var(--dim); line-height: 1.65; }
 
     /* ─── FORMATS ─────────────────────────────────────── */
-    #formats { padding: 100px 0 120px; }
+    #formats { background: #FF8406; padding: 100px 0 120px; }
     .formats-header {
       display: flex; justify-content: space-between; align-items: baseline;
       margin-bottom: 64px; flex-wrap: wrap; gap: 10px;
     }
-    .formats-title { font-size: clamp(28px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; }
-    .formats-note  { font-size: 12px; color: var(--muted); }
+    .formats-title { font-size: clamp(28px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; color: #fff; }
+    .formats-note  { font-size: 12px; color: rgba(255,255,255,0.6); }
     .formats-grid  {
       display: flex;
-      gap: 32px;
+      gap: 28px 36px;
       align-items: flex-end;
       flex-wrap: wrap;
     }
     .fmt-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
     .fmt-box {
-      border: 1px solid var(--border);
+      border: 2px solid rgba(255,255,255,0.55);
       transition: border-color 0.2s;
     }
-    .fmt-item:hover .fmt-box { border-color: var(--accent); }
-    .fmt-name { font-size: 11px; letter-spacing: 0.1em; color: var(--dim); text-align: center; white-space: nowrap; }
-    .fmt-desc { font-size: 10px; color: var(--muted); text-align: center; white-space: nowrap; }
+    .fmt-item:hover .fmt-box { border-color: #fff; }
+    .fmt-name { font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.9); text-align: center; white-space: nowrap; }
+    .fmt-desc { font-size: 10px; color: rgba(255,255,255,0.55); text-align: center; white-space: nowrap; }
+    .fmt-more { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; align-self: center; padding-bottom: 8px; }
 
     /* proportional boxes, aligned to 96px reference height */
     .f-1x1   { width: 96px;  height: 96px;  }
     .f-4x5   { width: 77px;  height: 96px;  }
     .f-9x16  { width: 54px;  height: 96px;  }
     .f-16x9  { width: 171px; height: 96px;  }
-    .f-300   { width: 115px; height: 96px;  }   /* 300×250 → ~115×96 */
-    .f-728   { width: 160px; height: 20px;  }   /* 728×90 → ~160×20 */
+    .f-300   { width: 115px; height: 96px;  }   /* 300×250 */
+    .f-336   { width: 115px; height: 96px;  }   /* 336×280 ≈ same ratio */
+    .f-250sq { width: 96px;  height: 96px;  }   /* 250×250 */
+    .f-160   { width: 26px;  height: 96px;  }   /* 160×600 */
+    .f-300h  { width: 48px;  height: 96px;  }   /* 300×600 */
+    .f-320v  { width: 64px;  height: 96px;  }   /* 320×480 */
+    .f-728   { width: 160px; height: 20px;  }   /* 728×90 */
+    .f-970   { width: 150px; height: 38px;  }   /* 970×250 */
+    .f-320m  { width: 120px; height: 19px;  }   /* 320×50 */
 
     /* ─── CONTACT ─────────────────────────────────────── */
     #contact { padding: 120px 0 140px; text-align: center; }
@@ -784,9 +792,24 @@
         <div class="fmt-desc">Story / Reels</div>
       </div>
       <div class="fmt-item">
+        <div class="fmt-box f-320v"></div>
+        <div class="fmt-name">320×480</div>
+        <div class="fmt-desc">Mobile Interstitial</div>
+      </div>
+      <div class="fmt-item">
         <div class="fmt-box f-16x9"></div>
         <div class="fmt-name">16:9</div>
         <div class="fmt-desc">Landscape / OTT</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-300h"></div>
+        <div class="fmt-name">300×600</div>
+        <div class="fmt-desc">Half Page</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-160"></div>
+        <div class="fmt-name">160×600</div>
+        <div class="fmt-desc">Wide Skyscraper</div>
       </div>
       <div class="fmt-item">
         <div class="fmt-box f-300"></div>
@@ -794,10 +817,31 @@
         <div class="fmt-desc">Medium Rectangle</div>
       </div>
       <div class="fmt-item">
+        <div class="fmt-box f-336"></div>
+        <div class="fmt-name">336×280</div>
+        <div class="fmt-desc">Large Rectangle</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-250sq"></div>
+        <div class="fmt-name">250×250</div>
+        <div class="fmt-desc">Square</div>
+      </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-970"></div>
+        <div class="fmt-name">970×250</div>
+        <div class="fmt-desc">Billboard</div>
+      </div>
+      <div class="fmt-item">
         <div class="fmt-box f-728"></div>
         <div class="fmt-name">728×90</div>
         <div class="fmt-desc">Leaderboard</div>
       </div>
+      <div class="fmt-item">
+        <div class="fmt-box f-320m"></div>
+        <div class="fmt-name">320×50</div>
+        <div class="fmt-desc">Mobile Banner</div>
+      </div>
+      <div class="fmt-more">+ more</div>
     </div>
   </div>
 </section>
