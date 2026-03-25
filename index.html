@@ -366,6 +366,142 @@
     /* ── AGENCY PARTNERSHIPS ── */
     .contact-agency { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 28px; letter-spacing: 0.06em; }
 
+    /* ─── HOW IT WORKS ────────────────────────────────── */
+    #how { padding: 100px 0 120px; }
+    .how-header { margin-bottom: 72px; }
+    .how-title {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800; letter-spacing: -0.03em;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .step {
+      padding: 0 36px 0 0;
+      border-right: 1px solid var(--border);
+    }
+    .step:last-child  { border-right: none; padding-right: 0; padding-left: 36px; }
+    .step:nth-child(2){ padding-left: 36px; }
+    .step:nth-child(3){ padding-left: 36px; }
+    .step-num {
+      font-size: 10px; letter-spacing: 0.2em;
+      color: var(--muted); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .step-num::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--border); }
+    .step-name { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+    .step-time {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+    }
+    .step-desc { font-size: 14px; color: var(--dim); line-height: 1.65; }
+
+    /* ─── FORMATS ─────────────────────────────────────── */
+    #formats { padding: 100px 0 120px; }
+    .formats-header { margin-bottom: 64px; }
+    .formats-title-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .formats-title { font-size: clamp(28px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; }
+    .formats-note  { font-size: 12px; color: var(--muted); }
+    .formats-grid  {
+      display: flex;
+      gap: 28px 36px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .fmt-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .fmt-box {
+      border: 2px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .fmt-item:hover .fmt-box { border-color: var(--accent); }
+    .fmt-name { font-size: 11px; letter-spacing: 0.1em; color: var(--dim); text-align: center; white-space: nowrap; }
+    .fmt-desc { font-size: 10px; color: var(--muted); text-align: center; white-space: nowrap; }
+    .fmt-more { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0.08em; align-self: center; padding-bottom: 8px; }
+
+    /* proportional boxes */
+    .f-1x1   { width: 96px;  height: 96px;  }
+    .f-4x5   { width: 77px;  height: 96px;  }
+    .f-9x16  { width: 54px;  height: 96px;  }
+    .f-16x9  { width: 171px; height: 96px;  }
+    .f-300   { width: 115px; height: 96px;  }
+    .f-336   { width: 115px; height: 96px;  }
+    .f-250sq { width: 96px;  height: 96px;  }
+    .f-160   { width: 26px;  height: 96px;  }
+    .f-300h  { width: 48px;  height: 96px;  }
+    .f-320v  { width: 64px;  height: 96px;  }
+    .f-728   { width: 160px; height: 20px;  }
+    .f-970   { width: 150px; height: 38px;  }
+    .f-320m  { width: 120px; height: 19px;  }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    #contact { background: #FF8406; padding: 120px 0 0; text-align: center; }
+    .contact-inner { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; padding: 0 36px 100px; }
+    .contact-q {
+      font-size: clamp(36px, 6.5vw, 80px);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1.0;
+      margin-bottom: 48px; color: #fff;
+    }
+    .contact-q em { font-style: italic; color: rgba(255,255,255,0.6); }
+    .contact-email {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .contact-email:hover { border-color: rgba(255,255,255,0.7); color: rgba(255,255,255,0.85); }
+    .contact-brief-btn {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #FF8406;
+      background: #fff;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .contact-brief-btn:hover { background: #f0f0ee; }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: #FF8406;
+      padding: 28px 36px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      width: 100%; max-width: var(--max); margin: 0 auto;
+    }
+    .footer-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .footer-note { font-size: 11px; color: rgba(255,255,255,0.45); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      #hero { padding: 0 20px 80px; }
+      .section-inner { padding: 0 20px; }
+      footer { padding: 28px 20px; flex-direction: column; gap: 10px; text-align: center; }
+      .steps { grid-template-columns: 1fr; gap: 0; }
+      .step, .step:last-child, .step:nth-child(2), .step:nth-child(3) {
+        border-right: none; border-bottom: 1px solid var(--border);
+        padding: 36px 0; padding-left: 0;
+      }
+      .step:last-child { border-bottom: none; }
+      .formats-grid { gap: 20px; }
+    }
+
         </style>
 </head>
 <body>
