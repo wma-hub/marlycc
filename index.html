@@ -455,7 +455,15 @@
       font-weight: 800; letter-spacing: -0.04em; line-height: 1.0;
       margin-bottom: 48px; color: #fff;
     }
-    .contact-q em { font-style: italic; color: rgba(255,255,255,0.6); }
+    .contact-q em {
+      font-style: italic;
+      background: linear-gradient(105deg, #fff 0%, #FFE8C8 40%, #FFDAA0 60%, #fff 100%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: moveGradient 4s ease-in-out infinite;
+    }
     .contact-email {
       font-size: 14px;
       color: rgba(255,255,255,0.6);
