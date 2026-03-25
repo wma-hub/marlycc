@@ -591,9 +591,11 @@
       #hero { padding: 0 20px 80px; }
       .section-inner { padding: 0 20px; }
       footer { padding: 28px 20px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .footer-inner { flex-direction: column; align-items: center; gap: 6px; text-align: center; }
       .footer-logo { white-space: nowrap; }
-      .footer-note { white-space: nowrap; }
+      .footer-tagline { display: block; }
+      .footer-sep { display: none; }
+      .footer-copy { display: block; }
       .steps { grid-template-columns: 1fr; gap: 0; }
       .step, .step:last-child, .step:nth-child(2), .step:nth-child(3) {
         border-right: none; border-bottom: 1px solid var(--border);
@@ -938,7 +940,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo"><img src="mcc-logo-icon-ko.svg" alt="Marly"><span>Creative Concepts</span></div>
-    <div class="footer-note">Production partner for agencies and in-house teams &nbsp;·&nbsp; © 2026 · marly.cc</div>
+    <div class="footer-note"><span class="footer-tagline">Production partner for agencies and in-house teams</span><span class="footer-sep"> &nbsp;·&nbsp; </span><span class="footer-copy">© 2026 · marly.cc</span></div>
   </div>
 </footer>
 
