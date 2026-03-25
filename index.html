@@ -351,6 +351,21 @@
     .s1-300x250 .cta { display:inline-block; margin-top:14px; background:#D4A853; color:#1A1A1A; font-size:11px; font-weight:700; padding:8px 20px; border-radius:100px; letter-spacing:0.04em; text-transform:uppercase; opacity:0; animation:fbj-scaleIn 0.4s ease both 1.2s, fbj-pulse 2s ease-in-out 2s infinite; }
     .ad-logo { position:absolute; z-index:3; opacity:0; animation:fbj-fade 0.5s ease both 1.6s; }
 
+    /* ── ABOUT ── */
+    #about { padding: 100px 0; }
+    .about-inner { display: flex; flex-direction: row; align-items: center; gap: 48px; }
+    .about-avatar { width: 96px; height: 96px; border-radius: 50%; background: var(--surface, #EAEDF1); flex-shrink: 0; }
+    .about-text { max-width: 520px; }
+    .about-text .section-label { margin-bottom: 12px; }
+    .about-bio { font-size: 16px; color: var(--dim); line-height: 1.65; margin: 0; }
+    @media (max-width: 600px) {
+      .about-inner { flex-direction: column; gap: 28px; }
+      .about-avatar { width: 72px; height: 72px; }
+    }
+
+    /* ── AGENCY PARTNERSHIPS ── */
+    .contact-agency { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 28px; letter-spacing: 0.06em; }
+
         </style>
 </head>
 <body>
@@ -379,14 +394,14 @@
       <em>move.</em>
     </h1>
     <div class="hero-bottom">
-      <p class="hero-value">Animated HTML5 ad production for agencies and brands. From brief to delivery in 72 hours, no back-and-forth required.</p>
+      <p class="hero-value">Animated HTML5 ad production for agencies and brands. Send a brief. Get a working V1 within 72 hours.</p>
       <a href="#work" class="hero-cta">See the work <span class="arrow">↓</span></a>
     </div>
   </div>
 </section>
 
 <!-- ▌LOGO CAROUSEL -->
-<section id="clients">
+<section id="clients" style="display:none">
   <div class="clients-inner">
     <p class="clients-label">Trusted by</p>
     <div class="carousel-track-outer">
@@ -409,14 +424,14 @@
   </div>
 </section>
 
-<hr class="divider">
+<hr class="divider" id="divider-clients" style="display:none">
 
 <!-- ▌HOW IT WORKS -->
 <section id="how">
   <div class="section-inner">
     <div class="how-header">
       <p class="section-label">Process</p>
-      <h2 class="how-title">Brief to live in 72 hours</h2>
+      <h2 class="how-title">V1 in your inbox within 72 hours</h2>
     </div>
     <div class="steps">
       <div class="step">
@@ -641,12 +656,24 @@
   </div>
 </section>
 
+<!-- ▌ABOUT -->
+<section id="about">
+  <div class="section-inner about-inner">
+    <div class="about-avatar"></div>
+    <div class="about-text">
+      <p class="section-label">About</p>
+      <p class="about-bio">Marly Creative Concepts is a boutique ad production studio specializing in animated HTML5 creative. We partner with agencies and in-house teams to turn briefs into platform-ready ad units — fast, precise, and production-clean. No retainers, no bloat. Just work that ships.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ▌CONTACT -->
 <section id="contact">
   <div class="section-inner contact-inner">
     <h2 class="contact-q">Ready to<br>move <em>fast?</em></h2>
     <a href="/brief" class="contact-brief-btn">Start your brief →</a>
     <a href="mailto:hello@marly.cc" class="contact-email">or email hello@marly.cc</a>
+    <p class="contact-agency">Agency partnerships available.</p>
   </div>
 </section>
 
