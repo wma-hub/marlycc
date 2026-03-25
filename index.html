@@ -291,68 +291,39 @@
     @keyframes s1-728x90-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes s1-728x90-rule { to { width: 100%; } }
 
-    /* ── AD 2: NOMAD COFFEE 300×250 ── */
-    .ad-nomad-wrap {
-      display: flex;
-      align-items: flex-start;
-      gap: 48px;
-      flex-wrap: wrap;
+    /* ── AD 2: PEECH Process Mining ROI 300×250 ── */
+    .p1r {
+      --p-bg: #0a0a0a; --p-teal: rgba(20,184,166,1); --p-teal-glow: rgba(20,184,166,0.2);
+      --p-orange: rgba(232,112,43,1); --p-orange-glow: rgba(232,112,43,0.25);
+      --p-white: #fff; --p-gray: rgba(255,255,255,0.45); --p-border: rgba(255,255,255,0.08);
+      width: 300px; height: 250px; position: relative; overflow: hidden;
+      border: 1px solid var(--p-border); cursor: pointer; background: var(--p-bg);
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif; flex-shrink: 0;
     }
-    .ad-nomad {
-      width: 300px;
-      height: 250px;
-      background: #0c0804;
-      overflow: hidden;
-      position: relative;
-      flex-shrink: 0;
-    }
-    .nomad-glow {
-      position: absolute;
-      inset: -60px -40px auto;
-      width: 380px;
-      height: 340px;
-      background: radial-gradient(circle at 40% 30%, rgba(190,120,40,0.35) 0%, transparent 65%);
-      animation: glowPulse 4s ease-in-out infinite alternate;
-    }
+    .p1r__glow { position:absolute; width:180px; height:180px; border-radius:50%; background:var(--p-orange-glow); filter:blur(55px); top:-50px; right:-30px; opacity:0; animation:p1r-glowIn 0.8s 0.2s ease-out forwards, p1r-glowPulse 4s 3s ease-in-out infinite; }
+    .p1r__nodes { position:absolute; top:12px; right:12px; opacity:0; animation:p1r-fadeIn 0.6s 1.6s ease-out forwards; }
+    .p1r__logo { display:flex; align-items:center; gap:6px; padding:18px 20px 0; opacity:0; transform:translateY(-8px); animation:p1r-fadeDown 0.5s 0.2s ease-out forwards; }
+    .p1r__logo svg { width:20px; height:18px; }
+    .p1r__logo-text { font-size:15px; font-weight:700; color:var(--p-white); letter-spacing:-0.02em; }
+    .p1r__badge { margin-left:auto; font-size:7.5px; font-weight:600; color:var(--p-orange); border:1px solid rgba(232,112,43,0.35); padding:2px 6px; border-radius:10px; text-transform:uppercase; letter-spacing:0.05em; }
+    .p1r__headline { padding:14px 20px 0; opacity:0; transform:translateY(10px); animation:p1r-fadeUp 0.6s 0.5s ease-out forwards; }
+    .p1r__headline h1 { font-size:18px; font-weight:800; color:var(--p-white); line-height:1.15; letter-spacing:-0.03em; }
+    .p1r__headline span { color:var(--p-orange); }
+    .p1r__stats { display:flex; gap:16px; padding:14px 20px 0; opacity:0; animation:p1r-fadeUp 0.5s 1.0s ease-out forwards; }
+    .p1r__stat-val { font-size:17px; font-weight:800; color:var(--p-orange); letter-spacing:-0.02em; }
+    .p1r__stat-lbl { font-size:7px; color:var(--p-gray); margin-top:1px; text-transform:uppercase; letter-spacing:0.05em; }
+    .p1r__cta { position:absolute; bottom:16px; right:20px; background:var(--p-orange); color:var(--p-white); font-size:11px; font-weight:700; padding:7px 16px; border-radius:20px; border:none; letter-spacing:0.01em; opacity:0; transform:translateY(6px); animation:p1r-fadeUp 0.4s 1.4s ease-out forwards; cursor:pointer; }
+    .p1r__cta::after { content:' →'; }
+    .p1r__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--p-orange),var(--p-teal)); animation:p1r-lineGrow 0.8s 1.8s ease-out forwards; }
+    @keyframes p1r-glowIn { to{opacity:1} }
+    @keyframes p1r-glowPulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+    @keyframes p1r-fadeDown { to{opacity:1;transform:translateY(0)} }
+    @keyframes p1r-fadeUp { to{opacity:1;transform:translateY(0)} }
+    @keyframes p1r-fadeIn { to{opacity:1} }
+    @keyframes p1r-lineGrow { to{width:100%} }
     @keyframes glowPulse {
       from { opacity: 0.6; transform: scale(1); }
       to   { opacity: 1;   transform: scale(1.08); }
-    }
-    .nomad-inner {
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      padding: 26px 22px;
-    }
-    .nomad-eyebrow {
-      font-size: 9px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: #b8802e;
-      opacity: 0;
-      animation: aFadeIn 0.5s 0.3s forwards;
-    }
-    .nomad-headline {
-      font-size: 38px;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: #fff;
-    }
-    .nomad-headline .l1 { display: block; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 0.55s forwards; }
-    .nomad-headline .l2 { display: block; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 0.78s forwards; }
-    .nomad-headline .l3 { display: block; font-style: italic; color: #c8912e; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 1.0s forwards; }
-    .nomad-foot {
-      display: flex; align-items: center; justify-content: space-between;
-      opacity: 0;
-      animation: aFadeIn 0.5s 1.5s forwards;
-    }
-    .nomad-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
-    .nomad-btn  {
-      font-size: 9px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #000;
-      background: #c8912e; padding: 8px 13px;
     }
 
     /* ── AD 3: VELA STUDIO 1:1 ── */
@@ -746,31 +717,41 @@
         </div>
       </div>
 
-      <!-- Ad 2: NOMAD 300×250 -->
+      <!-- Ad 2: PEECH 300×250 -->
       <div class="ad-block">
         <div class="ad-meta">
-          <span class="ad-meta-brand">Nomad Coffee</span>
+          <span class="ad-meta-brand">Peech</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">300×250 Medium Rectangle</span>
+          <span class="ad-meta-fmt">300×250 Medium Rectangle · Process Mining ROI</span>
         </div>
-        <div class="ad-nomad-wrap">
-          <div class="ad-stage" style="width:300px; height:250px; flex-shrink:0;" id="stage-nomad">
-            <button class="replay-btn" onclick="replayAd('stage-nomad')">↺ replay</button>
-            <div class="ad-nomad" style="width:300px;height:250px;">
-              <div class="nomad-glow"></div>
-              <div class="nomad-inner">
-                <div class="nomad-eyebrow">Single Origin · Small Batch</div>
-                <div class="nomad-headline">
-                  <span class="l1">Your</span>
-                  <span class="l2">Morning.</span>
-                  <span class="l3">Redefined.</span>
-                </div>
-                <div class="nomad-foot">
-                  <div class="nomad-logo">Nomad</div>
-                  <div class="nomad-btn">Order Now</div>
-                </div>
-              </div>
+        <div class="ad-stage" style="width:300px; height:250px; flex-shrink:0;" id="stage-peech">
+          <button class="replay-btn" onclick="replayAd('stage-peech')">↺ replay</button>
+          <div class="p1r">
+            <div class="p1r__glow"></div>
+            <svg class="p1r__nodes" width="60" height="50" viewBox="0 0 60 50" fill="none">
+              <circle cx="10" cy="10" r="3" fill="rgba(232,112,43,0.2)"/>
+              <circle cx="35" cy="8" r="2" fill="rgba(232,112,43,0.15)"/>
+              <circle cx="50" cy="25" r="3.5" fill="rgba(20,184,166,0.2)"/>
+              <circle cx="25" cy="35" r="2.5" fill="rgba(232,112,43,0.12)"/>
+              <line x1="10" y1="10" x2="35" y2="8" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+              <line x1="35" y1="8" x2="50" y2="25" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+              <line x1="10" y1="10" x2="25" y2="35" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+            </svg>
+            <div class="p1r__logo">
+              <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+              <span class="p1r__logo-text">peech</span>
+              <span class="p1r__badge">Celonis Partner</span>
             </div>
+            <div class="p1r__headline">
+              <h1>Your Processes Are <span>Costing You Millions.</span></h1>
+            </div>
+            <div class="p1r__stats">
+              <div><div class="p1r__stat-val">5x</div><div class="p1r__stat-lbl">Avg. ROI</div></div>
+              <div><div class="p1r__stat-val">70+</div><div class="p1r__stat-lbl">Projects</div></div>
+              <div><div class="p1r__stat-val">$500M+</div><div class="p1r__stat-lbl">Client Impact</div></div>
+            </div>
+            <button class="p1r__cta">Get Started</button>
+            <div class="p1r__accent"></div>
           </div>
         </div>
       </div>
