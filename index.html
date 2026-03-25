@@ -492,7 +492,6 @@
     .hero-label    { animation: heroFadeUp 0.55s ease both 0.1s; }
     .hero-headline { animation: heroFadeUp 0.7s  ease both 0.25s; }
     .hero-bottom   { animation: heroFadeUp 0.6s  ease both 0.65s; }
-    .ticker-wrap   { animation: heroFadeUp 0.5s  ease both 0.85s; }
 
     /* ─── HERO AMBIENT BLOBS ───────────────────────────── */
     #hero { position: relative; overflow: hidden; }
@@ -517,37 +516,6 @@
     @keyframes blobFloat {
       from { transform: scale(1)   translateY(0px);   opacity: 0.7; }
       to   { transform: scale(1.1) translateY(-24px); opacity: 1;   }
-    }
-
-    /* ─── HERO TICKER ──────────────────────────────────── */
-    .ticker-wrap {
-      overflow: hidden;
-      margin: 36px 0 0;
-      -webkit-mask-image: linear-gradient(to right, transparent, black 64px, black calc(100% - 64px), transparent);
-      mask-image: linear-gradient(to right, transparent, black 64px, black calc(100% - 64px), transparent);
-    }
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: tickerScroll 22s linear infinite;
-    }
-    .ticker-track:hover { animation-play-state: paused; }
-    .ticker-item {
-      font-size: 10px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-      padding: 0 20px;
-    }
-    .ticker-dot {
-      color: var(--accent);
-      padding: 0 4px;
-      opacity: 0.7;
-    }
-    @keyframes tickerScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
     }
 
     /* ─── SCROLL REVEAL ────────────────────────────────── */
@@ -648,30 +616,6 @@
       actually<br>
       <em>move.</em>
     </h1>
-    <div class="ticker-wrap">
-      <div class="ticker-track">
-        <span class="ticker-item">300×250</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">728×90</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">1:1</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">4:5</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">9:16</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">16:9</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">Animated HTML5</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">Platform-ready</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">72-hour V1</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">No templates</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">300×250</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">728×90</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">1:1</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">4:5</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">9:16</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">16:9</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">Animated HTML5</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">Platform-ready</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">72-hour V1</span><span class="ticker-dot">·</span>
-        <span class="ticker-item">No templates</span><span class="ticker-dot">·</span>
-      </div>
-    </div>
     <div class="hero-bottom">
       <p class="hero-value">Animated HTML5 ad production for agencies and brands. Send a brief. Get a working V1 within 72 hours.</p>
       <a href="#work" class="hero-cta">See the work <span class="arrow">↓</span></a>
@@ -710,7 +654,7 @@
   <div class="section-inner">
     <div class="how-header reveal">
       <p class="section-label">Process</p>
-      <h2 class="how-title">V1 in your inbox within 72 hours</h2>
+      <h2 class="how-title">Brief to live in 72 hours</h2>
     </div>
     <div class="steps">
       <div class="step reveal">
@@ -729,7 +673,7 @@
         <div class="step-num">03</div>
         <div class="step-name">Review</div>
         <div class="step-time">Live in-browser</div>
-        <p class="step-desc">You get a private link to preview every ad running live — exactly how it'll look in the wild. No screenshots, no slide decks.</p>
+        <p class="step-desc">You get a private link to preview every ad running live — exactly how it'll look in the wild. No screenshots, no slide decks. Most clients are in market within 72 hours of briefing.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">04</div>
@@ -747,7 +691,7 @@
 <section id="work">
   <div class="section-inner">
     <div class="work-header reveal">
-      <p class="section-label"><span class="live-dot"></span>Live HTML5 — not screenshots</p>
+      <p class="section-label">Live HTML5 — not screenshots</p>
       <h2 class="work-title">The work</h2>
     </div>
 
