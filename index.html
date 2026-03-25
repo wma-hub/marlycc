@@ -269,252 +269,16 @@
     .ad-stage:hover .replay-btn { opacity: 1; }
     .replay-btn:hover { opacity: 1 !important; background: rgba(0,0,0,0.8); color: #fff; }
 
-    /* ── AD 1: APEX 728×90 Leaderboard ── */
-    .ad-apex {
-      width: 100%;
-      aspect-ratio: 728 / 90;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 28px;
-      gap: 20px;
-    }
-    .apex-left { display: flex; align-items: center; gap: 20px; min-width: 0; }
-    .apex-logo {
-      font-size: clamp(16px, 2.4vw, 22px);
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #fff;
-      flex-shrink: 0;
-      opacity: 0;
-      animation: aFadeUp 0.5s 0.25s forwards;
-    }
-    .apex-divider {
-      width: 1px; height: 26px;
-      background: #2a2a2a;
-      flex-shrink: 0;
-      opacity: 0;
-      animation: aFadeIn 0.3s 0.65s forwards;
-    }
-    .apex-copy { overflow: hidden; min-width: 0; }
-    .apex-headline {
-      font-size: clamp(13px, 1.9vw, 17px);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      opacity: 0;
-      transform: translateX(-16px);
-      animation: aSlideRight 0.45s 0.8s forwards;
-    }
-    .apex-sub {
-      font-size: clamp(8px, 1vw, 10px);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #555;
-      opacity: 0;
-      animation: aFadeIn 0.4s 1.15s forwards;
-    }
-    .apex-cta {
-      font-size: clamp(9px, 1.1vw, 11px);
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #000;
-      background: var(--accent);
-      padding: clamp(7px, 1.2vw, 11px) clamp(12px, 2vw, 22px);
-      flex-shrink: 0;
-      opacity: 0;
-      animation: aFadeIn 0.4s 1.35s forwards;
-    }
-
-    /* ── AD 2: NOMAD COFFEE 300×250 ── */
+    /* ── PEECH IFRAME ADS ── */
     .ad-nomad-wrap {
       display: flex;
       align-items: flex-start;
       gap: 48px;
       flex-wrap: wrap;
     }
-    .ad-nomad {
-      width: 300px;
-      height: 250px;
-      background: #0c0804;
-      overflow: hidden;
-      position: relative;
-      flex-shrink: 0;
+    .ad-stage iframe {
+      display: block;
     }
-    .nomad-glow {
-      position: absolute;
-      inset: -60px -40px auto;
-      width: 380px;
-      height: 340px;
-      background: radial-gradient(circle at 40% 30%, rgba(190,120,40,0.35) 0%, transparent 65%);
-      animation: glowPulse 4s ease-in-out infinite alternate;
-    }
-    @keyframes glowPulse {
-      from { opacity: 0.6; transform: scale(1); }
-      to   { opacity: 1;   transform: scale(1.08); }
-    }
-    .nomad-inner {
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      padding: 26px 22px;
-    }
-    .nomad-eyebrow {
-      font-size: 9px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: #b8802e;
-      opacity: 0;
-      animation: aFadeIn 0.5s 0.3s forwards;
-    }
-    .nomad-headline {
-      font-size: 38px;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      color: #fff;
-    }
-    .nomad-headline .l1 { display: block; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 0.55s forwards; }
-    .nomad-headline .l2 { display: block; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 0.78s forwards; }
-    .nomad-headline .l3 { display: block; font-style: italic; color: #c8912e; opacity: 0; transform: translateY(18px); animation: aFadeUp 0.45s 1.0s forwards; }
-    .nomad-foot {
-      display: flex; align-items: center; justify-content: space-between;
-      opacity: 0;
-      animation: aFadeIn 0.5s 1.5s forwards;
-    }
-    .nomad-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
-    .nomad-btn  {
-      font-size: 9px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #000;
-      background: #c8912e; padding: 8px 13px;
-    }
-
-    /* ── AD 3: VELA STUDIO 1:1 ── */
-    .ad-vela-wrap {
-      display: flex;
-      align-items: flex-start;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .ad-vela {
-      width: 100%;
-      max-width: 480px;
-      aspect-ratio: 1;
-      background: #f0efeb;
-      overflow: hidden;
-      position: relative;
-    }
-    .vela-inner {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 40px;
-      position: relative;
-    }
-    .vela-line {
-      position: absolute;
-      height: 1px;
-      background: #1a1a1a;
-      left: 28px; right: 28px;
-      transform-origin: left;
-      transform: scaleX(0);
-      opacity: 0;
-    }
-    .vela-line-t { top: 28px;    animation: aExpandLine 0.7s 0.4s forwards; }
-    .vela-line-b { bottom: 28px; transform-origin: right; animation: aExpandLine 0.7s 0.55s forwards; }
-    @keyframes aExpandLine { to { opacity: 1; transform: scaleX(1); } }
-    .vela-eyebrow {
-      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-      color: #aaa; margin-bottom: 22px;
-      opacity: 0; animation: aFadeIn 0.5s 1.0s forwards;
-    }
-    .vela-headline {
-      font-size: clamp(54px, 10vw, 72px);
-      font-weight: 800; letter-spacing: -0.05em; line-height: 0.88;
-      color: #0a0a0a; margin-bottom: 18px;
-    }
-    .vela-headline .v1 { display: block; opacity: 0; transform: translateY(28px); animation: aFadeUp 0.5s 1.2s forwards; }
-    .vela-headline .v2 { display: block; opacity: 0; transform: translateY(28px); animation: aFadeUp 0.5s 1.42s forwards; }
-    .vela-tagline {
-      font-size: 11px; letter-spacing: 0.08em; color: #999; margin-bottom: 28px;
-      opacity: 0; animation: aFadeIn 0.5s 1.85s forwards;
-    }
-    .vela-btn {
-      font-size: 10px; font-weight: 800; letter-spacing: 0.14em;
-      text-transform: uppercase; color: #f0efeb;
-      background: #0a0a0a; padding: 12px 26px;
-      opacity: 0; animation: aFadeIn 0.5s 2.1s forwards;
-    }
-
-    /* ── AD 4: PULSE 9:16 vertical ── */
-    .ad-pulse-wrap { display: flex; align-items: flex-start; gap: 48px; flex-wrap: wrap; }
-    .ad-pulse {
-      width: 180px;
-      height: 320px;
-      background: #050510;
-      overflow: hidden;
-      position: relative;
-      flex-shrink: 0;
-    }
-    .pulse-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 60%, rgba(100,60,255,0.4) 0%, transparent 70%);
-      animation: glowPulse 3s ease-in-out infinite alternate;
-    }
-    .pulse-inner {
-      position: relative; z-index: 1;
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px 18px;
-    }
-    .pulse-tag {
-      font-size: 8px; letter-spacing: 0.24em; text-transform: uppercase;
-      color: rgba(255,255,255,0.35); margin-bottom: 10px;
-      opacity: 0; animation: aFadeIn 0.5s 0.4s forwards;
-    }
-    .pulse-headline {
-      font-size: 30px; font-weight: 900; line-height: 0.92;
-      letter-spacing: -0.04em; color: #fff;
-      margin-bottom: 20px;
-    }
-    .pulse-headline .p1 { display: block; opacity: 0; transform: translateY(20px); animation: aFadeUp 0.45s 0.65s forwards; }
-    .pulse-headline .p2 { display: block; opacity: 0; transform: translateY(20px); animation: aFadeUp 0.45s 0.88s forwards; }
-    .pulse-headline .p3 {
-      display: block; color: #b490ff;
-      opacity: 0; transform: translateY(20px);
-      animation: aFadeUp 0.45s 1.1s forwards;
-    }
-    .pulse-bar {
-      width: 0%; height: 2px;
-      background: linear-gradient(90deg, #7c4fff, #c490ff);
-      animation: aBar 0.8s 1.5s forwards;
-      margin-bottom: 16px;
-    }
-    @keyframes aBar { to { width: 100%; } }
-    .pulse-foot {
-      display: flex; align-items: center; justify-content: space-between;
-      opacity: 0; animation: aFadeIn 0.4s 2.0s forwards;
-    }
-    .pulse-logo { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; }
-    .pulse-btn  {
-      font-size: 8px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #000;
-      background: #b490ff; padding: 7px 11px;
-    }
-
-    /* shared animation keyframes */
-    @keyframes aFadeIn    { to { opacity: 1; } }
-    @keyframes aFadeUp    { to { opacity: 1; transform: translateY(0); } }
-    @keyframes aSlideRight { to { opacity: 1; transform: translateX(0); } }
 
     /* ─── HOW IT WORKS ────────────────────────────────── */
     #how { padding: 100px 0 120px; }
@@ -750,112 +514,41 @@
 
     <div class="ads-stack">
 
-      <!-- Ad 1: APEX 728×90 -->
+      <!-- Ad 1: PEECH — Awareness · 728×90 -->
       <div class="ad-block">
         <div class="ad-meta">
-          <span class="ad-meta-brand">APEX Sportswear</span>
+          <span class="ad-meta-brand">Peech</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">728×90 Leaderboard</span>
+          <span class="ad-meta-fmt">Awareness · 728×90 Leaderboard</span>
         </div>
-        <div class="ad-stage" style="width:100%; aspect-ratio:728/90;" id="stage-apex">
-          <button class="replay-btn" onclick="replayAd('stage-apex')">↺ replay</button>
-          <div class="ad-apex">
-            <div class="apex-left">
-              <div class="apex-logo">APEX</div>
-              <div class="apex-divider"></div>
-              <div class="apex-copy">
-                <div class="apex-headline">The new standard in performance.</div>
-                <div class="apex-sub">Spring Collection 2025</div>
-              </div>
-            </div>
-            <div class="apex-cta">Shop Now</div>
-          </div>
+        <div class="ad-stage ad-scale-wrap" style="width:100%; aspect-ratio:728/90;" id="stage-peech-aw" data-native-w="728" data-native-h="90">
+          <iframe src="https://peech-ads.vercel.app/728x90.html" width="728" height="90" scrolling="no" style="border:none; position:absolute; top:0; left:0; transform-origin:top left;"></iframe>
         </div>
       </div>
 
-      <!-- Ad 2: NOMAD 300×250 -->
+      <!-- Ad 2: PEECH — Consideration · 300×250 -->
       <div class="ad-block">
         <div class="ad-meta">
-          <span class="ad-meta-brand">Nomad Coffee</span>
+          <span class="ad-meta-brand">Peech</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">300×250 Medium Rectangle</span>
+          <span class="ad-meta-fmt">Consideration · 300×250 Medium Rectangle</span>
         </div>
         <div class="ad-nomad-wrap">
-          <div class="ad-stage" style="width:300px; height:250px; flex-shrink:0;" id="stage-nomad">
-            <button class="replay-btn" onclick="replayAd('stage-nomad')">↺ replay</button>
-            <div class="ad-nomad" style="width:300px;height:250px;">
-              <div class="nomad-glow"></div>
-              <div class="nomad-inner">
-                <div class="nomad-eyebrow">Single Origin · Small Batch</div>
-                <div class="nomad-headline">
-                  <span class="l1">Your</span>
-                  <span class="l2">Morning.</span>
-                  <span class="l3">Redefined.</span>
-                </div>
-                <div class="nomad-foot">
-                  <div class="nomad-logo">Nomad</div>
-                  <div class="nomad-btn">Order Now</div>
-                </div>
-              </div>
-            </div>
+          <div class="ad-stage" style="width:300px; height:250px; flex-shrink:0;" id="stage-peech-co">
+            <iframe src="https://peech-ads.vercel.app/consideration-300x250.html" width="300" height="250" scrolling="no" style="border:none; width:300px; height:250px;"></iframe>
           </div>
         </div>
       </div>
 
-      <!-- Ad 3: VELA 1:1 -->
+      <!-- Ad 3: PEECH — Retargeting · 970×250 -->
       <div class="ad-block">
         <div class="ad-meta">
-          <span class="ad-meta-brand">VELA Studio</span>
+          <span class="ad-meta-brand">Peech</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">1:1 Social / Display</span>
+          <span class="ad-meta-fmt">Retargeting · 970×250 Billboard</span>
         </div>
-        <div class="ad-vela-wrap">
-          <div class="ad-stage light" style="width:100%; max-width:480px; aspect-ratio:1;" id="stage-vela">
-            <button class="replay-btn" onclick="replayAd('stage-vela')">↺ replay</button>
-            <div class="ad-vela" style="width:100%;height:100%;">
-              <div class="vela-inner">
-                <div class="vela-line vela-line-t"></div>
-                <div class="vela-line vela-line-b"></div>
-                <div class="vela-eyebrow">New Arrivals — SS25</div>
-                <div class="vela-headline">
-                  <span class="v1">WEAR</span>
-                  <span class="v2">LESS.</span>
-                </div>
-                <div class="vela-tagline">Minimalist essentials since 2019</div>
-                <div class="vela-btn">Explore Collection</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ad 4: PULSE 9:16 -->
-      <div class="ad-block">
-        <div class="ad-meta">
-          <span class="ad-meta-brand">Pulse Audio</span>
-          <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">9:16 Story / Reels</span>
-        </div>
-        <div class="ad-pulse-wrap">
-          <div class="ad-stage" style="width:180px; height:320px; flex-shrink:0;" id="stage-pulse">
-            <button class="replay-btn" onclick="replayAd('stage-pulse')">↺ replay</button>
-            <div class="ad-pulse" style="width:180px;height:320px;">
-              <div class="pulse-bg"></div>
-              <div class="pulse-inner">
-                <div class="pulse-tag">Premium Audio</div>
-                <div class="pulse-headline">
-                  <span class="p1">FEEL</span>
-                  <span class="p2">EVERY</span>
-                  <span class="p3">BEAT.</span>
-                </div>
-                <div class="pulse-bar"></div>
-                <div class="pulse-foot">
-                  <div class="pulse-logo">Pulse</div>
-                  <div class="pulse-btn">Shop Now</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="ad-stage ad-scale-wrap" style="width:100%; aspect-ratio:970/250;" id="stage-peech-rt" data-native-w="970" data-native-h="250">
+          <iframe src="https://peech-ads.vercel.app/retargeting-970x250.html" width="970" height="250" scrolling="no" style="border:none; position:absolute; top:0; left:0; transform-origin:top left;"></iframe>
         </div>
       </div>
 
@@ -954,7 +647,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Marly Creative Concepts</div>
-    <div class="footer-note">© 2026 · marly.cc</div>
+    <div class="footer-note">Production partner for agencies and in-house teams &nbsp;·&nbsp; © 2026 · marly.cc</div>
   </div>
 </footer>
 
@@ -965,30 +658,38 @@
     nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-  // ── Ad replay
-  function replayAd(stageId) {
-    const stage = document.getElementById(stageId);
-    if (!stage) return;
-    const els = stage.querySelectorAll('*:not(.replay-btn)');
-    els.forEach(el => { el.style.animation = 'none'; });
-    void stage.offsetWidth; // force reflow
-    els.forEach(el => { el.style.animation = ''; });
+  // ── Scale iframes to fill responsive containers
+  function scaleIframes() {
+    document.querySelectorAll('.ad-scale-wrap').forEach(wrap => {
+      const iframe = wrap.querySelector('iframe');
+      if (!iframe) return;
+      const nw = parseInt(wrap.dataset.nativeW);
+      const containerW = wrap.offsetWidth;
+      const s = containerW / nw;
+      iframe.style.transform = `scale(${s})`;
+      iframe.style.width = nw + 'px';
+      iframe.style.height = parseInt(wrap.dataset.nativeH) + 'px';
+    });
   }
+  scaleIframes();
+  window.addEventListener('resize', scaleIframes);
 
-  // ── Auto-loop ads when visible
+  // ── Iframe ad auto-loop: reload iframes when visible every 15s
   const adStages = document.querySelectorAll('.ad-stage[id]');
   const loopTimers = {};
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const id = entry.target.id;
+      const iframe = entry.target.querySelector('iframe');
+      if (!iframe) return;
       if (entry.isIntersecting) {
-        // start loop timer
         if (!loopTimers[id]) {
-          loopTimers[id] = setInterval(() => replayAd(id), 7000);
+          loopTimers[id] = setInterval(() => {
+            iframe.src = iframe.src;
+          }, 15000);
         }
       } else {
-        // clear loop timer when off-screen
         if (loopTimers[id]) {
           clearInterval(loopTimers[id]);
           delete loopTimers[id];
