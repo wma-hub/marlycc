@@ -184,18 +184,19 @@
     .divider { border: none; border-top: 1px solid var(--border); }
 
     /* ─── LOGO CAROUSEL ───────────────────────────────── */
-    #clients { padding: 36px 0 48px; overflow: hidden; }
+    #clients { padding: 36px 0 48px; }
     .clients-inner { max-width: var(--max); margin: 0 auto; padding: 0 36px; }
     .clients-label {
       font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 20px;
     }
-    .carousel-track-outer {
+    .carousel-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
       overflow: hidden;
+    }
+    .carousel-track-outer {
       padding: 14px 0;
-      width: 100%;
-      -webkit-mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
-      mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
     }
     .carousel-track {
       display: flex;
@@ -645,8 +646,8 @@
 <section id="clients">
   <div class="clients-inner">
     <p class="clients-label">Brands we've worked with</p>
-  </div>
-  <div class="carousel-track-outer">
+    <div class="carousel-box">
+      <div class="carousel-track-outer">
       <div class="carousel-track" id="carousel">
         <div class="logo-slot"><img src="assets/logos/logo-ripco.svg" alt="Ripco"></div>
         <div class="logo-slot"><img src="assets/logos/logo-west elm.svg" alt="West Elm"></div>
@@ -681,6 +682,8 @@
         <div class="logo-slot"><img src="assets/logos/logo-peech.svg" alt="Peech"></div>
       </div>
     </div>
+    </div>
+  </div>
 </section>
 
 <hr class="divider" id="divider-clients" style="border-color: transparent;">
