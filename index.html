@@ -114,7 +114,17 @@
     }
     .hero-headline em {
       font-style: italic;
-      color: var(--accent);
+      background: linear-gradient(105deg, #FF6B00 0%, #FFB347 40%, #FF8406 60%, #FF6B00 100%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: moveGradient 4s ease-in-out infinite;
+    }
+    @keyframes moveGradient {
+      0%   { background-position: 0%   50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0%   50%; }
     }
     .hero-bottom {
       display: flex;
