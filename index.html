@@ -221,10 +221,17 @@
     }
     .logo-slot {
       width: 120px; height: 36px;
-      background: var(--surface);
-      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      opacity: 0.5;
+    }
+    .logo-slot img {
+      height: 28px;
+      width: auto;
+      max-width: 120px;
+      display: block;
+      opacity: 0.7;
     }
 
     /* ─── WORK ────────────────────────────────────────── */
@@ -644,30 +651,30 @@
 </section>
 
 <!-- ▌LOGO CAROUSEL -->
-<section id="clients" style="display:none">
+<section id="clients">
   <div class="clients-inner">
-    <p class="clients-label">Trusted by</p>
+    <p class="clients-label">Brands we've worked with</p>
     <div class="carousel-track-outer">
       <div class="carousel-track" id="carousel">
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-ripco.svg" alt="Ripco"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-west elm.svg" alt="West Elm"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-wiz khalifa.svg" alt="Wiz Khalifa"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-workhuman.svg" alt="Workhuman"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-ripco.svg" alt="Ripco"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-west elm.svg" alt="West Elm"></div>
         <!-- duplicated for seamless loop -->
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
-        <div class="logo-slot"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-ripco.svg" alt="Ripco"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-west elm.svg" alt="West Elm"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-wiz khalifa.svg" alt="Wiz Khalifa"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-workhuman.svg" alt="Workhuman"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-ripco.svg" alt="Ripco"></div>
+        <div class="logo-slot"><img src="../:assets:logos:/logo-west elm.svg" alt="West Elm"></div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider" id="divider-clients" style="display:none">
+<hr class="divider" id="divider-clients">
 
 <!-- ▌HOW IT WORKS -->
 <section id="how">
