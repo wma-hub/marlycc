@@ -69,7 +69,7 @@
       transition: background 0.35s ease;
     }
     .progress-segment.active {
-      background: #FF8406;
+      background: #1D9E75;
     }
 
     /* ── Section headers ── */
@@ -86,7 +86,7 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: #FF8406;
+      background: #1D9E75;
       color: white;
       font-size: 12px;
       font-weight: 500;
@@ -150,7 +150,7 @@
     }
     .field input:focus,
     .field textarea:focus {
-      border-color: #FF8406;
+      border-color: #1D9E75;
     }
     .field input::placeholder,
     .field textarea::placeholder {
@@ -180,9 +180,9 @@
       border-color: rgba(0,0,0,0.25);
     }
     .chip.selected {
-      border: 1.5px solid #FF8406;
-      background: rgba(255,132,6,0.08);
-      color: #cc6200;
+      border: 1.5px solid #1D9E75;
+      background: rgba(29,158,117,0.08);
+      color: #0F6E56;
       font-weight: 500;
     }
 
@@ -206,8 +206,8 @@
       border-color: rgba(0,0,0,0.25);
     }
     .size-btn.selected {
-      border: 1.5px solid #FF8406;
-      background: rgba(255,132,6,0.06);
+      border: 1.5px solid #1D9E75;
+      background: rgba(29,158,117,0.06);
     }
     .size-btn .size-label {
       font-size: 14px;
@@ -216,7 +216,7 @@
       display: block;
     }
     .size-btn.selected .size-label {
-      color: #cc6200;
+      color: #0F6E56;
     }
     .size-btn .size-desc {
       font-size: 11px;
@@ -242,8 +242,8 @@
       font-family: inherit;
     }
     .anim-btn.selected {
-      border: 1.5px solid #FF8406;
-      background: rgba(255,132,6,0.06);
+      border: 1.5px solid #1D9E75;
+      background: rgba(29,158,117,0.06);
     }
     .anim-btn .anim-name {
       font-size: 14px;
@@ -252,7 +252,7 @@
       display: block;
     }
     .anim-btn.selected .anim-name {
-      color: #cc6200;
+      color: #0F6E56;
     }
     .anim-btn .anim-desc {
       font-size: 12px;
@@ -305,23 +305,23 @@
     }
     .btn-back:hover { border-color: rgba(0,0,0,0.3); }
     .btn-next {
-      background: #FF8406;
+      background: #2C2C2A;
       color: white;
     }
-    .btn-next:hover { background: #e67300; }
+    .btn-next:hover { background: #1a1a19; }
     .btn-next:disabled {
       background: rgba(0,0,0,0.08);
       color: rgba(0,0,0,0.3);
       cursor: not-allowed;
     }
     .btn-submit {
-      background: #FF8406;
+      background: #2C2C2A;
       color: white;
       width: 100%;
       padding: 12px 24px;
       font-size: 15px;
     }
-    .btn-submit:hover { background: #e67300; }
+    .btn-submit:hover { background: #1a1a19; }
     .btn-copy {
       background: transparent;
       color: #888780;
@@ -350,8 +350,8 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: rgba(255,132,6,0.1);
-      color: #FF8406;
+      background: rgba(29,158,117,0.1);
+      color: #1D9E75;
       font-size: 22px;
       display: flex;
       align-items: center;
@@ -386,7 +386,7 @@
 <div class="page">
   <p class="eyebrow">Marly Creative Concepts</p>
   <h1>Creative brief</h1>
-  <p class="subtitle">Everything I need to start building your animated ad set. Takes about 5 minutes.</p>
+  <p class="subtitle">Everything we need to start building your animated ad set. Takes about 5 minutes.</p>
 
   <div class="progress" id="progress"></div>
 
@@ -435,7 +435,7 @@
   <div class="step" id="step-brand">
     <div class="section-header">
       <div class="row"><span class="section-num">2</span><h2>Brand setup</h2></div>
-      <p class="desc">I'll use these assets to build your creative foundation. This is a one-time setup — future campaigns reference it automatically.</p>
+      <p class="desc">We'll use these assets to build your creative foundation. This is a one-time setup — future campaigns reference it automatically.</p>
     </div>
 
     <div class="field">
@@ -445,7 +445,7 @@
     </div>
     <div class="field">
       <label>Brand colors <span class="req">*</span></label>
-      <p class="hint">Hex codes for primary, secondary, and accent colors. Not sure? Share your guidelines or website and I'll extract them.</p>
+      <p class="hint">Hex codes for primary, secondary, and accent colors. Not sure? Share your guidelines or website and we'll extract them.</p>
       <input type="text" id="colors" placeholder="#1A2B3C, #FF6B35, ...">
     </div>
     <div class="field">
@@ -455,12 +455,12 @@
     </div>
     <div class="field">
       <label>Brand guidelines</label>
-      <p class="hint">Link to your brand guidelines PDF. Not required — I can work from your website and assets.</p>
+      <p class="hint">Link to your brand guidelines PDF. Not required — we can work from your website and assets.</p>
       <input type="text" id="guidelinesLink" placeholder="https://drive.google.com/...">
     </div>
     <div class="field">
       <label>Existing creative</label>
-      <p class="hint">Previous ads, social posts, or campaigns I should reference for tone and style.</p>
+      <p class="hint">Previous ads, social posts, or campaigns we should reference for tone and style.</p>
       <textarea id="existingCreative" placeholder="Links to previous ads or visual references that represent your brand well..."></textarea>
     </div>
   </div>
@@ -469,27 +469,12 @@
   <div class="step" id="step-campaign">
     <div class="section-header">
       <div class="row"><span class="section-num" id="campaignNum">2</span><h2>Campaign brief</h2></div>
-      <p class="desc">Details for this specific ad set. The more context, the faster I can deliver.</p>
+      <p class="desc">Details for this specific ad set. The more context, the faster we can deliver.</p>
     </div>
 
     <div class="field">
       <label>Campaign name <span class="req">*</span></label>
       <input type="text" id="campaignName" placeholder="Summer Sale 2026, Product Launch, Q3 Retargeting...">
-    </div>
-
-    <div class="field">
-      <label>Number of ad sets <span class="req">*</span></label>
-      <p class="hint">One ad set = one creative concept across your selected sizes. Need 3 different visuals? That's 3 ad sets.</p>
-      <select id="adSetCount" style="width:100%;padding:9px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);font-size:14px;font-family:inherit;color:#2C2C2A;background:white;outline:none;cursor:pointer;">
-        <option value="">Select…</option>
-        <option value="1">1 ad set</option>
-        <option value="2">2 ad sets</option>
-        <option value="3">3 ad sets</option>
-        <option value="4">4 ad sets</option>
-        <option value="5">5 ad sets</option>
-        <option value="6-10">6–10 ad sets</option>
-        <option value="10+">10+ ad sets</option>
-      </select>
     </div>
 
     <div class="field">
@@ -550,7 +535,7 @@
   <div class="step" id="step-review">
     <div class="section-header">
       <div class="row"><span class="section-num" id="reviewNum">3</span><h2>Review your brief</h2></div>
-      <p class="desc">Everything looks good? Hit submit and I'll get started.</p>
+      <p class="desc">Everything looks good? Hit submit and we'll get started.</p>
     </div>
     <div class="review-block">
       <pre id="reviewText"></pre>
@@ -568,7 +553,7 @@
     <div class="success-msg">
       <div class="check">✓</div>
       <h2>Brief received</h2>
-      <p>I'll review everything and follow up within 24 hours.<br>If you have assets to share, reply to the confirmation email.</p>
+      <p>We'll review everything and follow up within 24 hours.<br>If you have assets to share, reply to the confirmation email.</p>
     </div>
   </div>
 
@@ -708,7 +693,7 @@ function validate() {
   } else if (currentId === 'step-brand') {
     valid = val('logoNotes') || val('colors');
   } else if (currentId === 'step-campaign') {
-    valid = val('campaignName') && val('adSetCount') && selectedSizes.length > 0 && val('cta');
+    valid = val('campaignName') && selectedSizes.length > 0 && val('cta');
   } else if (currentId === 'step-review') {
     valid = true;
   }
@@ -722,7 +707,6 @@ function validate() {
  'campaignName','headline','cta','landingUrl','deadline'].forEach(id => {
   document.getElementById(id).addEventListener('input', validate);
 });
-document.getElementById('adSetCount').addEventListener('change', validate);
 
 // ── Navigation ──
 function showStep() {
@@ -796,7 +780,6 @@ function buildReview() {
 
   out += `\n— CAMPAIGN BRIEF ${'─'.repeat(34)}\n\n`;
   out += line('Campaign:', val('campaignName')) + '\n';
-  out += line('Ad sets:', val('adSetCount')) + '\n';
   out += line('Goal(s):', selectedGoals.join(', ')) + '\n';
   out += line('Ad sizes:', selectedSizes.join(', ')) + '\n';
   out += line('Headline:', val('headline')) + '\n';
@@ -828,7 +811,6 @@ async function submitBrief() {
     clientType,
     isNew,
     campaignName: val('campaignName'),
-    adSetCount: val('adSetCount'),
     goals: selectedGoals.join(', '),
     sizes: selectedSizes.join(', '),
     headline: val('headline'),
@@ -860,7 +842,7 @@ async function submitBrief() {
     // │  2. Copy your form ID                           │
     // │  3. Replace YOUR_FORM_ID below                  │
     // └─────────────────────────────────────────────────┘
-    const res = await fetch('https://formspree.io/f/maqlwkar', {
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data),
