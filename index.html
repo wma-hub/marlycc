@@ -487,6 +487,123 @@
     .footer-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
     .footer-note { font-size: 11px; color: rgba(255,255,255,0.45); }
 
+    /* ─── HERO LOAD-IN ────────────────────────────────── */
+    @keyframes heroFadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-label    { animation: heroFadeUp 0.55s ease both 0.1s; }
+    .hero-headline { animation: heroFadeUp 0.7s  ease both 0.25s; }
+    .hero-bottom   { animation: heroFadeUp 0.6s  ease both 0.65s; }
+    .ticker-wrap   { animation: heroFadeUp 0.5s  ease both 0.85s; }
+
+    /* ─── HERO AMBIENT BLOBS ───────────────────────────── */
+    #hero { position: relative; overflow: hidden; }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-blob {
+      position: absolute; border-radius: 50%;
+      pointer-events: none; z-index: 0;
+      filter: blur(90px);
+    }
+    .hero-blob-1 {
+      width: 640px; height: 640px;
+      background: radial-gradient(circle, rgba(255,107,0,0.07) 0%, transparent 68%);
+      top: -160px; right: -120px;
+      animation: blobFloat 11s ease-in-out infinite alternate;
+    }
+    .hero-blob-2 {
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(255,132,6,0.05) 0%, transparent 68%);
+      bottom: 60px; left: -100px;
+      animation: blobFloat 14s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes blobFloat {
+      from { transform: scale(1)   translateY(0px);   opacity: 0.7; }
+      to   { transform: scale(1.1) translateY(-24px); opacity: 1;   }
+    }
+
+    /* ─── HERO TICKER ──────────────────────────────────── */
+    .ticker-wrap {
+      overflow: hidden;
+      margin: 36px 0 0;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 64px, black calc(100% - 64px), transparent);
+      mask-image: linear-gradient(to right, transparent, black 64px, black calc(100% - 64px), transparent);
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerScroll 22s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      padding: 0 20px;
+    }
+    .ticker-dot {
+      color: var(--accent);
+      padding: 0 4px;
+      opacity: 0.7;
+    }
+    @keyframes tickerScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── SCROLL REVEAL ────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+      transition-delay: var(--d, 0s);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* stagger delays for steps and ad-blocks */
+    .steps .step:nth-child(1) { --d: 0s; }
+    .steps .step:nth-child(2) { --d: 0.1s; }
+    .steps .step:nth-child(3) { --d: 0.2s; }
+    .steps .step:nth-child(4) { --d: 0.3s; }
+    .ads-stack .ad-block:nth-child(1) { --d: 0s; }
+    .ads-stack .ad-block:nth-child(2) { --d: 0.12s; }
+    .ads-stack .ad-block:nth-child(3) { --d: 0.24s; }
+    .ads-stack .ad-block:nth-child(4) { --d: 0.36s; }
+
+    /* ─── LIVE DOT ─────────────────────────────────────── */
+    .live-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: middle;
+      position: relative; top: -1px;
+      animation: livePulse 2.4s ease-in-out infinite;
+    }
+    @keyframes livePulse {
+      0%, 100% { box-shadow: 0 0 0 0   rgba(255,107,0,0.45); }
+      50%       { box-shadow: 0 0 0 5px rgba(255,107,0,0);    }
+    }
+
+    /* ─── NAV CTA SHIMMER ──────────────────────────────── */
+    .nav-cta { overflow: hidden; }
+    .nav-cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.25) 50%, transparent 65%);
+      transform: translateX(-100%);
+      animation: ctaShimmer 4s ease-in-out 2s infinite;
+    }
+    .nav-cta { position: relative; }
+    @keyframes ctaShimmer {
+      0%    { transform: translateX(-100%); }
+      25%   { transform: translateX(100%);  }
+      100%  { transform: translateX(100%);  }
+    }
+
     /* ─── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 700px) {
       nav { padding: 16px 20px; }
@@ -522,6 +639,8 @@
 
 <!-- ▌HERO -->
 <section id="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
   <div class="hero-inner">
     <p class="hero-label">HTML5 Ad Production</p>
     <h1 class="hero-headline">
@@ -529,6 +648,30 @@
       actually<br>
       <em>move.</em>
     </h1>
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <span class="ticker-item">300×250</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">728×90</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">1:1</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">4:5</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">9:16</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">16:9</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">Animated HTML5</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">Platform-ready</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">72-hour V1</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">No templates</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">300×250</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">728×90</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">1:1</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">4:5</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">9:16</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">16:9</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">Animated HTML5</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">Platform-ready</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">72-hour V1</span><span class="ticker-dot">·</span>
+        <span class="ticker-item">No templates</span><span class="ticker-dot">·</span>
+      </div>
+    </div>
     <div class="hero-bottom">
       <p class="hero-value">Animated HTML5 ad production for agencies and brands. Send a brief. Get a working V1 within 72 hours.</p>
       <a href="#work" class="hero-cta">See the work <span class="arrow">↓</span></a>
@@ -565,30 +708,30 @@
 <!-- ▌HOW IT WORKS -->
 <section id="how">
   <div class="section-inner">
-    <div class="how-header">
+    <div class="how-header reveal">
       <p class="section-label">Process</p>
       <h2 class="how-title">V1 in your inbox within 72 hours</h2>
     </div>
     <div class="steps">
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">01</div>
         <div class="step-name">Brief</div>
         <div class="step-time">Skip the kickoff</div>
         <p class="step-desc">Send your brand kit, copy, and target sizes. A short form, a Loom, a Notion link — whatever's fastest. We'll take it from there.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">02</div>
         <div class="step-name">Build</div>
         <div class="step-time">Hand-coded</div>
         <p class="step-desc">Every ad is built as production HTML5 — animated, on-brand, and spec'd to platform. No templates, no export artifacts.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">03</div>
         <div class="step-name">Review</div>
         <div class="step-time">Live in-browser</div>
         <p class="step-desc">You get a private link to preview every ad running live — exactly how it'll look in the wild. No screenshots, no slide decks.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <div class="step-num">04</div>
         <div class="step-name">Delivery</div>
         <div class="step-time">Platform-ready</div>
@@ -603,15 +746,15 @@
 <!-- ▌WORK -->
 <section id="work">
   <div class="section-inner">
-    <div class="work-header">
-      <p class="section-label">Live HTML5 — not screenshots</p>
+    <div class="work-header reveal">
+      <p class="section-label"><span class="live-dot"></span>Live HTML5 — not screenshots</p>
       <h2 class="work-title">The work</h2>
     </div>
 
     <div class="ads-stack">
 
       <!-- Ad 1: AESOP 728×90 -->
-      <div class="ad-block">
+      <div class="ad-block reveal">
         <div class="ad-meta">
           <span class="ad-meta-brand">Aesop</span>
           <span class="ad-meta-sep">·</span>
@@ -634,7 +777,7 @@
       </div>
 
       <!-- Ad 2: PEECH 300×250 -->
-      <div class="ad-block">
+      <div class="ad-block reveal">
         <div class="ad-meta">
           <span class="ad-meta-brand">Peech</span>
           <span class="ad-meta-sep">·</span>
@@ -673,7 +816,7 @@
       </div>
 
       <!-- Ad 3: ARC'TERYX 300x250 -->
-      <div class="ad-block">
+      <div class="ad-block reveal">
         <div class="ad-meta">
           <span class="ad-meta-brand">Arc&#x2019;teryx</span>
           <span class="ad-meta-sep">·</span>
@@ -686,7 +829,7 @@
       </div>
 
       <!-- Ad 4: FLY BY JING 300x250 -->
-      <div class="ad-block">
+      <div class="ad-block reveal">
         <div class="ad-meta">
           <span class="ad-meta-brand">Fly By Jing</span>
           <span class="ad-meta-sep">·</span>
@@ -717,11 +860,11 @@
 <!-- ▌FORMATS -->
 <section id="formats">
   <div class="section-inner">
-    <div class="formats-header">
+    <div class="formats-header reveal">
       <p class="section-label">Custom sizes on request</p>
       <h2 class="formats-title">Supported formats</h2>
     </div>
-    <div class="formats-grid">
+    <div class="formats-grid reveal">
       <div class="fmt-item">
         <div class="fmt-box f-1x1"></div>
         <div class="fmt-name">1:1</div>
@@ -794,7 +937,7 @@
 
 <!-- ▌ABOUT -->
 <section id="about">
-  <div class="section-inner about-inner">
+  <div class="section-inner about-inner reveal">
     <div class="about-avatar"></div>
     <div class="about-text">
       <p class="section-label">About</p>
@@ -805,7 +948,7 @@
 
 <!-- ▌CONTACT -->
 <section id="contact">
-  <div class="section-inner contact-inner">
+  <div class="section-inner contact-inner reveal">
     <h2 class="contact-q">Ready to<br>move <em>fast?</em></h2>
     <a href="/brief" class="contact-brief-btn">Start your brief →</a>
     <a href="mailto:hello@marly.cc" class="contact-email">or email hello@marly.cc</a>
@@ -860,6 +1003,18 @@
   }, { threshold: 0.3 });
 
   adStages.forEach(s => observer.observe(s));
+
+  // ── Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
