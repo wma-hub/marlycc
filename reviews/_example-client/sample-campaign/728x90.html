@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>APEX — 728x90</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 728px;
+  height: 90px;
+  overflow: hidden;
+  font-family: 'Geologica', sans-serif;
+  cursor: pointer;
+}
+
+.ad {
+  width: 728px;
+  height: 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* BG-Soft */
+.ad__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 500px 160px at 360px 45px, #dde8f8 0%, transparent 70%),
+    radial-gradient(ellipse 300px 120px at 100px 80px, #e8dff5 0%, transparent 70%),
+    linear-gradient(120deg, #f2efe9 0%, #ebe6f6 55%, #dfe9f5 100%);
+  animation: bg-drift 14s ease-in-out infinite alternate;
+}
+
+@keyframes bg-drift {
+  0%   { filter: brightness(1); }
+  100% { filter: brightness(1.03); }
+}
+
+/* Frosted glass banner — left-flush, partial height */
+.ad__banner {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 510px;
+  padding: 0 32px;
+  border-radius: 0 12px 12px 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.60) 100%
+  );
+  box-shadow:
+    2px 3px 14px 5px rgba(0, 0, 0, 0.08),
+    inset 2px 4px 16px 3px rgba(255, 255, 255, 0.30);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slide-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.2s;
+}
+
+.ad__label {
+  font-weight: 600;
+  font-size: 8px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #171e3b;
+  opacity: 0.55;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ad__divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(23, 30, 59, 0.15);
+  flex-shrink: 0;
+}
+
+/* Headline + sub stacked in a single flex column */
+.ad__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;        /* allow flex child to shrink */
+  overflow: hidden;
+}
+
+.ad__headline {
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1.1;
+  color: #171e3b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ad__sub {
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 1.3;
+  color: #171e3b;
+  opacity: 0.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* CTA — slides in from right */
+.ad__cta {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) translateX(20px);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #171e3b;
+  color: #fff;
+  font-family: 'Geologica', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0;
+  animation: cta-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.9s,
+             pulse-cta 2.5s ease-in-out infinite 1.8s;
+}
+
+@keyframes slide-in {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes cta-in {
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+@keyframes pulse-cta {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(23,30,59,0.25); }
+  50%       { box-shadow: 0 0 0 6px rgba(23,30,59,0); }
+}
+</style>
+</head>
+<body>
+<div class="ad" onclick="window.open('about:blank')">
+  <div class="ad__bg"></div>
+
+  <div class="ad__banner">
+    <span class="ad__label">Now in Beta</span>
+    <div class="ad__divider"></div>
+    <div class="ad__copy">
+      <span class="ad__headline">Built for What's Next</span>
+      <span class="ad__sub">The platform that grows with your ambition.</span>
+    </div>
+  </div>
+
+  <button class="ad__cta">Get Early Access →</button>
+</div>
+</body>
+</html>

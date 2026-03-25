@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/mcc-logo-icon.svg" type="image/svg+xml">
+<title>Peech — Process Mining ROI Accelerator · Ad Review · Marly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Page Reset & Shared Vars ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0C0C0C;
+  --card: #1A1A1C;
+  --orange: #E8702B;
+  --teal: #14B8A6;
+  --white: #FFFFFF;
+  --gray: #9CA3AF;
+  --border: rgba(255,255,255,0.08);
+}
+body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0a; color: #fff; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+/* ── Header ── */
+header { padding: 28px 48px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.header-left { flex: 1; }
+.ds-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 10px; }
+.campaign-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; line-height: 1.08; color: #fff; letter-spacing: -0.03em; }
+.campaign-meta { margin-top: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.meta-pill { display: inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 400; padding: 5px 12px; border-radius: 100px; }
+.meta-pill strong { color: #fff; font-weight: 600; }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex-shrink: 0; padding-top: 6px; }
+.replay-all-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--orange); color: #fff; font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 100px; border: none; cursor: pointer; transition: opacity 0.2s; }
+.replay-all-btn:hover { opacity: 0.85; }
+.marly-badge { color: rgba(255,255,255,0.2); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ── Main Layout ── */
+main { max-width: 1200px; margin: 0 auto; padding: 56px 48px 80px; }
+.set-header { margin-bottom: 32px; }
+.set-header:not(:first-child) { margin-top: 72px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.06); }
+.set-pills { display: flex; gap: 8px; margin-bottom: 12px; }
+.set-pill { display: inline-flex; align-items: center; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
+.set-pill--awareness { background: rgba(232,112,43,0.12); color: var(--orange); border: 1px solid rgba(232,112,43,0.25); }
+.set-pill--consideration { background: rgba(20,184,166,0.1); color: var(--teal); border: 1px solid rgba(20,184,166,0.25); }
+.set-pill--retargeting { background: rgba(232,112,43,0.07); color: rgba(232,112,43,0.75); border: 1px solid rgba(232,112,43,0.18); }
+.set-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-top: 4px; }
+.set-desc { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px; line-height: 1.5; }
+.section-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 20px; }
+.ads-row { display: flex; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 32px; }
+.ad-card { display: flex; flex-direction: column; }
+.ad-dimensions { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.02em; margin-bottom: 10px; }
+.ad-frame { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px; display: inline-flex; align-items: center; justify-content: center; }
+.ad-label-strip { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 2px; }
+.ad-type-name { font-size: 9px; font-weight: 600; color: rgba(232,112,43,0.55); text-transform: uppercase; letter-spacing: 0.08em; }
+.replay-btn { display: inline-flex; align-items: center; gap: 4px; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.35); font-family: inherit; font-size: 10px; font-weight: 500; padding: 4px 10px; border-radius: 4px; cursor: pointer; letter-spacing: 0.03em; transition: border-color 0.15s, color 0.15s; }
+.replay-btn:hover { border-color: var(--orange); color: var(--orange); }
+.wide-section { margin-top: 40px; }
+
+/* ════════════════════════════════════════════════
+   SET 2 · CONSIDERATION
+   Prefixes: p2r (300×250) · p2s (160×600)
+             p2hs (300×600) · p2lb (728×90) · p2bb (970×250)
+   ════════════════════════════════════════════════ */
+
+/* ── p2r · Consideration 300×250 ── */
+.p2r { width:300px; height:250px; --teal-glow:rgba(20,184,166,0.12); --orange-glow:rgba(232,112,43,0.2); position:relative; overflow:hidden; border:1px solid var(--border); cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p2r__glow { position:absolute; width:160px; height:160px; border-radius:50%; background:var(--teal-glow); filter:blur(50px); top:-40px; left:-20px; opacity:0; animation:p2r-glowIn 0.8s 0.2s ease-out forwards, p2r-glowPulse 4s 3s ease-in-out infinite; }
+.p2r__glow-2 { position:absolute; width:120px; height:120px; border-radius:50%; background:var(--orange-glow); filter:blur(45px); bottom:-30px; right:-10px; opacity:0; animation:p2r-glowIn 0.8s 0.6s ease-out forwards; }
+.p2r__logo { display:flex; align-items:center; gap:6px; padding:18px 20px 0; opacity:0; transform:translateY(-8px); animation:p2r-fadeDown 0.5s 0.2s ease-out forwards; }
+.p2r__logo svg { width:20px; height:18px; }
+.p2r__logo-text { font-size:15px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p2r__badge { margin-left:auto; font-size:7.5px; font-weight:600; color:var(--teal); border:1px solid rgba(20,184,166,0.35); padding:2px 6px; border-radius:10px; text-transform:uppercase; letter-spacing:0.05em; }
+.p2r__headline { padding:14px 20px 0; opacity:0; transform:translateY(10px); animation:p2r-fadeUp 0.6s 0.5s ease-out forwards; }
+.p2r__headline h1 { font-size:17px; font-weight:800; color:var(--white); line-height:1.18; letter-spacing:-0.03em; }
+.p2r__headline span { color:var(--teal); }
+.p2r__sub { font-size:10px; color:var(--gray); padding:8px 20px 0; line-height:1.45; opacity:0; animation:p2r-fadeUp 0.5s 0.9s ease-out forwards; }
+.p2r__flow { display:flex; align-items:center; gap:6px; padding:14px 20px 0; opacity:0; animation:p2r-fadeUp 0.5s 1.2s ease-out forwards; }
+.p2r__flow-node { width:8px; height:8px; border-radius:50%; border:1.5px solid var(--teal); opacity:0.6; }
+.p2r__flow-node.active { background:var(--orange); border-color:var(--orange); opacity:1; }
+.p2r__flow-line { width:20px; height:1px; background:var(--border); }
+.p2r__flow-label { font-size:7.5px; color:var(--gray); text-transform:uppercase; letter-spacing:0.04em; margin-left:6px; }
+.p2r__cta { position:absolute; bottom:16px; right:20px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; padding:7px 16px; border-radius:20px; border:none; opacity:0; transform:translateY(6px); animation:p2r-fadeUp 0.4s 1.5s ease-out forwards; cursor:pointer; }
+.p2r__cta::after { content:' \2192'; }
+.p2r__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--teal),var(--orange)); animation:p2r-lineGrow 0.8s 1.8s ease-out forwards; }
+@keyframes p2r-glowIn { to{opacity:1;} }
+@keyframes p2r-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p2r-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p2r-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p2r-lineGrow { to{width:100%;} }
+
+/* ── p2s · Consideration 160×600 ── */
+.p2s { width:160px; height:600px; --teal-glow:rgba(20,184,166,0.15); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; flex-direction:column; align-items:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p2s__glow { position:absolute; width:110px; height:110px; border-radius:50%; background:var(--teal-glow); filter:blur(40px); top:30px; left:50%; transform:translateX(-50%); opacity:0; animation:p2s-glowIn 0.8s 0.2s ease-out forwards, p2s-glowPulse 4s 3s ease-in-out infinite; }
+.p2s__side { position:absolute; right:0; top:0; width:2px; height:0; background:linear-gradient(180deg,var(--teal),transparent); animation:p2s-sideGrow 1s 2.5s ease-out forwards; }
+.p2s__logo { display:flex; align-items:center; gap:5px; padding-top:24px; opacity:0; transform:translateY(-6px); animation:p2s-fadeDown 0.5s 0.2s ease-out forwards; }
+.p2s__logo svg { width:20px; height:18px; }
+.p2s__logo-text { font-size:16px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p2s__badge { margin-top:8px; font-size:7px; font-weight:700; color:var(--teal); border:1px solid rgba(20,184,166,0.4); padding:3px 8px; border-radius:10px; text-transform:uppercase; letter-spacing:0.06em; opacity:0; animation:p2s-fadeIn 0.4s 0.5s ease-out forwards; }
+.p2s__divider { width:40px; height:1px; background:var(--border); margin-top:20px; opacity:0; animation:p2s-fadeIn 0.3s 0.7s ease-out forwards; }
+.p2s__headline { text-align:center; padding:18px 14px 0; opacity:0; transform:translateY(8px); animation:p2s-fadeUp 0.5s 0.8s ease-out forwards; }
+.p2s__headline h1 { font-size:15px; font-weight:800; color:var(--white); line-height:1.2; letter-spacing:-0.03em; }
+.p2s__headline span { color:var(--teal); }
+.p2s__sub { text-align:center; font-size:9px; color:var(--gray); padding:8px 14px 0; line-height:1.45; opacity:0; animation:p2s-fadeUp 0.4s 1.1s ease-out forwards; }
+.p2s__steps { display:flex; flex-direction:column; gap:8px; padding:20px 14px 0; width:100%; }
+.p2s__step { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:10px 12px; display:flex; align-items:center; gap:8px; opacity:0; transform:translateY(10px); }
+.p2s__step:nth-child(1) { animation:p2s-fadeUp 0.4s 1.3s ease-out forwards; }
+.p2s__step:nth-child(2) { animation:p2s-fadeUp 0.4s 1.6s ease-out forwards; }
+.p2s__step:nth-child(3) { animation:p2s-fadeUp 0.4s 1.9s ease-out forwards; }
+.p2s__step-num { width:18px; height:18px; border-radius:50%; background:rgba(20,184,166,0.15); border:1px solid rgba(20,184,166,0.3); display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:800; color:var(--teal); flex-shrink:0; }
+.p2s__step-text { font-size:8.5px; font-weight:600; color:var(--white); line-height:1.2; letter-spacing:-0.01em; }
+.p2s__cta { position:absolute; bottom:24px; left:50%; transform:translateX(-50%) translateY(6px); background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; padding:9px 20px; border-radius:20px; border:none; white-space:nowrap; opacity:0; animation:p2s-ctaIn 0.4s 2.3s ease-out forwards; cursor:pointer; }
+.p2s__cta::after { content:' \2192'; }
+.p2s__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--teal),var(--orange)); animation:p2s-lineGrow 0.6s 2.6s ease-out forwards; }
+@keyframes p2s-glowIn { to{opacity:1;} }
+@keyframes p2s-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p2s-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p2s-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p2s-fadeIn { to{opacity:1;} }
+@keyframes p2s-ctaIn { to{opacity:1;transform:translateX(-50%) translateY(0);} }
+@keyframes p2s-lineGrow { to{width:100%;} }
+@keyframes p2s-sideGrow { to{height:100%;} }
+
+/* ── p2hs · Consideration 300×600 ── */
+.p2hs { width:300px; height:600px; --teal-glow:rgba(20,184,166,0.15); --orange-glow:rgba(232,112,43,0.12); position:relative; overflow:hidden; border:1px solid var(--border); cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p2hs__glow { position:absolute; width:180px; height:180px; border-radius:50%; background:var(--teal-glow); filter:blur(55px); top:-30px; left:-20px; opacity:0; animation:p2hs-glowIn 0.8s 0.2s ease-out forwards, p2hs-glowPulse 4s 3s ease-in-out infinite; }
+.p2hs__glow-2 { position:absolute; width:120px; height:120px; border-radius:50%; background:var(--orange-glow); filter:blur(40px); bottom:120px; right:-10px; opacity:0; animation:p2hs-glowIn 0.8s 1.5s ease-out forwards; }
+.p2hs__side { position:absolute; right:0; top:0; width:2px; height:0; background:linear-gradient(180deg,var(--teal),transparent); animation:p2hs-sideGrow 1.2s 2.8s ease-out forwards; }
+.p2hs__logo { display:flex; align-items:center; gap:7px; padding:24px 22px 0; opacity:0; transform:translateY(-8px); animation:p2hs-fadeDown 0.5s 0.2s ease-out forwards; }
+.p2hs__logo svg { width:22px; height:20px; }
+.p2hs__logo-text { font-size:17px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p2hs__badge { margin-left:auto; font-size:7.5px; font-weight:600; color:var(--teal); border:1px solid rgba(20,184,166,0.35); padding:2px 7px; border-radius:10px; text-transform:uppercase; letter-spacing:0.05em; }
+.p2hs__headline { padding:22px 22px 0; opacity:0; transform:translateY(10px); animation:p2hs-fadeUp 0.6s 0.5s ease-out forwards; }
+.p2hs__headline h1 { font-size:23px; font-weight:800; color:var(--white); line-height:1.12; letter-spacing:-0.03em; }
+.p2hs__headline span { color:var(--teal); }
+.p2hs__subline { font-size:11px; color:var(--gray); padding:10px 22px 0; line-height:1.5; opacity:0; animation:p2hs-fadeUp 0.5s 0.9s ease-out forwards; }
+.p2hs__steps { display:flex; flex-direction:column; gap:10px; padding:22px 22px 0; }
+.p2hs__step { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 16px; display:flex; align-items:center; gap:12px; opacity:0; transform:translateY(10px); }
+.p2hs__step:nth-child(1) { animation:p2hs-fadeUp 0.4s 1.2s ease-out forwards; }
+.p2hs__step:nth-child(2) { animation:p2hs-fadeUp 0.4s 1.5s ease-out forwards; }
+.p2hs__step:nth-child(3) { animation:p2hs-fadeUp 0.4s 1.8s ease-out forwards; }
+.p2hs__step-num { width:24px; height:24px; border-radius:50%; background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.3); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; color:var(--teal); flex-shrink:0; }
+.p2hs__step-text { font-size:11px; font-weight:700; color:var(--white); letter-spacing:-0.01em; }
+.p2hs__step-desc { font-size:8.5px; color:var(--gray); margin-top:2px; }
+.p2hs__cta { position:absolute; bottom:28px; left:22px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; padding:10px 24px; border-radius:20px; border:none; opacity:0; transform:translateY(6px); animation:p2hs-fadeUp 0.4s 2.2s ease-out forwards; cursor:pointer; }
+.p2hs__cta::after { content:' \2192'; }
+.p2hs__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--teal),var(--orange)); animation:p2hs-lineGrow 0.8s 2.6s ease-out forwards; }
+@keyframes p2hs-glowIn { to{opacity:1;} }
+@keyframes p2hs-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p2hs-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p2hs-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p2hs-lineGrow { to{width:100%;} }
+@keyframes p2hs-sideGrow { to{height:100%;} }
+
+/* ── p2lb · Consideration 728×90 ── */
+.p2lb { width:728px; height:90px; --teal-glow:rgba(20,184,166,0.15); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; align-items:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p2lb__glow { position:absolute; width:140px; height:140px; border-radius:50%; background:var(--teal-glow); filter:blur(50px); top:-40px; left:200px; opacity:0; animation:p2lb-glowIn 0.8s 0.2s ease-out forwards, p2lb-glowPulse 4s 3s ease-in-out infinite; }
+.p2lb__logo { display:flex; align-items:center; gap:7px; padding-left:24px; flex-shrink:0; opacity:0; transform:translateX(-10px); animation:p2lb-slideRight 0.5s 0.2s ease-out forwards; }
+.p2lb__logo svg { width:22px; height:20px; }
+.p2lb__logo-text { font-size:17px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p2lb__sep { width:1px; height:40px; background:var(--border); margin:0 20px; flex-shrink:0; opacity:0; animation:p2lb-fadeIn 0.3s 0.5s ease-out forwards; }
+.p2lb__content { flex:1; min-width:0; opacity:0; transform:translateY(6px); animation:p2lb-fadeUp 0.5s 0.6s ease-out forwards; }
+.p2lb__headline { font-size:15px; font-weight:800; color:var(--white); line-height:1.15; letter-spacing:-0.02em; }
+.p2lb__headline span { color:var(--teal); }
+.p2lb__sub { font-size:10px; color:var(--gray); margin-top:4px; line-height:1.3; }
+.p2lb__flow { display:flex; align-items:center; gap:4px; flex-shrink:0; margin-right:16px; opacity:0; animation:p2lb-fadeIn 0.5s 1.0s ease-out forwards; }
+.p2lb__flow-dot { width:6px; height:6px; border-radius:50%; border:1px solid rgba(20,184,166,0.4); }
+.p2lb__flow-dot.active { background:var(--orange); border-color:var(--orange); }
+.p2lb__flow-line { width:10px; height:1px; background:rgba(255,255,255,0.1); }
+.p2lb__cta { flex-shrink:0; margin-right:24px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; padding:8px 18px; border-radius:20px; border:none; white-space:nowrap; opacity:0; transform:translateX(10px); animation:p2lb-slideLeft 0.4s 1.0s ease-out forwards; cursor:pointer; }
+.p2lb__cta::after { content:' \2192'; }
+.p2lb__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--teal),var(--orange)); animation:p2lb-lineGrow 0.8s 1.4s ease-out forwards; }
+@keyframes p2lb-glowIn { to{opacity:1;} }
+@keyframes p2lb-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p2lb-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p2lb-fadeIn { to{opacity:1;} }
+@keyframes p2lb-slideRight { to{opacity:1;transform:translateX(0);} }
+@keyframes p2lb-slideLeft { to{opacity:1;transform:translateX(0);} }
+@keyframes p2lb-lineGrow { to{width:100%;} }
+
+/* ── p2bb · Consideration 970×250 ── */
+.p2bb { width:970px; height:250px; --teal-glow:rgba(20,184,166,0.12); --orange-glow:rgba(232,112,43,0.12); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; align-items:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p2bb__glow { position:absolute; width:200px; height:200px; border-radius:50%; background:var(--teal-glow); filter:blur(65px); top:-50px; left:100px; opacity:0; animation:p2bb-glowIn 1s 0.2s ease-out forwards, p2bb-glowPulse 5s 3s ease-in-out infinite; }
+.p2bb__glow-2 { position:absolute; width:140px; height:140px; border-radius:50%; background:var(--orange-glow); filter:blur(50px); bottom:-30px; right:250px; opacity:0; animation:p2bb-glowIn 1s 0.8s ease-out forwards; }
+.p2bb__left { padding:0 0 0 40px; flex:1; min-width:0; z-index:1; }
+.p2bb__logo { display:flex; align-items:center; gap:8px; opacity:0; transform:translateY(-8px); animation:p2bb-fadeDown 0.5s 0.2s ease-out forwards; }
+.p2bb__logo svg { width:24px; height:22px; }
+.p2bb__logo-text { font-size:18px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p2bb__badge { font-size:8px; font-weight:600; color:var(--teal); border:1px solid rgba(20,184,166,0.35); padding:2px 8px; border-radius:10px; text-transform:uppercase; letter-spacing:0.05em; margin-left:8px; }
+.p2bb__headline { margin-top:16px; opacity:0; transform:translateY(10px); animation:p2bb-fadeUp 0.6s 0.5s ease-out forwards; }
+.p2bb__headline h1 { font-size:27px; font-weight:800; color:var(--white); line-height:1.1; letter-spacing:-0.03em; max-width:440px; }
+.p2bb__headline span { color:var(--teal); }
+.p2bb__subline { font-size:12px; color:var(--gray); margin-top:10px; line-height:1.5; max-width:400px; opacity:0; animation:p2bb-fadeUp 0.5s 0.9s ease-out forwards; }
+.p2bb__cta-row { margin-top:16px; opacity:0; transform:translateY(6px); animation:p2bb-fadeUp 0.4s 1.3s ease-out forwards; }
+.p2bb__cta { background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; padding:9px 22px; border-radius:20px; border:none; cursor:pointer; }
+.p2bb__cta::after { content:' \2192'; }
+.p2bb__right { display:flex; flex-direction:column; gap:10px; padding-right:36px; flex-shrink:0; z-index:1; width:340px; }
+.p2bb__step { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 16px; display:flex; align-items:center; gap:12px; opacity:0; transform:translateX(12px); }
+.p2bb__step:nth-child(1) { animation:p2bb-slideLeft 0.4s 1.0s ease-out forwards; }
+.p2bb__step:nth-child(2) { animation:p2bb-slideLeft 0.4s 1.2s ease-out forwards; }
+.p2bb__step:nth-child(3) { animation:p2bb-slideLeft 0.4s 1.4s ease-out forwards; }
+.p2bb__step-num { width:24px; height:24px; border-radius:50%; background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.3); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; color:var(--teal); flex-shrink:0; }
+.p2bb__step-text { font-size:11px; font-weight:600; color:var(--white); letter-spacing:-0.01em; }
+.p2bb__step-desc { font-size:9px; color:var(--gray); margin-top:1px; }
+.p2bb__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--teal),var(--orange)); animation:p2bb-lineGrow 1s 1.8s ease-out forwards; }
+@keyframes p2bb-glowIn { to{opacity:1;} }
+@keyframes p2bb-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p2bb-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p2bb-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p2bb-slideLeft { to{opacity:1;transform:translateX(0);} }
+@keyframes p2bb-lineGrow { to{width:100%;} }
+
+/* ════════════════════════════════════════════════
+   SET 3 · RETARGETING
+   Prefixes: p3r (300×250) · p3s (160×600)
+             p3hs (300×600) · p3lb (728×90) · p3bb (970×250)
+   ════════════════════════════════════════════════ */
+
+/* ── p3r · Retargeting 300×250 ── */
+.p3r { width:300px; height:250px; --orange-glow:rgba(232,112,43,0.3); position:relative; overflow:hidden; border:1px solid var(--border); cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p3r__glow { position:absolute; width:200px; height:200px; border-radius:50%; background:var(--orange-glow); filter:blur(60px); bottom:-60px; left:50%; transform:translateX(-50%); opacity:0; animation:p3r-glowIn 0.8s 0.2s ease-out forwards, p3r-glowPulse 3.5s 2.5s ease-in-out infinite; }
+.p3r__logo { display:flex; align-items:center; gap:6px; padding:18px 20px 0; opacity:0; transform:translateY(-8px); animation:p3r-fadeDown 0.5s 0.2s ease-out forwards; }
+.p3r__logo svg { width:20px; height:18px; }
+.p3r__logo-text { font-size:15px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p3r__headline { padding:16px 20px 0; opacity:0; transform:translateY(10px); animation:p3r-fadeUp 0.6s 0.4s ease-out forwards; }
+.p3r__headline h1 { font-size:21px; font-weight:800; color:var(--white); line-height:1.12; letter-spacing:-0.03em; }
+.p3r__headline span { color:var(--orange); }
+.p3r__trust { display:flex; align-items:center; gap:12px; padding:14px 20px 0; opacity:0; animation:p3r-fadeUp 0.5s 0.9s ease-out forwards; }
+.p3r__trust-item { display:flex; align-items:center; gap:5px; }
+.p3r__trust-check { width:12px; height:12px; border-radius:50%; background:rgba(20,184,166,0.15); border:1px solid rgba(20,184,166,0.4); display:flex; align-items:center; justify-content:center; font-size:7px; color:var(--teal); }
+.p3r__trust-text { font-size:9px; font-weight:600; color:var(--gray); letter-spacing:-0.01em; }
+.p3r__cta { position:absolute; bottom:18px; left:20px; right:20px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:700; padding:11px 20px; border-radius:22px; border:none; text-align:center; opacity:0; transform:translateY(8px); animation:p3r-fadeUp 0.5s 1.2s ease-out forwards; box-shadow:0 4px 20px rgba(232,112,43,0.3); cursor:pointer; }
+.p3r__cta::after { content:' \2192'; }
+.p3r__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p3r-lineGrow 0.8s 1.6s ease-out forwards; }
+@keyframes p3r-glowIn { to{opacity:1;} }
+@keyframes p3r-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
+@keyframes p3r-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p3r-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p3r-lineGrow { to{width:100%;} }
+
+/* ── p3s · Retargeting 160×600 ── */
+.p3s { width:160px; height:600px; --orange-glow:rgba(232,112,43,0.25); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; flex-direction:column; align-items:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p3s__glow { position:absolute; width:130px; height:130px; border-radius:50%; background:var(--orange-glow); filter:blur(45px); bottom:80px; left:50%; transform:translateX(-50%); opacity:0; animation:p3s-glowIn 0.8s 0.3s ease-out forwards, p3s-glowPulse 3.5s 2.5s ease-in-out infinite; }
+.p3s__side { position:absolute; left:0; top:0; width:2px; height:0; background:linear-gradient(180deg,var(--orange),transparent); animation:p3s-sideGrow 1s 2.2s ease-out forwards; }
+.p3s__logo { display:flex; align-items:center; gap:5px; padding-top:24px; opacity:0; transform:translateY(-6px); animation:p3s-fadeDown 0.5s 0.2s ease-out forwards; }
+.p3s__logo svg { width:20px; height:18px; }
+.p3s__logo-text { font-size:16px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p3s__divider { width:40px; height:1px; background:var(--border); margin-top:20px; opacity:0; animation:p3s-fadeIn 0.3s 0.5s ease-out forwards; }
+.p3s__headline { text-align:center; padding:20px 14px 0; opacity:0; transform:translateY(8px); animation:p3s-fadeUp 0.5s 0.6s ease-out forwards; }
+.p3s__headline h1 { font-size:18px; font-weight:800; color:var(--white); line-height:1.15; letter-spacing:-0.03em; }
+.p3s__headline span { color:var(--orange); }
+.p3s__sub { text-align:center; font-size:10px; color:var(--gray); padding:10px 14px 0; line-height:1.45; opacity:0; animation:p3s-fadeUp 0.4s 1.0s ease-out forwards; }
+.p3s__trust { display:flex; flex-direction:column; gap:10px; padding:22px 16px 0; width:100%; }
+.p3s__trust-item { display:flex; align-items:center; gap:8px; opacity:0; transform:translateY(6px); }
+.p3s__trust-item:nth-child(1) { animation:p3s-fadeUp 0.3s 1.3s ease-out forwards; }
+.p3s__trust-item:nth-child(2) { animation:p3s-fadeUp 0.3s 1.5s ease-out forwards; }
+.p3s__trust-item:nth-child(3) { animation:p3s-fadeUp 0.3s 1.7s ease-out forwards; }
+.p3s__trust-check { width:16px; height:16px; border-radius:50%; background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.35); display:flex; align-items:center; justify-content:center; font-size:8px; color:var(--teal); flex-shrink:0; }
+.p3s__trust-text { font-size:10px; font-weight:600; color:var(--white); letter-spacing:-0.01em; }
+.p3s__cta { position:absolute; bottom:24px; left:14px; right:14px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; padding:11px 16px; border-radius:22px; border:none; text-align:center; opacity:0; transform:translateY(8px); animation:p3s-fadeUp 0.5s 2.0s ease-out forwards; box-shadow:0 4px 20px rgba(232,112,43,0.3); cursor:pointer; }
+.p3s__cta::after { content:' \2192'; }
+.p3s__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p3s-lineGrow 0.6s 2.3s ease-out forwards; }
+@keyframes p3s-glowIn { to{opacity:1;} }
+@keyframes p3s-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
+@keyframes p3s-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p3s-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p3s-fadeIn { to{opacity:1;} }
+@keyframes p3s-lineGrow { to{width:100%;} }
+@keyframes p3s-sideGrow { to{height:100%;} }
+
+/* ── p3hs · Retargeting 300×600 ── */
+.p3hs { width:300px; height:600px; --orange-glow:rgba(232,112,43,0.25); position:relative; overflow:hidden; border:1px solid var(--border); cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p3hs__glow { position:absolute; width:220px; height:220px; border-radius:50%; background:var(--orange-glow); filter:blur(65px); bottom:40px; left:50%; transform:translateX(-50%); opacity:0; animation:p3hs-glowIn 0.8s 0.3s ease-out forwards, p3hs-glowPulse 3.5s 2.5s ease-in-out infinite; }
+.p3hs__side { position:absolute; left:0; top:0; width:2px; height:0; background:linear-gradient(180deg,var(--orange),transparent); animation:p3hs-sideGrow 1.2s 2.5s ease-out forwards; }
+.p3hs__logo { display:flex; align-items:center; gap:7px; padding:24px 22px 0; opacity:0; transform:translateY(-8px); animation:p3hs-fadeDown 0.5s 0.2s ease-out forwards; }
+.p3hs__logo svg { width:22px; height:20px; }
+.p3hs__logo-text { font-size:17px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p3hs__headline { padding:28px 22px 0; opacity:0; transform:translateY(10px); animation:p3hs-fadeUp 0.6s 0.4s ease-out forwards; }
+.p3hs__headline h1 { font-size:28px; font-weight:800; color:var(--white); line-height:1.1; letter-spacing:-0.03em; }
+.p3hs__headline span { color:var(--orange); }
+.p3hs__sub { font-size:12px; color:var(--gray); padding:12px 22px 0; line-height:1.5; opacity:0; animation:p3hs-fadeUp 0.5s 0.8s ease-out forwards; }
+.p3hs__trust { display:flex; flex-direction:column; gap:12px; padding:28px 22px 0; }
+.p3hs__trust-item { display:flex; align-items:center; gap:10px; opacity:0; transform:translateY(8px); }
+.p3hs__trust-item:nth-child(1) { animation:p3hs-fadeUp 0.3s 1.1s ease-out forwards; }
+.p3hs__trust-item:nth-child(2) { animation:p3hs-fadeUp 0.3s 1.3s ease-out forwards; }
+.p3hs__trust-item:nth-child(3) { animation:p3hs-fadeUp 0.3s 1.5s ease-out forwards; }
+.p3hs__trust-item:nth-child(4) { animation:p3hs-fadeUp 0.3s 1.7s ease-out forwards; }
+.p3hs__trust-check { width:20px; height:20px; border-radius:50%; background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.35); display:flex; align-items:center; justify-content:center; font-size:9px; color:var(--teal); flex-shrink:0; }
+.p3hs__trust-text { font-size:12px; font-weight:700; color:var(--white); letter-spacing:-0.01em; }
+.p3hs__trust-desc { font-size:9px; color:var(--gray); margin-top:1px; }
+.p3hs__cta { position:absolute; bottom:28px; left:22px; right:22px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:700; padding:13px 24px; border-radius:24px; border:none; text-align:center; box-shadow:0 4px 24px rgba(232,112,43,0.35); opacity:0; transform:translateY(8px); animation:p3hs-fadeUp 0.5s 2.0s ease-out forwards; cursor:pointer; }
+.p3hs__cta::after { content:' \2192'; }
+.p3hs__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p3hs-lineGrow 0.8s 2.4s ease-out forwards; }
+@keyframes p3hs-glowIn { to{opacity:1;} }
+@keyframes p3hs-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
+@keyframes p3hs-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p3hs-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p3hs-lineGrow { to{width:100%;} }
+@keyframes p3hs-sideGrow { to{height:100%;} }
+
+/* ── p3lb · Retargeting 728×90 ── */
+.p3lb { width:728px; height:90px; --orange-glow:rgba(232,112,43,0.25); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; align-items:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p3lb__glow { position:absolute; width:160px; height:160px; border-radius:50%; background:var(--orange-glow); filter:blur(55px); bottom:-60px; right:100px; opacity:0; animation:p3lb-glowIn 0.8s 0.2s ease-out forwards, p3lb-glowPulse 3.5s 2.5s ease-in-out infinite; }
+.p3lb__logo { display:flex; align-items:center; gap:7px; padding-left:24px; flex-shrink:0; opacity:0; transform:translateX(-10px); animation:p3lb-slideRight 0.5s 0.2s ease-out forwards; }
+.p3lb__logo svg { width:22px; height:20px; }
+.p3lb__logo-text { font-size:17px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p3lb__sep { width:1px; height:40px; background:var(--border); margin:0 20px; flex-shrink:0; opacity:0; animation:p3lb-fadeIn 0.3s 0.4s ease-out forwards; }
+.p3lb__content { flex:1; min-width:0; opacity:0; transform:translateY(6px); animation:p3lb-fadeUp 0.5s 0.5s ease-out forwards; }
+.p3lb__headline { font-size:17px; font-weight:800; color:var(--white); line-height:1.15; letter-spacing:-0.02em; }
+.p3lb__headline span { color:var(--orange); }
+.p3lb__trust-row { display:flex; align-items:center; gap:10px; margin-top:5px; }
+.p3lb__trust-item { display:flex; align-items:center; gap:3px; font-size:8.5px; font-weight:600; color:var(--gray); }
+.p3lb__trust-check { font-size:7px; color:var(--teal); }
+.p3lb__dot { width:2px; height:2px; border-radius:50%; background:rgba(255,255,255,0.15); }
+.p3lb__cta { flex-shrink:0; margin-right:24px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; padding:10px 22px; border-radius:22px; border:none; white-space:nowrap; box-shadow:0 3px 16px rgba(232,112,43,0.35); opacity:0; transform:translateX(10px); animation:p3lb-slideLeft 0.4s 0.9s ease-out forwards; cursor:pointer; }
+.p3lb__cta::after { content:' \2192'; }
+.p3lb__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p3lb-lineGrow 0.8s 1.3s ease-out forwards; }
+@keyframes p3lb-glowIn { to{opacity:1;} }
+@keyframes p3lb-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
+@keyframes p3lb-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p3lb-fadeIn { to{opacity:1;} }
+@keyframes p3lb-slideRight { to{opacity:1;transform:translateX(0);} }
+@keyframes p3lb-slideLeft { to{opacity:1;transform:translateX(0);} }
+@keyframes p3lb-lineGrow { to{width:100%;} }
+
+/* ── p3bb · Retargeting 970×250 ── */
+.p3bb { width:970px; height:250px; --orange-glow:rgba(232,112,43,0.25); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p3bb__glow { position:absolute; width:250px; height:250px; border-radius:50%; background:var(--orange-glow); filter:blur(70px); bottom:-80px; left:50%; transform:translateX(-50%); opacity:0; animation:p3bb-glowIn 1s 0.2s ease-out forwards, p3bb-glowPulse 3.5s 2.5s ease-in-out infinite; }
+.p3bb__center { text-align:center; z-index:1; max-width:640px; }
+.p3bb__logo { display:inline-flex; align-items:center; gap:8px; opacity:0; transform:translateY(-8px); animation:p3bb-fadeDown 0.5s 0.2s ease-out forwards; }
+.p3bb__logo svg { width:26px; height:24px; }
+.p3bb__logo-text { font-size:20px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p3bb__headline { margin-top:18px; opacity:0; transform:translateY(10px); animation:p3bb-fadeUp 0.6s 0.4s ease-out forwards; }
+.p3bb__headline h1 { font-size:34px; font-weight:800; color:var(--white); line-height:1.08; letter-spacing:-0.03em; }
+.p3bb__headline span { color:var(--orange); }
+.p3bb__trust { display:flex; align-items:center; justify-content:center; gap:20px; margin-top:16px; opacity:0; animation:p3bb-fadeUp 0.5s 0.9s ease-out forwards; }
+.p3bb__trust-item { display:flex; align-items:center; gap:6px; }
+.p3bb__trust-check { width:16px; height:16px; border-radius:50%; background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.35); display:flex; align-items:center; justify-content:center; font-size:8px; color:var(--teal); }
+.p3bb__trust-text { font-size:11px; font-weight:600; color:var(--gray); }
+.p3bb__trust-sep { width:1px; height:14px; background:var(--border); }
+.p3bb__cta-row { margin-top:20px; opacity:0; transform:translateY(8px); animation:p3bb-fadeUp 0.5s 1.2s ease-out forwards; }
+.p3bb__cta { background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; font-weight:700; padding:12px 32px; border-radius:24px; border:none; box-shadow:0 4px 24px rgba(232,112,43,0.35); cursor:pointer; }
+.p3bb__cta::after { content:' \2192'; }
+.p3bb__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p3bb-lineGrow 1s 1.6s ease-out forwards; }
+@keyframes p3bb-glowIn { to{opacity:1;} }
+@keyframes p3bb-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
+@keyframes p3bb-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p3bb-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p3bb-lineGrow { to{width:100%;} }
+
+/* ── Footer ── */
+footer { max-width: 1200px; margin: 0 auto; padding: 32px 48px 48px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; }
+.footer-left { font-size: 11px; color: rgba(255,255,255,0.18); line-height: 1.6; }
+.footer-right { font-size: 11px; color: rgba(255,255,255,0.12); text-align: right; line-height: 1.6; }
+
+/* ════════════════════════════════════════════════
+   SET 1 · AWARENESS
+   Prefixes: p1r (300×250) · p1s (160×600)
+             p1hs (300×600) · p1lb (728×90) · p1bb (970×250)
+   ════════════════════════════════════════════════ */
+
+/* ── p1r · Awareness 300×250 ── */
+.p1r { width:300px; height:250px; --orange-glow:rgba(232,112,43,0.25); position:relative; overflow:hidden; border:1px solid var(--border); cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p1r__glow { position:absolute; width:180px; height:180px; border-radius:50%; background:var(--orange-glow); filter:blur(55px); top:-50px; right:-30px; opacity:0; animation:p1r-glowIn 0.8s 0.2s ease-out forwards, p1r-glowPulse 4s 3s ease-in-out infinite; }
+.p1r__nodes { position:absolute; top:12px; right:12px; opacity:0; animation:p1r-fadeIn 0.6s 1.6s ease-out forwards; }
+.p1r__logo { display:flex; align-items:center; gap:6px; padding:18px 20px 0; opacity:0; transform:translateY(-8px); animation:p1r-fadeDown 0.5s 0.2s ease-out forwards; }
+.p1r__logo svg { width:20px; height:18px; }
+.p1r__logo-text { font-size:15px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p1r__badge { margin-left:auto; font-size:7.5px; font-weight:600; color:var(--orange); border:1px solid rgba(232,112,43,0.35); padding:2px 6px; border-radius:10px; text-transform:uppercase; letter-spacing:0.05em; }
+.p1r__headline { padding:14px 20px 0; opacity:0; transform:translateY(10px); animation:p1r-fadeUp 0.6s 0.5s ease-out forwards; }
+.p1r__headline h1 { font-size:18px; font-weight:800; color:var(--white); line-height:1.15; letter-spacing:-0.03em; }
+.p1r__headline span { color:var(--orange); }
+.p1r__stats { display:flex; gap:16px; padding:14px 20px 0; opacity:0; animation:p1r-fadeUp 0.5s 1.0s ease-out forwards; }
+.p1r__stat-val { font-size:17px; font-weight:800; color:var(--orange); letter-spacing:-0.02em; }
+.p1r__stat-lbl { font-size:7px; color:var(--gray); margin-top:1px; text-transform:uppercase; letter-spacing:0.05em; }
+.p1r__cta { position:absolute; bottom:16px; right:20px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; padding:7px 16px; border-radius:20px; border:none; letter-spacing:0.01em; opacity:0; transform:translateY(6px); animation:p1r-fadeUp 0.4s 1.4s ease-out forwards; cursor:pointer; }
+.p1r__cta::after { content:' \2192'; }
+.p1r__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p1r-lineGrow 0.8s 1.8s ease-out forwards; }
+@keyframes p1r-glowIn { to{opacity:1;} }
+@keyframes p1r-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.6;} }
+@keyframes p1r-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p1r-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p1r-fadeIn { to{opacity:1;} }
+@keyframes p1r-lineGrow { to{width:100%;} }
+
+/* ── p1s · Awareness 160×600 ── */
+.p1s { width:160px; height:600px; --orange-glow:rgba(232,112,43,0.2); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; flex-direction:column; align-items:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p1s__glow { position:absolute; width:120px; height:120px; border-radius:50%; background:var(--orange-glow); filter:blur(40px); top:20px; left:50%; transform:translateX(-50%); opacity:0; animation:p1s-glowIn 0.8s 0.2s ease-out forwards, p1s-glowPulse 4s 3s ease-in-out infinite; }
+.p1s__side { position:absolute; left:0; top:0; width:2px; height:0; background:linear-gradient(180deg,var(--orange),transparent); animation:p1s-sideGrow 1s 2.5s ease-out forwards; }
+.p1s__logo { display:flex; align-items:center; gap:5px; padding-top:24px; opacity:0; transform:translateY(-6px); animation:p1s-fadeDown 0.5s 0.2s ease-out forwards; }
+.p1s__logo svg { width:20px; height:18px; }
+.p1s__logo-text { font-size:16px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p1s__badge { margin-top:8px; font-size:7px; font-weight:700; color:var(--orange); border:1px solid rgba(232,112,43,0.4); padding:3px 8px; border-radius:10px; text-transform:uppercase; letter-spacing:0.06em; opacity:0; animation:p1s-fadeIn 0.4s 0.5s ease-out forwards; }
+.p1s__divider { width:40px; height:1px; background:var(--border); margin-top:20px; opacity:0; animation:p1s-fadeIn 0.3s 0.7s ease-out forwards; }
+.p1s__headline { text-align:center; padding:18px 14px 0; opacity:0; transform:translateY(8px); animation:p1s-fadeUp 0.5s 0.8s ease-out forwards; }
+.p1s__headline h1 { font-size:15px; font-weight:800; color:var(--white); line-height:1.2; letter-spacing:-0.03em; }
+.p1s__headline span { color:var(--orange); }
+.p1s__stats { display:flex; flex-direction:column; gap:10px; padding:20px 14px 0; width:100%; }
+.p1s__stat-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:11px 12px; text-align:center; opacity:0; transform:translateY(10px); }
+.p1s__stat-card:nth-child(1) { animation:p1s-fadeUp 0.4s 1.2s ease-out forwards; }
+.p1s__stat-card:nth-child(2) { animation:p1s-fadeUp 0.4s 1.5s ease-out forwards; }
+.p1s__stat-card:nth-child(3) { animation:p1s-fadeUp 0.4s 1.8s ease-out forwards; }
+.p1s__stat-val { font-size:22px; font-weight:800; color:var(--orange); letter-spacing:-0.03em; }
+.p1s__stat-lbl { font-size:7.5px; color:var(--gray); margin-top:1px; text-transform:uppercase; letter-spacing:0.05em; }
+.p1s__cta { position:absolute; bottom:24px; left:50%; transform:translateX(-50%) translateY(6px); background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; padding:9px 22px; border-radius:20px; border:none; white-space:nowrap; opacity:0; animation:p1s-ctaIn 0.4s 2.2s ease-out forwards; cursor:pointer; }
+.p1s__cta::after { content:' \2192'; }
+.p1s__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p1s-lineGrow 0.6s 2.5s ease-out forwards; }
+@keyframes p1s-glowIn { to{opacity:1;} }
+@keyframes p1s-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p1s-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p1s-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p1s-fadeIn { to{opacity:1;} }
+@keyframes p1s-ctaIn { to{opacity:1;transform:translateX(-50%) translateY(0);} }
+@keyframes p1s-lineGrow { to{width:100%;} }
+@keyframes p1s-sideGrow { to{height:100%;} }
+
+/* ── p1hs · Awareness 300×600 ── */
+.p1hs { width:300px; height:600px; --orange-glow:rgba(232,112,43,0.2); position:relative; overflow:hidden; border:1px solid var(--border); cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p1hs__glow { position:absolute; width:200px; height:200px; border-radius:50%; background:var(--orange-glow); filter:blur(60px); top:-40px; right:-30px; opacity:0; animation:p1hs-glowIn 0.8s 0.2s ease-out forwards, p1hs-glowPulse 4s 3s ease-in-out infinite; }
+.p1hs__glow-2 { position:absolute; width:120px; height:120px; border-radius:50%; background:rgba(20,184,166,0.06); filter:blur(40px); bottom:100px; left:-20px; opacity:0; animation:p1hs-glowIn 0.8s 1.5s ease-out forwards; }
+.p1hs__side { position:absolute; left:0; top:0; width:2px; height:0; background:linear-gradient(180deg,var(--orange),transparent); animation:p1hs-sideGrow 1.2s 2.8s ease-out forwards; }
+.p1hs__nodes { position:absolute; top:22px; right:18px; opacity:0; animation:p1hs-fadeIn 0.5s 2.0s ease-out forwards; }
+.p1hs__logo { display:flex; align-items:center; gap:7px; padding:24px 22px 0; opacity:0; transform:translateY(-8px); animation:p1hs-fadeDown 0.5s 0.2s ease-out forwards; }
+.p1hs__logo svg { width:22px; height:20px; }
+.p1hs__logo-text { font-size:17px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p1hs__badge { margin-left:auto; font-size:7.5px; font-weight:600; color:var(--orange); border:1px solid rgba(232,112,43,0.35); padding:2px 7px; border-radius:10px; text-transform:uppercase; letter-spacing:0.05em; }
+.p1hs__headline { padding:22px 22px 0; opacity:0; transform:translateY(10px); animation:p1hs-fadeUp 0.6s 0.5s ease-out forwards; }
+.p1hs__headline h1 { font-size:24px; font-weight:800; color:var(--white); line-height:1.12; letter-spacing:-0.03em; }
+.p1hs__headline span { color:var(--orange); }
+.p1hs__subline { font-size:11px; color:var(--gray); padding:10px 22px 0; line-height:1.5; opacity:0; animation:p1hs-fadeUp 0.5s 0.9s ease-out forwards; }
+.p1hs__stats { display:flex; flex-direction:column; gap:10px; padding:22px 22px 0; }
+.p1hs__stat-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 16px; display:flex; align-items:center; gap:14px; opacity:0; transform:translateY(10px); }
+.p1hs__stat-card:nth-child(1) { animation:p1hs-fadeUp 0.4s 1.2s ease-out forwards; }
+.p1hs__stat-card:nth-child(2) { animation:p1hs-fadeUp 0.4s 1.5s ease-out forwards; }
+.p1hs__stat-card:nth-child(3) { animation:p1hs-fadeUp 0.4s 1.8s ease-out forwards; }
+.p1hs__stat-val { font-size:24px; font-weight:800; color:var(--orange); letter-spacing:-0.03em; min-width:70px; }
+.p1hs__stat-lbl { font-size:9px; color:var(--gray); text-transform:uppercase; letter-spacing:0.05em; line-height:1.3; }
+.p1hs__cta { position:absolute; bottom:28px; left:22px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; padding:10px 24px; border-radius:20px; border:none; letter-spacing:0.01em; opacity:0; transform:translateY(6px); animation:p1hs-fadeUp 0.4s 2.2s ease-out forwards; cursor:pointer; }
+.p1hs__cta::after { content:' \2192'; }
+.p1hs__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p1hs-lineGrow 0.8s 2.6s ease-out forwards; }
+@keyframes p1hs-glowIn { to{opacity:1;} }
+@keyframes p1hs-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p1hs-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p1hs-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p1hs-fadeIn { to{opacity:1;} }
+@keyframes p1hs-lineGrow { to{width:100%;} }
+@keyframes p1hs-sideGrow { to{height:100%;} }
+
+/* ── p1lb · Awareness 728×90 ── */
+.p1lb { width:728px; height:90px; --orange-glow:rgba(232,112,43,0.2); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; align-items:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p1lb__glow { position:absolute; width:140px; height:140px; border-radius:50%; background:var(--orange-glow); filter:blur(50px); top:-40px; left:40px; opacity:0; animation:p1lb-glowIn 0.8s 0.2s ease-out forwards, p1lb-glowPulse 4s 3s ease-in-out infinite; }
+.p1lb__logo { display:flex; align-items:center; gap:7px; padding-left:24px; flex-shrink:0; opacity:0; transform:translateX(-10px); animation:p1lb-slideRight 0.5s 0.2s ease-out forwards; }
+.p1lb__logo svg { width:22px; height:20px; }
+.p1lb__logo-text { font-size:17px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p1lb__sep { width:1px; height:40px; background:var(--border); margin:0 20px; flex-shrink:0; opacity:0; animation:p1lb-fadeIn 0.3s 0.5s ease-out forwards; }
+.p1lb__content { flex:1; min-width:0; opacity:0; transform:translateY(6px); animation:p1lb-fadeUp 0.5s 0.6s ease-out forwards; }
+.p1lb__headline { font-size:16px; font-weight:800; color:var(--white); line-height:1.15; letter-spacing:-0.02em; white-space:nowrap; }
+.p1lb__headline span { color:var(--orange); }
+.p1lb__sub { display:flex; align-items:center; gap:14px; margin-top:5px; }
+.p1lb__stat-inline { display:flex; align-items:baseline; gap:4px; }
+.p1lb__stat-val { font-size:13px; font-weight:800; color:var(--orange); }
+.p1lb__stat-lbl { font-size:8px; color:var(--gray); text-transform:uppercase; letter-spacing:0.04em; }
+.p1lb__dot { width:2px; height:2px; border-radius:50%; background:rgba(255,255,255,0.15); }
+.p1lb__cta { flex-shrink:0; margin-right:24px; background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; padding:8px 18px; border-radius:20px; border:none; white-space:nowrap; opacity:0; transform:translateX(10px); animation:p1lb-slideLeft 0.4s 1.0s ease-out forwards; cursor:pointer; }
+.p1lb__cta::after { content:' \2192'; }
+.p1lb__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p1lb-lineGrow 0.8s 1.4s ease-out forwards; }
+@keyframes p1lb-glowIn { to{opacity:1;} }
+@keyframes p1lb-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p1lb-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p1lb-fadeIn { to{opacity:1;} }
+@keyframes p1lb-slideRight { to{opacity:1;transform:translateX(0);} }
+@keyframes p1lb-slideLeft { to{opacity:1;transform:translateX(0);} }
+@keyframes p1lb-lineGrow { to{width:100%;} }
+
+/* ── p1bb · Awareness 970×250 ── */
+.p1bb { width:970px; height:250px; --orange-glow:rgba(232,112,43,0.18); position:relative; overflow:hidden; border:1px solid var(--border); display:flex; align-items:center; cursor:pointer; background:var(--bg); font-family:'Plus Jakarta Sans',sans-serif; }
+.p1bb__glow { position:absolute; width:220px; height:220px; border-radius:50%; background:var(--orange-glow); filter:blur(70px); top:-60px; left:80px; opacity:0; animation:p1bb-glowIn 1s 0.2s ease-out forwards, p1bb-glowPulse 5s 3s ease-in-out infinite; }
+.p1bb__glow-2 { position:absolute; width:150px; height:150px; border-radius:50%; background:rgba(20,184,166,0.08); filter:blur(50px); bottom:-40px; right:200px; opacity:0; animation:p1bb-glowIn 1s 0.6s ease-out forwards; }
+.p1bb__left { padding:0 0 0 40px; flex:1; min-width:0; z-index:1; }
+.p1bb__logo { display:flex; align-items:center; gap:8px; opacity:0; transform:translateY(-8px); animation:p1bb-fadeDown 0.5s 0.2s ease-out forwards; }
+.p1bb__logo svg { width:24px; height:22px; }
+.p1bb__logo-text { font-size:18px; font-weight:700; color:var(--white); letter-spacing:-0.02em; }
+.p1bb__badge { font-size:8px; font-weight:600; color:var(--orange); border:1px solid rgba(232,112,43,0.35); padding:2px 8px; border-radius:10px; text-transform:uppercase; letter-spacing:0.05em; margin-left:8px; }
+.p1bb__headline { margin-top:16px; opacity:0; transform:translateY(10px); animation:p1bb-fadeUp 0.6s 0.5s ease-out forwards; }
+.p1bb__headline h1 { font-size:28px; font-weight:800; color:var(--white); line-height:1.1; letter-spacing:-0.03em; max-width:420px; }
+.p1bb__headline span { color:var(--orange); }
+.p1bb__subline { font-size:12px; color:var(--gray); margin-top:10px; line-height:1.5; max-width:380px; opacity:0; animation:p1bb-fadeUp 0.5s 0.9s ease-out forwards; }
+.p1bb__cta-row { margin-top:16px; opacity:0; transform:translateY(6px); animation:p1bb-fadeUp 0.4s 1.3s ease-out forwards; }
+.p1bb__cta { background:var(--orange); color:var(--white); font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:700; padding:9px 22px; border-radius:20px; border:none; cursor:pointer; }
+.p1bb__cta::after { content:' \2192'; }
+.p1bb__right { display:flex; gap:12px; padding-right:36px; flex-shrink:0; z-index:1; }
+.p1bb__stat-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 18px; text-align:center; min-width:110px; opacity:0; transform:translateY(12px); }
+.p1bb__stat-card:nth-child(1) { animation:p1bb-fadeUp 0.4s 1.0s ease-out forwards; }
+.p1bb__stat-card:nth-child(2) { animation:p1bb-fadeUp 0.4s 1.2s ease-out forwards; }
+.p1bb__stat-card:nth-child(3) { animation:p1bb-fadeUp 0.4s 1.4s ease-out forwards; }
+.p1bb__stat-val { font-size:26px; font-weight:800; color:var(--orange); letter-spacing:-0.03em; }
+.p1bb__stat-lbl { font-size:8px; color:var(--gray); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em; }
+.p1bb__nodes { position:absolute; right:30px; top:14px; opacity:0; animation:p1bb-fadeIn 0.6s 1.8s ease-out forwards; }
+.p1bb__accent { position:absolute; bottom:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--orange),var(--teal)); animation:p1bb-lineGrow 1s 1.8s ease-out forwards; }
+@keyframes p1bb-glowIn { to{opacity:1;} }
+@keyframes p1bb-glowPulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+@keyframes p1bb-fadeDown { to{opacity:1;transform:translateY(0);} }
+@keyframes p1bb-fadeUp { to{opacity:1;transform:translateY(0);} }
+@keyframes p1bb-fadeIn { to{opacity:1;} }
+@keyframes p1bb-lineGrow { to{width:100%;} }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="header-left">
+    <div class="ds-label">Marly Creative Concepts · Ad Review</div>
+    <div class="campaign-title">Process Mining ROI Accelerator</div>
+    <div class="campaign-meta">
+      <span class="meta-pill"><strong>Client</strong> Peech · peech.tech</span>
+      <span class="meta-pill"><strong>Date</strong> March 24, 2026</span>
+      <span class="meta-pill"><strong>Format</strong> HTML5 · CSS Animation</span>
+      <span class="meta-pill"><strong>Units</strong> 15 IAB Standard (3 × 5)</span>
+      <span class="meta-pill"><strong>Sets</strong> Awareness · Consideration · Retargeting</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <button class="replay-all-btn" onclick="replayAll()">↺ &nbsp;Replay All</button>
+    <div class="marly-badge">Marly · First Concepts</div>
+  </div>
+</header>
+
+<!-- ══════════ MAIN ══════════ -->
+<main>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ═══ SET 1: AWARENESS ═══ -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="set-header">
+  <div class="set-pills"><span class="set-pill set-pill--awareness">Awareness — Top Funnel</span></div>
+  <div class="set-title">Your Processes Are Costing You Millions.</div>
+  <div class="set-desc">Awareness-stage creative. ROI stats, problem framing, "Get Started" CTA. Orange accent.</div>
+</div>
+
+<div class="section-eyebrow">Portrait / Standard Formats</div>
+<div class="ads-row">
+
+  <!-- 300×250 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">300 × 250 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a1-300x250" data-ad class="p1r" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p1r__glow"></div>
+        <svg class="p1r__nodes" width="60" height="50" viewBox="0 0 60 50" fill="none">
+          <circle cx="10" cy="10" r="3" fill="rgba(232,112,43,0.2)"/>
+          <circle cx="35" cy="8" r="2" fill="rgba(232,112,43,0.15)"/>
+          <circle cx="50" cy="25" r="3.5" fill="rgba(20,184,166,0.2)"/>
+          <circle cx="25" cy="35" r="2.5" fill="rgba(232,112,43,0.12)"/>
+          <line x1="10" y1="10" x2="35" y2="8" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+          <line x1="35" y1="8" x2="50" y2="25" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+          <line x1="10" y1="10" x2="25" y2="35" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        </svg>
+        <div class="p1r__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p1r__logo-text">peech</span>
+          <span class="p1r__badge">Celonis Partner</span>
+        </div>
+        <div class="p1r__headline">
+          <h1>Your Processes Are <span>Costing You Millions.</span></h1>
+        </div>
+        <div class="p1r__stats">
+          <div><div class="p1r__stat-val">5x</div><div class="p1r__stat-lbl">Avg. ROI</div></div>
+          <div><div class="p1r__stat-val">70+</div><div class="p1r__stat-lbl">Projects</div></div>
+          <div><div class="p1r__stat-val">$500M+</div><div class="p1r__stat-lbl">Client Impact</div></div>
+        </div>
+        <button class="p1r__cta">Get Started</button>
+        <div class="p1r__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Medium Rectangle</span>
+      <button class="replay-btn" onclick="replayAd('a1-300x250')">↺ Replay</button>
+    </div>
+  </div>
+
+  <!-- 160×600 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">160 × 600 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a1-160x600" data-ad class="p1s" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p1s__glow"></div>
+        <div class="p1s__side"></div>
+        <div class="p1s__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p1s__logo-text">peech</span>
+        </div>
+        <div class="p1s__badge">Celonis Platinum Partner</div>
+        <div class="p1s__divider"></div>
+        <div class="p1s__headline">
+          <h1>Your Processes Are <span>Costing Millions.</span></h1>
+        </div>
+        <div class="p1s__stats">
+          <div class="p1s__stat-card"><div class="p1s__stat-val">5x</div><div class="p1s__stat-lbl">Average ROI</div></div>
+          <div class="p1s__stat-card"><div class="p1s__stat-val">70+</div><div class="p1s__stat-lbl">Projects Delivered</div></div>
+          <div class="p1s__stat-card"><div class="p1s__stat-val">$500M+</div><div class="p1s__stat-lbl">Client Impact</div></div>
+        </div>
+        <button class="p1s__cta">Get Started</button>
+        <div class="p1s__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Wide Skyscraper</span>
+      <button class="replay-btn" onclick="replayAd('a1-160x600')">↺ Replay</button>
+    </div>
+  </div>
+
+  <!-- 300×600 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">300 × 600 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a1-300x600" data-ad class="p1hs" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p1hs__glow"></div>
+        <div class="p1hs__glow-2"></div>
+        <div class="p1hs__side"></div>
+        <svg class="p1hs__nodes" width="55" height="45" viewBox="0 0 55 45" fill="none">
+          <circle cx="10" cy="8" r="2.5" fill="rgba(232,112,43,0.15)"/>
+          <circle cx="35" cy="12" r="2" fill="rgba(20,184,166,0.12)"/>
+          <circle cx="48" cy="30" r="3" fill="rgba(232,112,43,0.1)"/>
+          <circle cx="18" cy="38" r="1.5" fill="rgba(20,184,166,0.08)"/>
+          <line x1="10" y1="8" x2="35" y2="12" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          <line x1="35" y1="12" x2="48" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          <line x1="10" y1="8" x2="18" y2="38" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+        </svg>
+        <div class="p1hs__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p1hs__logo-text">peech</span>
+          <span class="p1hs__badge">Celonis Partner</span>
+        </div>
+        <div class="p1hs__headline">
+          <h1>Your Processes Are <span>Costing You Millions.</span></h1>
+        </div>
+        <p class="p1hs__subline">Uncover inefficiencies, optimize workflows, and drive measurable business impact with process mining.</p>
+        <div class="p1hs__stats">
+          <div class="p1hs__stat-card"><div class="p1hs__stat-val">5x</div><div class="p1hs__stat-lbl">Average ROI</div></div>
+          <div class="p1hs__stat-card"><div class="p1hs__stat-val">70+</div><div class="p1hs__stat-lbl">Projects Delivered</div></div>
+          <div class="p1hs__stat-card"><div class="p1hs__stat-val">$500M+</div><div class="p1hs__stat-lbl">Client Impact</div></div>
+        </div>
+        <button class="p1hs__cta">Get Started</button>
+        <div class="p1hs__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Half Page</span>
+      <button class="replay-btn" onclick="replayAd('a1-300x600')">↺ Replay</button>
+    </div>
+  </div>
+
+</div><!-- /ads-row -->
+
+<div class="wide-section">
+  <div class="section-eyebrow">Horizontal Formats</div>
+  <div class="ads-row" style="flex-direction:column;gap:40px;">
+
+    <!-- 970×250 -->
+    <div class="ad-card">
+      <div class="ad-dimensions">970 × 250 <span style="opacity:.4;font-weight:400">px</span></div>
+      <div class="ad-frame">
+        <div id="a1-970x250" data-ad class="p1bb" onclick="window.open('https://peech.tech','_blank')">
+          <div class="p1bb__glow"></div>
+          <div class="p1bb__glow-2"></div>
+          <svg class="p1bb__nodes" width="80" height="60" viewBox="0 0 80 60" fill="none">
+            <circle cx="15" cy="15" r="3" fill="rgba(232,112,43,0.15)"/>
+            <circle cx="50" cy="10" r="2.5" fill="rgba(20,184,166,0.15)"/>
+            <circle cx="70" cy="35" r="3" fill="rgba(232,112,43,0.12)"/>
+            <circle cx="30" cy="45" r="2" fill="rgba(20,184,166,0.1)"/>
+            <line x1="15" y1="15" x2="50" y2="10" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+            <line x1="50" y1="10" x2="70" y2="35" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+            <line x1="15" y1="15" x2="30" y2="45" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+            <line x1="30" y1="45" x2="70" y2="35" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+          </svg>
+          <div class="p1bb__left">
+            <div class="p1bb__logo">
+              <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+              <span class="p1bb__logo-text">peech</span>
+              <span class="p1bb__badge">Celonis Partner</span>
+            </div>
+            <div class="p1bb__headline">
+              <h1>Your Processes Are <span>Costing You Millions.</span></h1>
+            </div>
+            <p class="p1bb__subline">Uncover inefficiencies, optimize workflows, and drive measurable business impact with process mining.</p>
+            <div class="p1bb__cta-row"><button class="p1bb__cta">Get Started</button></div>
+          </div>
+          <div class="p1bb__right">
+            <div class="p1bb__stat-card"><div class="p1bb__stat-val">5x</div><div class="p1bb__stat-lbl">Avg. ROI</div></div>
+            <div class="p1bb__stat-card"><div class="p1bb__stat-val">70+</div><div class="p1bb__stat-lbl">Projects</div></div>
+            <div class="p1bb__stat-card"><div class="p1bb__stat-val">$500M+</div><div class="p1bb__stat-lbl">Client Impact</div></div>
+          </div>
+          <div class="p1bb__accent"></div>
+        </div>
+      </div>
+      <div class="ad-label-strip">
+        <span class="ad-type-name">Billboard</span>
+        <button class="replay-btn" onclick="replayAd('a1-970x250')">↺ Replay</button>
+      </div>
+    </div>
+
+    <!-- 728×90 -->
+    <div class="ad-card">
+      <div class="ad-dimensions">728 × 90 <span style="opacity:.4;font-weight:400">px</span></div>
+      <div class="ad-frame">
+        <div id="a1-728x90" data-ad class="p1lb" onclick="window.open('https://peech.tech','_blank')">
+          <div class="p1lb__glow"></div>
+          <div class="p1lb__logo">
+            <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+            <span class="p1lb__logo-text">peech</span>
+          </div>
+          <div class="p1lb__sep"></div>
+          <div class="p1lb__content">
+            <div class="p1lb__headline">Your Processes Are <span>Costing You Millions.</span></div>
+            <div class="p1lb__sub">
+              <div class="p1lb__stat-inline"><span class="p1lb__stat-val">5x</span><span class="p1lb__stat-lbl">ROI</span></div>
+              <div class="p1lb__dot"></div>
+              <div class="p1lb__stat-inline"><span class="p1lb__stat-val">70+</span><span class="p1lb__stat-lbl">Projects</span></div>
+              <div class="p1lb__dot"></div>
+              <div class="p1lb__stat-inline"><span class="p1lb__stat-val">$500M+</span><span class="p1lb__stat-lbl">Impact</span></div>
+            </div>
+          </div>
+          <button class="p1lb__cta">Get Started</button>
+          <div class="p1lb__accent"></div>
+        </div>
+      </div>
+      <div class="ad-label-strip">
+        <span class="ad-type-name">Leaderboard</span>
+        <button class="replay-btn" onclick="replayAd('a1-728x90')">↺ Replay</button>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /wide-section -->
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ═══ SET 2: CONSIDERATION ═══ -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="set-header">
+  <div class="set-pills"><span class="set-pill set-pill--consideration">Consideration — Mid Funnel</span></div>
+  <div class="set-title">Identify Bottlenecks. Unlock ROI. Scale Faster.</div>
+  <div class="set-desc">Process-step visuals, expertise positioning, "Book a Demo" CTA. Teal accent shift.</div>
+</div>
+
+<div class="section-eyebrow">Portrait / Standard Formats</div>
+<div class="ads-row">
+
+  <!-- 300×250 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">300 × 250 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a2-300x250" data-ad class="p2r" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p2r__glow"></div>
+        <div class="p2r__glow-2"></div>
+        <div class="p2r__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p2r__logo-text">peech</span>
+          <span class="p2r__badge">Process Mining</span>
+        </div>
+        <div class="p2r__headline">
+          <h1>Identify Bottlenecks. <span>Unlock ROI.</span> Scale Faster.</h1>
+        </div>
+        <p class="p2r__sub">Stop guessing where value is lost. See it. Fix it. Scale it.</p>
+        <div class="p2r__flow">
+          <div class="p2r__flow-node"></div>
+          <div class="p2r__flow-line"></div>
+          <div class="p2r__flow-node active"></div>
+          <div class="p2r__flow-line"></div>
+          <div class="p2r__flow-node"></div>
+          <div class="p2r__flow-line"></div>
+          <div class="p2r__flow-node"></div>
+          <span class="p2r__flow-label">Bottleneck detected</span>
+        </div>
+        <button class="p2r__cta">Book a Demo</button>
+        <div class="p2r__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Medium Rectangle</span>
+      <button class="replay-btn" onclick="replayAd('a2-300x250')">↺ Replay</button>
+    </div>
+  </div>
+
+  <!-- 160×600 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">160 × 600 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a2-160x600" data-ad class="p2s" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p2s__glow"></div>
+        <div class="p2s__side"></div>
+        <div class="p2s__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p2s__logo-text">peech</span>
+        </div>
+        <div class="p2s__badge">Celonis Experts</div>
+        <div class="p2s__divider"></div>
+        <div class="p2s__headline">
+          <h1>Identify Bottlenecks. <span>Unlock ROI.</span></h1>
+        </div>
+        <p class="p2s__sub">See it. Fix it. Scale it.</p>
+        <div class="p2s__steps">
+          <div class="p2s__step"><div class="p2s__step-num">1</div><div class="p2s__step-text">Map your processes</div></div>
+          <div class="p2s__step"><div class="p2s__step-num">2</div><div class="p2s__step-text">Find bottlenecks</div></div>
+          <div class="p2s__step"><div class="p2s__step-num">3</div><div class="p2s__step-text">Optimize &amp; scale</div></div>
+        </div>
+        <button class="p2s__cta">Book a Demo</button>
+        <div class="p2s__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Wide Skyscraper</span>
+      <button class="replay-btn" onclick="replayAd('a2-160x600')">↺ Replay</button>
+    </div>
+  </div>
+
+  <!-- 300×600 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">300 × 600 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a2-300x600" data-ad class="p2hs" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p2hs__glow"></div>
+        <div class="p2hs__glow-2"></div>
+        <div class="p2hs__side"></div>
+        <div class="p2hs__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p2hs__logo-text">peech</span>
+          <span class="p2hs__badge">Celonis Experts</span>
+        </div>
+        <div class="p2hs__headline">
+          <h1>Identify Bottlenecks. <span>Unlock ROI.</span> Scale Faster.</h1>
+        </div>
+        <p class="p2hs__subline">Stop guessing where value is lost. See it. Fix it. Scale it.</p>
+        <div class="p2hs__steps">
+          <div class="p2hs__step">
+            <div class="p2hs__step-num">1</div>
+            <div><div class="p2hs__step-text">Map Your Processes</div><div class="p2hs__step-desc">Celonis-powered visibility</div></div>
+          </div>
+          <div class="p2hs__step">
+            <div class="p2hs__step-num">2</div>
+            <div><div class="p2hs__step-text">Find Bottlenecks</div><div class="p2hs__step-desc">Data-driven root cause analysis</div></div>
+          </div>
+          <div class="p2hs__step">
+            <div class="p2hs__step-num">3</div>
+            <div><div class="p2hs__step-text">Optimize &amp; Scale</div><div class="p2hs__step-desc">Measurable business impact</div></div>
+          </div>
+        </div>
+        <button class="p2hs__cta">Book a Demo</button>
+        <div class="p2hs__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Half Page</span>
+      <button class="replay-btn" onclick="replayAd('a2-300x600')">↺ Replay</button>
+    </div>
+  </div>
+
+</div><!-- /ads-row -->
+
+<div class="wide-section">
+  <div class="section-eyebrow">Horizontal Formats</div>
+  <div class="ads-row" style="flex-direction:column;gap:40px;">
+
+    <!-- 970×250 -->
+    <div class="ad-card">
+      <div class="ad-dimensions">970 × 250 <span style="opacity:.4;font-weight:400">px</span></div>
+      <div class="ad-frame">
+        <div id="a2-970x250" data-ad class="p2bb" onclick="window.open('https://peech.tech','_blank')">
+          <div class="p2bb__glow"></div>
+          <div class="p2bb__glow-2"></div>
+          <div class="p2bb__left">
+            <div class="p2bb__logo">
+              <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+              <span class="p2bb__logo-text">peech</span>
+              <span class="p2bb__badge">Celonis Experts</span>
+            </div>
+            <div class="p2bb__headline">
+              <h1>Identify Bottlenecks. <span>Unlock ROI.</span> Scale Faster.</h1>
+            </div>
+            <p class="p2bb__subline">Stop guessing where value is lost. See it. Fix it. Scale it — with expertise-driven process mining.</p>
+            <div class="p2bb__cta-row"><button class="p2bb__cta">Book a Demo</button></div>
+          </div>
+          <div class="p2bb__right">
+            <div class="p2bb__step">
+              <div class="p2bb__step-num">1</div>
+              <div><div class="p2bb__step-text">Map Your Processes</div><div class="p2bb__step-desc">Celonis-powered visibility</div></div>
+            </div>
+            <div class="p2bb__step">
+              <div class="p2bb__step-num">2</div>
+              <div><div class="p2bb__step-text">Find Bottlenecks</div><div class="p2bb__step-desc">Data-driven root cause analysis</div></div>
+            </div>
+            <div class="p2bb__step">
+              <div class="p2bb__step-num">3</div>
+              <div><div class="p2bb__step-text">Optimize &amp; Scale</div><div class="p2bb__step-desc">Measurable business impact</div></div>
+            </div>
+          </div>
+          <div class="p2bb__accent"></div>
+        </div>
+      </div>
+      <div class="ad-label-strip">
+        <span class="ad-type-name">Billboard</span>
+        <button class="replay-btn" onclick="replayAd('a2-970x250')">↺ Replay</button>
+      </div>
+    </div>
+
+    <!-- 728×90 -->
+    <div class="ad-card">
+      <div class="ad-dimensions">728 × 90 <span style="opacity:.4;font-weight:400">px</span></div>
+      <div class="ad-frame">
+        <div id="a2-728x90" data-ad class="p2lb" onclick="window.open('https://peech.tech','_blank')">
+          <div class="p2lb__glow"></div>
+          <div class="p2lb__logo">
+            <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+            <span class="p2lb__logo-text">peech</span>
+          </div>
+          <div class="p2lb__sep"></div>
+          <div class="p2lb__content">
+            <div class="p2lb__headline">Identify Bottlenecks. <span>Unlock ROI.</span> Scale Faster.</div>
+            <div class="p2lb__sub">Expertise-driven process mining for enterprise outcomes.</div>
+          </div>
+          <div class="p2lb__flow">
+            <div class="p2lb__flow-dot"></div>
+            <div class="p2lb__flow-line"></div>
+            <div class="p2lb__flow-dot active"></div>
+            <div class="p2lb__flow-line"></div>
+            <div class="p2lb__flow-dot"></div>
+          </div>
+          <button class="p2lb__cta">Book a Demo</button>
+          <div class="p2lb__accent"></div>
+        </div>
+      </div>
+      <div class="ad-label-strip">
+        <span class="ad-type-name">Leaderboard</span>
+        <button class="replay-btn" onclick="replayAd('a2-728x90')">↺ Replay</button>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /wide-section consideration -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- ═══ SET 3: RETARGETING ═══ -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="set-header">
+  <div class="set-pills"><span class="set-pill set-pill--retargeting">Retargeting — Bottom Funnel</span></div>
+  <div class="set-title">Ready to Fix Your Processes?</div>
+  <div class="set-desc">Trust signals, credential stacking, high-urgency CTA. Strong orange glow, "See the ROI" close.</div>
+</div>
+
+<div class="section-eyebrow">Portrait / Standard Formats</div>
+<div class="ads-row">
+
+  <!-- 300×250 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">300 × 250 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a3-300x250" data-ad class="p3r" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p3r__glow"></div>
+        <div class="p3r__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p3r__logo-text">peech</span>
+        </div>
+        <div class="p3r__headline">
+          <h1>Ready to Fix Your <span>Processes?</span></h1>
+        </div>
+        <div class="p3r__trust">
+          <div class="p3r__trust-item"><div class="p3r__trust-check">✓</div><span class="p3r__trust-text">Celonis Partner</span></div>
+          <div class="p3r__trust-item"><div class="p3r__trust-check">✓</div><span class="p3r__trust-text">70+ Projects</span></div>
+          <div class="p3r__trust-item"><div class="p3r__trust-check">✓</div><span class="p3r__trust-text">5x ROI</span></div>
+        </div>
+        <button class="p3r__cta">See the ROI</button>
+        <div class="p3r__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Medium Rectangle</span>
+      <button class="replay-btn" onclick="replayAd('a3-300x250')">↺ Replay</button>
+    </div>
+  </div>
+
+  <!-- 160×600 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">160 × 600 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a3-160x600" data-ad class="p3s" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p3s__glow"></div>
+        <div class="p3s__side"></div>
+        <div class="p3s__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p3s__logo-text">peech</span>
+        </div>
+        <div class="p3s__divider"></div>
+        <div class="p3s__headline">
+          <h1>Ready to Fix Your <span>Processes?</span></h1>
+        </div>
+        <p class="p3s__sub">Let's talk.</p>
+        <div class="p3s__trust">
+          <div class="p3s__trust-item"><div class="p3s__trust-check">✓</div><span class="p3s__trust-text">Celonis Platinum Partner</span></div>
+          <div class="p3s__trust-item"><div class="p3s__trust-check">✓</div><span class="p3s__trust-text">70+ Projects Delivered</span></div>
+          <div class="p3s__trust-item"><div class="p3s__trust-check">✓</div><span class="p3s__trust-text">$500M+ Client Impact</span></div>
+        </div>
+        <button class="p3s__cta">See the ROI</button>
+        <div class="p3s__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Wide Skyscraper</span>
+      <button class="replay-btn" onclick="replayAd('a3-160x600')">↺ Replay</button>
+    </div>
+  </div>
+
+  <!-- 300×600 -->
+  <div class="ad-card">
+    <div class="ad-dimensions">300 × 600 <span style="opacity:.4;font-weight:400">px</span></div>
+    <div class="ad-frame">
+      <div id="a3-300x600" data-ad class="p3hs" onclick="window.open('https://peech.tech','_blank')">
+        <div class="p3hs__glow"></div>
+        <div class="p3hs__side"></div>
+        <div class="p3hs__logo">
+          <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+          <span class="p3hs__logo-text">peech</span>
+        </div>
+        <div class="p3hs__headline">
+          <h1>Ready to Fix Your <span>Processes?</span></h1>
+        </div>
+        <p class="p3hs__sub">We turn complex operational data into clear, actionable improvements.</p>
+        <div class="p3hs__trust">
+          <div class="p3hs__trust-item">
+            <div class="p3hs__trust-check">✓</div>
+            <div><div class="p3hs__trust-text">Celonis Platinum Partner</div><div class="p3hs__trust-desc">Certified implementation experts</div></div>
+          </div>
+          <div class="p3hs__trust-item">
+            <div class="p3hs__trust-check">✓</div>
+            <div><div class="p3hs__trust-text">70+ Projects Delivered</div><div class="p3hs__trust-desc">Enterprise-grade experience</div></div>
+          </div>
+          <div class="p3hs__trust-item">
+            <div class="p3hs__trust-check">✓</div>
+            <div><div class="p3hs__trust-text">$500M+ Client Impact</div><div class="p3hs__trust-desc">Measurable business outcomes</div></div>
+          </div>
+          <div class="p3hs__trust-item">
+            <div class="p3hs__trust-check">✓</div>
+            <div><div class="p3hs__trust-text">5x Average ROI</div><div class="p3hs__trust-desc">Proven return on investment</div></div>
+          </div>
+        </div>
+        <button class="p3hs__cta">See the ROI</button>
+        <div class="p3hs__accent"></div>
+      </div>
+    </div>
+    <div class="ad-label-strip">
+      <span class="ad-type-name">Half Page</span>
+      <button class="replay-btn" onclick="replayAd('a3-300x600')">↺ Replay</button>
+    </div>
+  </div>
+
+</div><!-- /ads-row -->
+
+<div class="wide-section">
+  <div class="section-eyebrow">Horizontal Formats</div>
+  <div class="ads-row" style="flex-direction:column;gap:40px;">
+
+    <!-- 970×250 -->
+    <div class="ad-card">
+      <div class="ad-dimensions">970 × 250 <span style="opacity:.4;font-weight:400">px</span></div>
+      <div class="ad-frame">
+        <div id="a3-970x250" data-ad class="p3bb" onclick="window.open('https://peech.tech','_blank')">
+          <div class="p3bb__glow"></div>
+          <div class="p3bb__center">
+            <div class="p3bb__logo">
+              <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+              <span class="p3bb__logo-text">peech</span>
+            </div>
+            <div class="p3bb__headline">
+              <h1>Ready to Fix Your <span>Processes?</span> Let's Talk.</h1>
+            </div>
+            <div class="p3bb__trust">
+              <div class="p3bb__trust-item"><div class="p3bb__trust-check">✓</div><span class="p3bb__trust-text">Celonis Platinum Partner</span></div>
+              <div class="p3bb__trust-sep"></div>
+              <div class="p3bb__trust-item"><div class="p3bb__trust-check">✓</div><span class="p3bb__trust-text">70+ Projects Delivered</span></div>
+              <div class="p3bb__trust-sep"></div>
+              <div class="p3bb__trust-item"><div class="p3bb__trust-check">✓</div><span class="p3bb__trust-text">$500M+ Client Impact</span></div>
+            </div>
+            <div class="p3bb__cta-row"><button class="p3bb__cta">See the ROI</button></div>
+          </div>
+          <div class="p3bb__accent"></div>
+        </div>
+      </div>
+      <div class="ad-label-strip">
+        <span class="ad-type-name">Billboard</span>
+        <button class="replay-btn" onclick="replayAd('a3-970x250')">↺ Replay</button>
+      </div>
+    </div>
+
+    <!-- 728×90 -->
+    <div class="ad-card">
+      <div class="ad-dimensions">728 × 90 <span style="opacity:.4;font-weight:400">px</span></div>
+      <div class="ad-frame">
+        <div id="a3-728x90" data-ad class="p3lb" onclick="window.open('https://peech.tech','_blank')">
+          <div class="p3lb__glow"></div>
+          <div class="p3lb__logo">
+            <svg viewBox="0 0 602 531" fill="none"><path d="M399.554 506.976C561.682 509.029 599.871 371.086 601.758 324.236C606.207 213.585 539.908 136.894 539.908 136.894C539.908 136.894 510.054 173.805 475.337 191.161C218.268 319.72 352.008 500.899 355.759 501.132C355.759 501.132 367.888 472.681 386.525 455.174C504.791 344.098 518.936 229.574 518.936 229.574C518.936 229.574 504.511 367.103 399.005 463.222C399.005 463.222 388.029 475.223 372.517 503.095C372.517 503.095 381.581 507.338 399.554 506.976Z" fill="#FFC47D"/><path d="M381.021 473.837C507.158 260.434 354.383 104.222 294.058 65.8624C151.576-24.7229 0 4.49158 0 4.49158C0 4.49158 25.9313 72.3261 22.3808 131.643C-3.85202 570.897 336.813 532.231 339.975 527.436C339.975 527.436 311.703 489.576 302.812 451.467C246.42 209.639 106.213 103.231 106.213 103.231C106.213 103.231 276.533 227.616 322.923 441.078C322.923 441.078 330.387 464.816 355.322 506.717C355.322 506.717 367.815 497.945 381.021 473.837Z" fill="#FF8A33"/></svg>
+            <span class="p3lb__logo-text">peech</span>
+          </div>
+          <div class="p3lb__sep"></div>
+          <div class="p3lb__content">
+            <div class="p3lb__headline">Ready to Fix Your <span>Processes?</span></div>
+            <div class="p3lb__trust-row">
+              <div class="p3lb__trust-item"><span class="p3lb__trust-check">✓</span> Celonis Partner</div>
+              <div class="p3lb__dot"></div>
+              <div class="p3lb__trust-item"><span class="p3lb__trust-check">✓</span> 70+ Projects</div>
+              <div class="p3lb__dot"></div>
+              <div class="p3lb__trust-item"><span class="p3lb__trust-check">✓</span> $500M+ Impact</div>
+            </div>
+          </div>
+          <button class="p3lb__cta">See the ROI</button>
+          <div class="p3lb__accent"></div>
+        </div>
+      </div>
+      <div class="ad-label-strip">
+        <span class="ad-type-name">Leaderboard</span>
+        <button class="replay-btn" onclick="replayAd('a3-728x90')">↺ Replay</button>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /wide-section retargeting -->
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-left">
+    Marly Creative Concepts — Wilson Ma, 2026<br>
+    Client: Peech · Process Mining ROI Accelerator — Q2 Lead Gen
+  </div>
+  <div class="footer-right">
+    First concepts · Full 3-set campaign · Prepared for client review<br>
+    March 24, 2026<br>
+    <a href="https://review.marly.cc/peech/process-mining-roi" style="color:rgba(232,112,43,0.5);text-decoration:none;font-weight:600;">review.marly.cc/peech/process-mining-roi</a>
+  </div>
+</footer>
+
+</main>
+
+<script>
+function replayAd(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const clone = el.cloneNode(true);
+  el.parentNode.replaceChild(clone, el);
+}
+function replayAll() {
+  document.querySelectorAll('[data-ad]').forEach(el => {
+    const clone = el.cloneNode(true);
+    el.parentNode.replaceChild(clone, el);
+  });
+}
+</script>
+
+</body>
+</html>
