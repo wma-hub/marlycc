@@ -193,20 +193,10 @@
     .carousel-track-outer {
       overflow: hidden;
       padding: 14px 0;
-      position: relative;
       width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
+      mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
     }
-    .carousel-track-outer::before,
-    .carousel-track-outer::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 60px;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .carousel-track-outer::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
-    .carousel-track-outer::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
     .carousel-track {
       display: flex;
       gap: 0;
