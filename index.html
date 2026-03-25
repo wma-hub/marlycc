@@ -190,20 +190,15 @@
       font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 20px;
     }
-    .carousel-box {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
     .carousel-track-outer {
-      padding: 14px 0;
+      overflow: hidden;
     }
     .carousel-track {
       display: flex;
-      gap: 0;
+      gap: 16px;
       align-items: center;
       width: max-content;
-      animation: ribbon 36s linear infinite;
+      animation: ribbon 40s linear infinite;
     }
     .carousel-track:hover { animation-play-state: paused; }
     @keyframes ribbon {
@@ -211,15 +206,14 @@
       to   { transform: translateX(-50%); }
     }
     .logo-slot {
-      height: 27px;
-      padding: 0 24px;
+      padding: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
     .logo-slot img {
-      height: 21px;
+      max-height: 36px;
       width: auto;
       display: block;
       filter: var(--logo-filter);
@@ -646,8 +640,7 @@
 <section id="clients">
   <div class="clients-inner">
     <p class="clients-label">Brands we've worked with</p>
-    <div class="carousel-box">
-      <div class="carousel-track-outer">
+    <div class="carousel-track-outer">
       <div class="carousel-track" id="carousel">
         <div class="logo-slot"><img src="assets/logos/logo-ripco.svg" alt="Ripco"></div>
         <div class="logo-slot"><img src="assets/logos/logo-west elm.svg" alt="West Elm"></div>
@@ -681,7 +674,6 @@
         <div class="logo-slot"><img src="assets/logos/logo-workhuman.svg" alt="Workhuman"></div>
         <div class="logo-slot"><img src="assets/logos/logo-peech.svg" alt="Peech"></div>
       </div>
-    </div>
     </div>
   </div>
 </section>
