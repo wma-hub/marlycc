@@ -496,7 +496,8 @@
       display: flex; justify-content: space-between; align-items: center;
       width: 100%; max-width: var(--max); margin: 0 auto;
     }
-    .footer-logo { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .footer-logo img { height: 24px; width: auto; display: block; }
     .footer-note { font-size: 11px; color: rgba(255,255,255,0.45); }
 
     /* ─── HERO LOAD-IN ────────────────────────────────── */
@@ -933,7 +934,7 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Marly Creative Concepts</div>
+    <div class="footer-logo"><img src="mcc-logo-icon-ko.svg" alt="Marly"><span>Creative Concepts</span></div>
     <div class="footer-note">Production partner for agencies and in-house teams &nbsp;·&nbsp; © 2026 · marly.cc</div>
   </div>
 </footer>
