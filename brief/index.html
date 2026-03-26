@@ -15,14 +15,24 @@
   <meta name="description" content="Submit your creative brief and brand assets to start your animated HTML5 ad production.">
   <link rel="icon" href="/mcc-logo-icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --orange: #FF6B00;
+      --orange-tint: rgba(255, 107, 0, 0.05);
+      --divider: #D8DCE2;
+      --text: #111111;
+      --muted: #6B7280;
+      --bg: #FFFFFF;
+      --border: rgba(0, 0, 0, 0.12);
+    }
+
     body {
-      font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
-      background: #FAFAF8;
-      color: #2C2C2A;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -33,24 +43,31 @@
     }
 
     /* ── Header ── */
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+    .mcc-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .mcc-logo-icon { width: 40px; height: 40px; flex-shrink: 0; }
+    .mcc-logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      color: #888780;
-      margin-bottom: 10px;
+      color: var(--text);
+      line-height: 1;
     }
     .page h1 {
       font-size: 28px;
       font-weight: 500;
-      color: #2C2C2A;
+      color: var(--text);
       line-height: 1.2;
       margin-bottom: 6px;
     }
     .page .subtitle {
       font-size: 15px;
-      color: #888780;
+      color: var(--muted);
       line-height: 1.5;
       margin-bottom: 40px;
     }
@@ -69,7 +86,7 @@
       transition: background 0.35s ease;
     }
     .progress-segment.active {
-      background: #FF8406;
+      background: var(--orange);
     }
 
     /* ── Section headers ── */
@@ -86,7 +103,7 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: #FF8406;
+      background: var(--orange);
       color: white;
       font-size: 12px;
       font-weight: 500;
@@ -98,11 +115,11 @@
     .section-header h2 {
       font-size: 18px;
       font-weight: 500;
-      color: #2C2C2A;
+      color: var(--text);
     }
     .section-header .desc {
       font-size: 13px;
-      color: #888780;
+      color: var(--muted);
       line-height: 1.5;
       margin-left: 34px;
     }
@@ -115,7 +132,7 @@
       display: block;
       font-size: 13px;
       font-weight: 500;
-      color: #2C2C2A;
+      color: var(--text);
       margin-bottom: 6px;
     }
     .field label .req {
@@ -124,7 +141,7 @@
     }
     .field .hint {
       font-size: 12px;
-      color: #888780;
+      color: var(--muted);
       line-height: 1.45;
       margin-bottom: 6px;
     }
@@ -135,10 +152,10 @@
       width: 100%;
       padding: 9px 12px;
       border-radius: 8px;
-      border: 1px solid rgba(0,0,0,0.12);
+      border: 1px solid var(--border);
       font-size: 14px;
       font-family: inherit;
-      color: #2C2C2A;
+      color: var(--text);
       background: white;
       outline: none;
       transition: border-color 0.15s;
@@ -150,7 +167,7 @@
     }
     .field input:focus,
     .field textarea:focus {
-      border-color: #FF8406;
+      border-color: var(--orange);
     }
     .field input::placeholder,
     .field textarea::placeholder {
@@ -180,9 +197,9 @@
       border-color: rgba(0,0,0,0.25);
     }
     .chip.selected {
-      border: 1.5px solid #FF8406;
-      background: rgba(255,132,6,0.08);
-      color: #cc6200;
+      border: 1.5px solid var(--orange);
+      background: rgba(255, 107, 0, 0.08);
+      color: #c45200;
       font-weight: 500;
     }
 
@@ -206,21 +223,21 @@
       border-color: rgba(0,0,0,0.25);
     }
     .size-btn.selected {
-      border: 1.5px solid #FF8406;
-      background: rgba(255,132,6,0.06);
+      border: 1.5px solid var(--orange);
+      background: rgba(255, 107, 0, 0.06);
     }
     .size-btn .size-label {
       font-size: 14px;
       font-weight: 500;
-      color: #2C2C2A;
+      color: var(--text);
       display: block;
     }
     .size-btn.selected .size-label {
-      color: #cc6200;
+      color: #c45200;
     }
     .size-btn .size-desc {
       font-size: 11px;
-      color: #888780;
+      color: var(--muted);
       display: block;
       margin-top: 2px;
     }
@@ -242,21 +259,21 @@
       font-family: inherit;
     }
     .anim-btn.selected {
-      border: 1.5px solid #FF8406;
-      background: rgba(255,132,6,0.06);
+      border: 1.5px solid var(--orange);
+      background: rgba(255, 107, 0, 0.06);
     }
     .anim-btn .anim-name {
       font-size: 14px;
       font-weight: 500;
-      color: #2C2C2A;
+      color: var(--text);
       display: block;
     }
     .anim-btn.selected .anim-name {
-      color: #cc6200;
+      color: #c45200;
     }
     .anim-btn .anim-desc {
       font-size: 12px;
-      color: #888780;
+      color: var(--muted);
       line-height: 1.4;
       display: block;
       margin-top: 2px;
@@ -274,7 +291,7 @@
       font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
       font-size: 12px;
       line-height: 1.65;
-      color: #2C2C2A;
+      color: var(--text);
       white-space: pre-wrap;
       word-break: break-word;
       margin: 0;
@@ -301,30 +318,30 @@
     .btn-back {
       background: white;
       border: 1px solid rgba(0,0,0,0.12);
-      color: #2C2C2A;
+      color: var(--text);
     }
     .btn-back:hover { border-color: rgba(0,0,0,0.3); }
     .btn-next {
-      background: #FF8406;
+      background: var(--orange);
       color: white;
     }
-    .btn-next:hover { background: #e67300; }
+    .btn-next:hover { background: #e06000; }
     .btn-next:disabled {
       background: rgba(0,0,0,0.08);
       color: rgba(0,0,0,0.3);
       cursor: not-allowed;
     }
     .btn-submit {
-      background: #FF8406;
+      background: var(--orange);
       color: white;
       width: 100%;
       padding: 12px 24px;
       font-size: 15px;
     }
-    .btn-submit:hover { background: #e67300; }
+    .btn-submit:hover { background: #e06000; }
     .btn-copy {
       background: transparent;
-      color: #888780;
+      color: var(--muted);
       font-size: 13px;
       font-weight: 400;
       padding: 10px 16px;
@@ -350,8 +367,8 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: rgba(255,132,6,0.1);
-      color: #FF8406;
+      background: rgba(255, 107, 0, 0.1);
+      color: var(--orange);
       font-size: 22px;
       display: flex;
       align-items: center;
@@ -365,7 +382,7 @@
     }
     .success-msg p {
       font-size: 14px;
-      color: #888780;
+      color: var(--muted);
       line-height: 1.5;
     }
 
@@ -384,9 +401,17 @@
 <body>
 
 <div class="page">
-  <p class="eyebrow">Marly Creative Concepts</p>
-  <h1>Creative brief</h1>
-  <p class="subtitle">Everything I need to start building your animated ad set. Takes about 5 minutes.</p>
+  <div class="mcc-logo">
+    <svg class="mcc-logo-icon" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="101.62" height="101.62" rx="15" fill="#FF6B00"/>
+      <path d="M38.3804 29.97C37.5504 29.97 36.7404 30 35.9404 30.06C34.4204 30.17 34.0704 32.28 35.4804 32.86C39.9704 34.72 42.8704 37.66 42.8704 40.96V70.57C42.8704 71.38 43.5204 72.03 44.3304 72.03H55.6304C56.4404 72.03 57.0904 71.38 57.0904 70.57V40.96C57.0904 40.85 57.0904 40.74 57.0804 40.64C57.0804 40.58 57.0804 40.53 57.0804 40.47C57.0804 40.36 57.0904 40.26 57.0904 40.15C57.0904 34.53 48.7104 29.97 38.3704 29.97H38.3804Z" fill="white"/>
+      <path d="M58.0204 30.04C58.0204 30.04 57.9604 30.04 57.9204 30.04C56.4504 30.04 55.8704 31.96 57.1204 32.73C60.6104 34.88 62.5104 38 62.5104 41.03V70.64C62.5104 71.45 63.1604 72.1 63.9704 72.1H75.2704C76.0804 72.1 76.7304 71.45 76.7304 70.64V41.03C76.7304 40.92 76.7304 40.81 76.7204 40.71C76.7204 40.65 76.7204 40.6 76.7204 40.54C76.7204 40.43 76.7304 40.33 76.7304 40.22C76.7304 34.6 68.3504 30.04 58.0104 30.04H58.0204Z" fill="white"/>
+      <path d="M28.5299 35.28C27.8699 35.14 27.1799 35.04 26.4699 34.98C25.6199 34.9 24.8799 35.58 24.8799 36.44V70.57C24.8799 71.38 25.5299 72.03 26.3399 72.03H36.2799C37.0899 72.03 37.7399 71.38 37.7399 70.57V44.07C37.7399 39.91 33.8499 36.4 28.5199 35.29L28.5299 35.28Z" fill="white"/>
+    </svg>
+    <span class="mcc-logo-text">Creative Concepts</span>
+  </div>
+  <h1>Creative Brief</h1>
+  <p class="subtitle">Everything we need to start building your animated ad set.</p>
 
   <div class="progress" id="progress"></div>
 
@@ -435,7 +460,7 @@
   <div class="step" id="step-brand">
     <div class="section-header">
       <div class="row"><span class="section-num">2</span><h2>Brand setup</h2></div>
-      <p class="desc">I'll use these assets to build your creative foundation. This is a one-time setup — future campaigns reference it automatically.</p>
+      <p class="desc">We'll use these assets to build your creative foundation. This is a one-time setup — future campaigns reference it automatically.</p>
     </div>
 
     <div class="field">
@@ -445,7 +470,7 @@
     </div>
     <div class="field">
       <label>Brand colors <span class="req">*</span></label>
-      <p class="hint">Hex codes for primary, secondary, and accent colors. Not sure? Share your guidelines or website and I'll extract them.</p>
+      <p class="hint">Hex codes for primary, secondary, and accent colors. Not sure? Share your guidelines or website and we'll extract them.</p>
       <input type="text" id="colors" placeholder="#1A2B3C, #FF6B35, ...">
     </div>
     <div class="field">
@@ -455,7 +480,7 @@
     </div>
     <div class="field">
       <label>Brand guidelines</label>
-      <p class="hint">Link to your brand guidelines PDF. Not required — I can work from your website and assets.</p>
+      <p class="hint">Link to your brand guidelines PDF. Not required — we can work from your website and assets.</p>
       <input type="text" id="guidelinesLink" placeholder="https://drive.google.com/...">
     </div>
     <div class="field">
@@ -469,7 +494,7 @@
   <div class="step" id="step-campaign">
     <div class="section-header">
       <div class="row"><span class="section-num" id="campaignNum">2</span><h2>Campaign brief</h2></div>
-      <p class="desc">Details for this specific ad set. The more context, the faster I can deliver.</p>
+      <p class="desc">Details for this specific ad set. The more context, the faster we can deliver.</p>
     </div>
 
     <div class="field">
@@ -480,7 +505,7 @@
     <div class="field">
       <label>Number of ad sets <span class="req">*</span></label>
       <p class="hint">One ad set = one creative concept across your selected sizes. Need 3 different visuals? That's 3 ad sets.</p>
-      <select id="adSetCount" style="width:100%;padding:9px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);font-size:14px;font-family:inherit;color:#2C2C2A;background:white;outline:none;cursor:pointer;">
+      <select id="adSetCount" style="width:100%;padding:9px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);font-size:14px;font-family:inherit;color:#111111;background:white;outline:none;cursor:pointer;">
         <option value="">Select…</option>
         <option value="1">1 ad set</option>
         <option value="2">2 ad sets</option>
@@ -550,7 +575,7 @@
   <div class="step" id="step-review">
     <div class="section-header">
       <div class="row"><span class="section-num" id="reviewNum">3</span><h2>Review your brief</h2></div>
-      <p class="desc">Everything looks good? Hit submit and I'll get started.</p>
+      <p class="desc">Everything looks good? Hit submit and we'll get started.</p>
     </div>
     <div class="review-block">
       <pre id="reviewText"></pre>
@@ -568,7 +593,7 @@
     <div class="success-msg">
       <div class="check">✓</div>
       <h2>Brief received</h2>
-      <p>I'll review everything and follow up within 24 hours.<br>If you have assets to share, reply to the confirmation email.</p>
+      <p>We'll review everything and follow up within 24 hours.<br>If you have assets to share, reply to the confirmation email.</p>
     </div>
   </div>
 
