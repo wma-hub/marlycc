@@ -2416,10 +2416,14 @@
 
   function workSliderUpdate() {
     document.getElementById('work-slider').style.transform = 'translateX(-' + (workSlideIdx * 100) + '%)';
+    document.querySelectorAll('.work-slide').forEach(function(s, i) {
+      s.style.pointerEvents = i === workSlideIdx ? '' : 'none';
+    });
     document.querySelectorAll('.slider-dot').forEach(function(d, i) {
       d.classList.toggle('active', i === workSlideIdx);
     });
   }
+  workSliderUpdate();
 
   // Touch swipe support
   (function() {
