@@ -242,14 +242,18 @@
       letter-spacing: 0.04em;
     }
     /* ── WORK SLIDER ──────────────────────────────── */
-    .work-slider-outer { position: relative; overflow: hidden; }
+    .work-slider-outer { position: relative; overflow: hidden; width: 100%; }
     .work-slider {
       display: flex;
+      width: 100%;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform;
     }
     .work-slide {
-      min-width: 100%;
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 0;
+      overflow: hidden;
       display: flex;
       gap: 64px;
       align-items: flex-start;
@@ -258,8 +262,6 @@
       width: 200px;
       flex-shrink: 0;
       padding-top: 4px;
-      position: sticky;
-      top: 108px;
     }
     .slide-count {
       font-size: 10px;
@@ -278,12 +280,13 @@
     .slide-right {
       flex: 1;
       min-width: 0;
+      overflow: hidden;
     }
     .replay-all-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #fff;
+      background: transparent;
       color: var(--accent);
       border: 1px solid var(--accent);
       font-family: inherit;
@@ -306,21 +309,18 @@
     }
     .slider-btn {
       background: none;
-      border: 1px solid var(--border);
-      color: var(--text);
-      width: 38px; height: 38px;
-      border-radius: 50%;
+      border: none;
+      color: var(--dim);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      padding: 4px;
+      transition: color 0.15s;
       flex-shrink: 0;
-      padding: 0;
     }
-    .slider-btn:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
-    .slider-btn:disabled { opacity: 0.3; cursor: default; }
-    .slider-dots { display: flex; gap: 8px; align-items: center; }
+    .slider-btn:hover { color: var(--text); }
+    .slider-dots { display: flex; gap: 16px; align-items: center; }
     .slider-dot {
       width: 6px; height: 6px;
       border-radius: 50%;
@@ -710,7 +710,7 @@
       .step:last-child { border-bottom: none; }
       .formats-grid { gap: 20px; }
       .work-slide { flex-direction: column; gap: 28px; }
-      .slide-left { width: 100%; position: static; }
+      .slide-left { width: 100%; }
       .slide-client { font-size: 32px; margin-bottom: 16px; }
     }
 
