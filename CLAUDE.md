@@ -101,7 +101,29 @@ Every ad must pass the QA checklist in `../_shared/qa-checklist.md` before deliv
 
 ---
 
+## Embedding Ads in index.html — Mandatory CSS Safety Rules
+
+Ad HTML files are written as standalone documents. Before embedding any ad's `<style>` block into `index.html`, you MUST strip the following — they apply globally to the entire page and will break the layout:
+
+1. **`body { ... }` rules** — ALWAYS remove. Standalone ad files use `body` to set dimensions and overflow; on the portfolio page these override the entire document body. Any `body { width, height, overflow, cursor }` rule embedded in a `<style>` block inside a `<div>` will affect every element on the page.
+
+2. **Bare `* { ... }` or `*,*::before,*::after { ... }` resets** — ALWAYS remove. The page already declares a global `* { box-sizing: border-box; margin: 0; padding: 0; }` reset at the top of its main `<style>` block. Duplicate resets inside ad `<style>` blocks are redundant and can conflict.
+
+3. **`@media (prefers-reduced-motion) { *, *::before, *::after { ... } }`** — Remove or scope to the ad's container class. A bare `*` selector inside this media query will disable ALL animations on the page for reduced-motion users, not just the ad's.
+
+**Rule:** If you see `body`, `* {`, or `*,*::before,*::after {` in an ad's `<style>` block, strip it before adding the ad to `index.html`. No exceptions.
+
+---
+
 ## Versioning
 
 - Use suffixes for revisions: `v1`, `v2`, `v2b`
 - Never overwrite a delivered version — archive it in `/archive/`
+
+---
+
+## Deployment Rules
+- NEVER use `vercel deploy` or the Vercel CLI directly. This project auto-deploys from GitHub on push to main.
+- To deploy, just `git push origin main` and stop. Vercel handles the rest.
+- If a deploy seems stuck or failed, tell me — do NOT retry, loop, or attempt workarounds.
+- NEVER make additional commits beyond what was explicitly requested. Ask before making changes I didn't ask for.
