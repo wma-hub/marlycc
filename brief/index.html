@@ -130,10 +130,12 @@
     }
     .field label {
       display: block;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
     }
     .field label .req {
       color: #E24B4A;
@@ -150,10 +152,10 @@
     .field input[type="url"],
     .field textarea {
       width: 100%;
-      padding: 9px 12px;
-      border-radius: 8px;
+      padding: 14px 16px;
+      border-radius: 10px;
       border: 1px solid var(--border);
-      font-size: 14px;
+      font-size: 15px;
       font-family: inherit;
       color: var(--text);
       background: white;
@@ -161,7 +163,7 @@
       transition: border-color 0.15s;
     }
     .field textarea {
-      padding: 10px 12px;
+      padding: 14px 16px;
       resize: vertical;
       min-height: 72px;
     }
@@ -181,26 +183,27 @@
       flex-wrap: wrap;
     }
     .chip {
-      padding: 8px 16px;
-      border-radius: 20px;
+      padding: 12px 24px;
+      border-radius: 500px;
       border: 1px solid rgba(0,0,0,0.12);
       background: transparent;
       color: #444;
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       font-family: inherit;
       cursor: pointer;
       transition: all 0.15s ease;
       white-space: nowrap;
     }
     .chip:hover {
-      border-color: rgba(0,0,0,0.25);
+      border-color: var(--orange);
+      color: var(--orange);
     }
     .chip.selected {
       border: 1.5px solid var(--orange);
       background: rgba(255, 107, 0, 0.08);
       color: #c45200;
-      font-weight: 500;
     }
 
     /* ── Size grid ── */
@@ -306,17 +309,18 @@
       border-top: 1px solid rgba(0,0,0,0.06);
     }
     .btn {
-      padding: 10px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 500px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       font-family: inherit;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.18s;
       border: none;
     }
     .btn-back {
-      background: white;
+      background: transparent;
       border: 1px solid rgba(0,0,0,0.12);
       color: var(--text);
     }
@@ -325,26 +329,28 @@
       background: var(--orange);
       color: white;
     }
-    .btn-next:hover { background: #e06000; }
+    .btn-next:hover { opacity: 0.85; }
     .btn-next:disabled {
       background: rgba(0,0,0,0.08);
       color: rgba(0,0,0,0.3);
       cursor: not-allowed;
+      opacity: 1;
     }
     .btn-submit {
       background: var(--orange);
       color: white;
       width: 100%;
-      padding: 12px 24px;
-      font-size: 15px;
+      padding: 14px 32px;
+      font-size: 13px;
     }
-    .btn-submit:hover { background: #e06000; }
+    .btn-submit:hover { opacity: 0.85; }
     .btn-copy {
       background: transparent;
       color: var(--muted);
       font-size: 13px;
-      font-weight: 400;
-      padding: 10px 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 12px 24px;
       border: 1px solid rgba(0,0,0,0.1);
     }
     .btn-copy:hover { border-color: rgba(0,0,0,0.25); }
