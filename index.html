@@ -733,6 +733,7 @@
       .slider-controls { flex-direction: column; align-items: flex-start; gap: 16px; }
       .slider-disclaimer { order: 1; text-align: left; }
       .slider-controls-left { order: 2; }
+      .slider-btn { padding: 14px; }
       .hero-headline { font-size: clamp(72px, 20vw, 144px); }
       .work-title { font-size: 40px; }
       .formats-title { font-size: 40px; }
@@ -2418,6 +2419,28 @@
       d.classList.toggle('active', i === workSlideIdx);
     });
   }
+
+  // Touch swipe support
+  (function() {
+    var el = document.getElementById('work-slider');
+    var startX = 0, startY = 0, moved = false;
+    el.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      moved = false;
+    }, { passive: true });
+    el.addEventListener('touchmove', function(e) {
+      moved = true;
+    }, { passive: true });
+    el.addEventListener('touchend', function(e) {
+      if (!moved) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        workSliderNav(dx < 0 ? 1 : -1);
+      }
+    }, { passive: true });
+  })();
 
   function replaySlide(slideIdx) {
     const slides = document.querySelectorAll('.work-slide');
