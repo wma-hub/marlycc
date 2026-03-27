@@ -124,6 +124,9 @@
       letter-spacing: -0.04em;
       margin-bottom: 40px;
     }
+    .hw-medium { font-weight: 500; }
+    .hw-black  { font-weight: 900; font-style: italic; }
+
     .hero-headline em {
       font-style: italic;
       background: linear-gradient(105deg, #FF6B00 0%, #FFB347 40%, #FF8406 60%, #FF6B00 100%);
@@ -274,7 +277,7 @@
     }
     .slide-client {
       font-size: clamp(26px, 3.2vw, 46px);
-      font-weight: 800;
+      font-weight: 600;
       letter-spacing: -0.03em;
       line-height: 1.0;
       margin-bottom: 24px;
@@ -306,8 +309,21 @@
     .slider-controls {
       display: flex;
       align-items: center;
-      gap: 20px;
+      justify-content: space-between;
       margin-top: 52px;
+    }
+    .slider-controls-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .slider-disclaimer {
+      font-size: 12px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--dim);
+      letter-spacing: 0;
+      line-height: 1.4;
     }
     .slider-btn {
       background: none;
@@ -742,8 +758,8 @@
     <p class="hero-label">HTML5 Ad Production</p>
     <h1 class="hero-headline">
       Ads that<br>
-      actually<br>
-      <em>move.</em>
+      <span class="hw-medium">actually</span><br>
+      <em class="hw-black">move.</em>
     </h1>
     <div class="hero-bottom">
       <p class="hero-value">Animated HTML5 ad production for agencies and brands. Send a brief. Get a working V1 within 72 hours.</p>
@@ -2205,18 +2221,21 @@
 
       <!-- Slider controls -->
       <div class="slider-controls">
-        <button class="slider-btn slider-prev" onclick="workSliderNav(-1)" aria-label="Previous">
-          <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M8 1L1 7.5L8 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="slider-dots" id="slider-dots">
-          <button class="slider-dot active" onclick="workSliderGo(0)" aria-label="Peech.tech"></button>
-          <button class="slider-dot" onclick="workSliderGo(1)" aria-label="Casper"></button>
-          <button class="slider-dot" onclick="workSliderGo(2)" aria-label="Magic Spoon"></button>
-          <button class="slider-dot" onclick="workSliderGo(3)" aria-label="West Elm"></button>
+        <div class="slider-controls-left">
+          <button class="slider-btn slider-prev" onclick="workSliderNav(-1)" aria-label="Previous">
+            <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M8 1L1 7.5L8 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="slider-dots" id="slider-dots">
+            <button class="slider-dot active" onclick="workSliderGo(0)" aria-label="Peech.tech"></button>
+            <button class="slider-dot" onclick="workSliderGo(1)" aria-label="Casper"></button>
+            <button class="slider-dot" onclick="workSliderGo(2)" aria-label="Magic Spoon"></button>
+            <button class="slider-dot" onclick="workSliderGo(3)" aria-label="West Elm"></button>
+          </div>
+          <button class="slider-btn slider-next" onclick="workSliderNav(1)" aria-label="Next">
+            <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M1 1L8 7.5L1 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
-        <button class="slider-btn slider-next" onclick="workSliderNav(1)" aria-label="Next">
-          <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M1 1L8 7.5L1 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+        <span class="slider-disclaimer">Spec work — produced to demonstrate capability, not under client engagement.</span>
       </div>
 
     </div><!-- /work-slider-outer -->
