@@ -71,18 +71,22 @@
       text-decoration: none;
     }
     .nav-cta {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       color: #FF6B00;
       text-decoration: none;
       background: transparent;
       border: 1px solid #FF6B00;
-      padding: 6px 16px;
-      border-radius: 200px;
-      transition: background 0.18s, color 0.18s, border-color 0.18s;
+      padding: 12px 24px;
+      border-radius: 500px;
+      transition: background 0.18s, color 0.18s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
     }
-    .nav-cta:hover { background: #FF6B00; color: #fff; border-color: #FF6B00; }
+    .nav-cta:hover { background: #FF6B00; color: #fff; }
 
     /* ─── SHARED LAYOUT ───────────────────────────────── */
     .section-inner {
@@ -712,6 +716,7 @@
     /* ─── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 700px) {
       nav { padding: 16px 20px; }
+      .nav-wordmark { display: none; }
       #hero { padding: 0 20px 80px; }
       .section-inner { padding: 0 20px; }
       footer { padding: 28px 20px; }
@@ -747,15 +752,15 @@
 <!-- ▌NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <svg width="28" height="28" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="nav-icon" width="36" height="36" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="101.62" height="101.62" rx="15" fill="#FF8406"/>
       <path d="M38.3804 29.97C37.5504 29.97 36.7404 30 35.9404 30.06C34.4204 30.17 34.0704 32.28 35.4804 32.86C39.9704 34.72 42.8704 37.66 42.8704 40.96V70.57C42.8704 71.38 43.5204 72.03 44.3304 72.03H55.6304C56.4404 72.03 57.0904 71.38 57.0904 70.57V40.96C57.0904 40.85 57.0904 40.74 57.0804 40.64C57.0804 40.58 57.0804 40.53 57.0804 40.47C57.0804 40.36 57.0904 40.26 57.0904 40.15C57.0904 34.53 48.7104 29.97 38.3704 29.97H38.3804Z" fill="white"/>
       <path d="M58.0204 30.04C58.0204 30.04 57.9604 30.04 57.9204 30.04C56.4504 30.04 55.8704 31.96 57.1204 32.73C60.6104 34.88 62.5104 38 62.5104 41.03V70.64C62.5104 71.45 63.1604 72.1 63.9704 72.1H75.2704C76.0804 72.1 76.7304 71.45 76.7304 70.64V41.03C76.7304 40.92 76.7304 40.81 76.7204 40.71C76.7204 40.65 76.7204 40.6 76.7204 40.54C76.7204 40.43 76.7304 40.33 76.7304 40.22C76.7304 34.6 68.3504 30.04 58.0104 30.04H58.0204Z" fill="white"/>
       <path d="M28.5299 35.28C27.8699 35.14 27.1799 35.04 26.4699 34.98C25.6199 34.9 24.8799 35.58 24.8799 36.44V70.57C24.8799 71.38 25.5299 72.03 26.3399 72.03H36.2799C37.0899 72.03 37.7399 71.38 37.7399 70.57V44.07C37.7399 39.91 33.8499 36.4 28.5199 35.29L28.5299 35.28Z" fill="white"/>
     </svg>
-    <span style="letter-spacing:0.15em">Creative Concepts</span>
+    <span class="nav-wordmark" style="letter-spacing:0.15em">Creative Concepts</span>
   </a>
-  <a href="/brief" class="nav-cta">Start a project</a>
+  <a href="/brief" class="nav-cta">Start your project →</a>
 </nav>
 
 <!-- ▌HERO -->
@@ -833,19 +838,19 @@
         <div class="step-num">01</div>
         <div class="step-name">Brief</div>
         <div class="step-time">Skip the kickoff</div>
-        <p class="step-desc">Send your brand kit, copy, and target sizes. A short form, a Loom, a Notion link — whatever's fastest. We'll take it from there.</p>
+        <p class="step-desc">Send your brand kit, copy, and target sizes. A short form, a Loom, a Notion link. Whatever's fastest. We'll take it from there.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">02</div>
         <div class="step-name">Build</div>
-        <div class="step-time">Hand-coded</div>
-        <p class="step-desc">Every ad is built as production HTML5 — animated, on-brand, and spec'd to platform. No templates, no export artifacts.</p>
+        <div class="step-time">Custom-coded</div>
+        <p class="step-desc">Every ad is built as production HTML5, animated, on-brand, and spec'd to platform. No templates, no export artifacts.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">03</div>
         <div class="step-name">Review</div>
         <div class="step-time">Live in-browser</div>
-        <p class="step-desc">You get a private link to preview every ad running live — exactly how it'll look in the wild. No screenshots, no slide decks. Most clients are in market within 72 hours of briefing.</p>
+        <p class="step-desc">You get a private link to preview every ad running live, exactly how it'll look in the wild. No screenshots, no slide decks. Most clients are in market within 72 hours of briefing.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">04</div>
@@ -863,7 +868,7 @@
 <section id="work">
   <div class="section-inner">
     <div class="work-header reveal">
-      <p class="section-label">Live HTML5 — not screenshots</p>
+      <p class="section-label">Live HTML5. Not screenshots.</p>
       <h2 class="work-title">The Work</h2>
     </div>
 
@@ -2346,7 +2351,7 @@
 <section id="contact">
   <div class="section-inner contact-inner reveal">
     <h2 class="contact-q">Ready to<br>move <em>fast?</em></h2>
-    <a href="/brief" class="contact-brief-btn">Start your brief →</a>
+    <a href="/brief" class="contact-brief-btn">Start your project →</a>
     <span class="contact-message">or send us a message and we'll get back to you!<br><a href="mailto:hello@marly.cc" class="contact-email">hello@marly.cc</a></span>
     <p class="contact-agency">Agency partnerships available.</p>
   </div>
