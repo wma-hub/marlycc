@@ -23,6 +23,7 @@
       --border: #c4c8cf;
       --text:   #111111;
       --dim:    #555;
+      --muted:  #888;
       --accent: #FF6B00;
       --max:    1120px;
     }
@@ -90,23 +91,32 @@
       flex: 1;
       display: flex;
       align-items: center;
-      justify-content: center;
       padding: 80px 36px 100px;
     }
-    .contact-block {
-      max-width: 640px;
+    .contact-inner {
+      max-width: var(--max);
       width: 100%;
+      margin: 0 auto;
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+    }
+
+    /* Left lockup */
+    .contact-lockup {
+      flex: 1;
+      min-width: 0;
     }
     .contact-label {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--dim);
+      color: var(--muted);
       margin-bottom: 28px;
     }
     .contact-headline {
-      font-size: clamp(40px, 7vw, 80px);
+      font-size: clamp(40px, 5vw, 72px);
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 1.0;
@@ -122,13 +132,13 @@
       color: var(--dim);
       line-height: 1.65;
       margin-bottom: 48px;
-      max-width: 480px;
+      max-width: 400px;
     }
     .contact-email-link {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: clamp(20px, 3.5vw, 28px);
+      font-size: clamp(18px, 2.5vw, 24px);
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--text);
@@ -141,9 +151,71 @@
     .contact-response {
       margin-top: 20px;
       font-size: 12px;
-      color: var(--dim);
+      color: var(--muted);
       letter-spacing: 0.02em;
     }
+
+    /* Right form */
+    .contact-form {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-field label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-field input,
+    .form-field textarea {
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.15s;
+      resize: none;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: #bbb;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--accent);
+    }
+    .form-field textarea {
+      min-height: 140px;
+    }
+    .form-submit {
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #fff;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 14px 32px;
+      border-radius: 500px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: opacity 0.18s;
+      white-space: nowrap;
+    }
+    .form-submit:hover { opacity: 0.85; }
 
     /* ── FOOTER ── */
     footer {
@@ -162,6 +234,10 @@
     .footer-sep { margin: 0 4px; }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .contact-inner { flex-direction: column; gap: 56px; }
+      .contact-lockup { max-width: 100%; }
+    }
     @media (max-width: 700px) {
       nav { padding: 16px 20px; }
       .nav-wordmark { display: none; }
@@ -187,14 +263,36 @@
 </nav>
 
 <main>
-  <div class="contact-block">
-    <p class="contact-label">Contact</p>
-    <h1 class="contact-headline">Let's talk<em>.</em></h1>
-    <p class="contact-body">No forms. Drop us a line and we'll get back to you, usually same day.</p>
-    <a href="mailto:hello@marly.cc" class="contact-email-link">
-      hello@marly.cc →
-    </a>
-    <p class="contact-response">We respond within 24 hours.</p>
+  <div class="contact-inner">
+
+    <!-- Left: lockup -->
+    <div class="contact-lockup">
+      <p class="contact-label">Contact</p>
+      <h1 class="contact-headline">Let's talk<em>.</em></h1>
+      <p class="contact-body">Drop us a line and we'll get back to you, usually same day.</p>
+      <a href="mailto:hello@marly.cc" class="contact-email-link">
+        hello@marly.cc →
+      </a>
+      <p class="contact-response">We respond within 24 hours.</p>
+    </div>
+
+    <!-- Right: form -->
+    <form class="contact-form" action="https://formspree.io/f/hello@marly.cc" method="POST">
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit →</button>
+    </form>
+
   </div>
 </main>
 
