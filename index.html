@@ -87,6 +87,14 @@
       white-space: nowrap;
     }
     .nav-cta:hover { background: #FF6B00; color: #fff; }
+    .nav-text-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-text-link:hover { color: var(--text); }
 
     /* ─── SHARED LAYOUT ───────────────────────────────── */
     .section-inner {
@@ -760,7 +768,10 @@
     </svg>
     <span class="nav-wordmark" style="letter-spacing:0.15em">Creative Concepts</span>
   </a>
-  <a href="/contact" class="nav-cta">Start your project →</a>
+  <div style="display:flex; align-items:center; gap:24px;">
+    <a href="/contact" class="nav-text-link">Contact</a>
+    <a href="/brief" class="nav-cta">Start your project →</a>
+  </div>
 </nav>
 
 <!-- ▌HERO -->
