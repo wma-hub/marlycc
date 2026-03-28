@@ -358,9 +358,9 @@
     }
     .slider-btn {
       background: none;
-      border: 1.5px solid var(--border);
+      border: 1.5px solid #FF6B00;
       border-radius: 50%;
-      color: var(--dim);
+      color: #FF6B00;
       width: 36px;
       height: 36px;
       display: flex;
@@ -368,26 +368,27 @@
       justify-content: center;
       cursor: pointer;
       padding: 0;
-      transition: color 0.15s, border-color 0.15s;
+      transition: color 0.18s, border-color 0.18s, background 0.18s;
       flex-shrink: 0;
     }
-    .slider-btn:hover { color: var(--text); border-color: var(--text); }
+    .slider-btn:hover { color: #FF6B00; border-color: #FF6B00; background: #FFF0E5; }
+    .slider-btn:active { background: #FFE1CC; color: #FF6B00; border-color: #FF6B00; }
     .slider-dots { display: flex; gap: 10px; align-items: center; }
     .slider-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
-      background: var(--border);
+      background: #FFE1CC;
       border: none;
       cursor: pointer;
       padding: 0;
-      transition: background 0.2s, width 0.25s, border-radius 0.25s;
+      transition: background 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), border-radius 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .slider-dot.active { background: var(--text); width: 20px; border-radius: 4px; }
+    .slider-dot.active { background: #FF6B00; width: 20px; border-radius: 4px; }
     .slide-counter {
-      font-size: 11px;
-      letter-spacing: 0.08em;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-variant-numeric: tabular-nums;
       margin-left: 6px;
     }
 
@@ -2319,7 +2320,7 @@
         </button>
         <span id="slide-counter" class="slide-counter">01 / 04</span>
       </div>
-      <span class="slider-disclaimer">Spec work · produced to demonstrate capability, not under client engagement.</span>
+      <span class="slider-disclaimer">Spec work · produced to demonstrate capability.</span>
     </div>
 
   </div><!-- /section-inner -->
