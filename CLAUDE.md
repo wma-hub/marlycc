@@ -94,10 +94,16 @@ Every ad must pass the QA checklist in `../_shared/qa-checklist.md` before deliv
 
 ## Review Portal Rules
 
+**The review portal is a separate repo and Vercel project from this one.**
+- Repo: `wma-hub/marly-reviews` at `/Users/wma/Desktop/marly/reviews/`
+- Deploys to: `review.marly.cc`
+- Canonical template: `/Users/wma/Desktop/marly/reviews/_example-client/sample-campaign/index.html`
+- Do NOT create or edit review pages in this repo (`marlycc` / `marly.cc`).
+
 - Never use `<iframe>` in review pages.
 - All ad units must be inlined with namespaced class prefixes.
 - Review pages must be single self-contained HTML files with no relative file dependencies.
-- Every review page `<head>` must include the Google Analytics snippet (G-NM1YHB24BE) immediately after the viewport meta tag. Copy from `_example-client/sample-campaign/index.html`.
+- Every review page `<head>` must include the Google Analytics snippet (G-NM1YHB24BE) immediately after the viewport meta tag. Copy from the canonical template above.
 
 ---
 
