@@ -217,7 +217,21 @@
       transition: opacity 0.18s;
       white-space: nowrap;
     }
-    .form-submit:hover { opacity: 0.85; }
+    .form-submit:hover { background: #E55F00; border-color: #E55F00; opacity: 1; }
+    .form-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .form-back {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .form-back:hover { color: var(--accent); }
 
     /* ── ABOUT ── */
     .section-inner { max-width: var(--max); margin: 0 auto; padding: 0 36px; }
@@ -279,7 +293,6 @@
     </svg>
     <span class="nav-wordmark" style="letter-spacing:0.15em">Creative Concepts</span>
   </a>
-  <a href="/" class="nav-cta">← Back</a>
 </nav>
 
 <main>
@@ -310,7 +323,10 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
       </div>
-      <button type="submit" class="form-submit">Submit →</button>
+      <div class="form-actions">
+        <a href="/" class="form-back">← Back</a>
+        <button type="submit" class="form-submit">Submit →</button>
+      </div>
     </form>
 
   </div>
