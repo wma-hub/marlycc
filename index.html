@@ -358,28 +358,38 @@
     }
     .slider-btn {
       background: none;
-      border: none;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
       color: var(--dim);
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      padding: 4px;
-      transition: color 0.15s;
+      padding: 0;
+      transition: color 0.15s, border-color 0.15s;
       flex-shrink: 0;
     }
-    .slider-btn:hover { color: var(--text); }
-    .slider-dots { display: flex; gap: 16px; align-items: center; }
+    .slider-btn:hover { color: var(--text); border-color: var(--text); }
+    .slider-dots { display: flex; gap: 10px; align-items: center; }
     .slider-dot {
-      width: 6px; height: 6px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--border);
       border: none;
       cursor: pointer;
       padding: 0;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s, width 0.25s, border-radius 0.25s;
     }
-    .slider-dot.active { background: var(--text); transform: scale(1.5); }
+    .slider-dot.active { background: var(--text); width: 20px; border-radius: 4px; }
+    .slide-counter {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      margin-left: 6px;
+    }
 
     .ads-stack { display: flex; flex-direction: row; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
     .ad-thumb { position: relative; overflow: hidden; flex-shrink: 0; border-radius: 4px; }
@@ -588,8 +598,11 @@
       align-items: flex-end;
       width: max-content;
       animation: ribbon 40s linear infinite;
+      cursor: grab;
+      user-select: none;
     }
     .formats-track:hover { animation-play-state: paused; }
+    .formats-track.dragging { cursor: grabbing; animation-play-state: paused; }
     .fmt-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
     .fmt-box {
       border: 2px solid var(--border);
@@ -2304,6 +2317,7 @@
         <button class="slider-btn slider-next" onclick="workSliderNav(1)" aria-label="Next">
           <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M1 1L8 7.5L1 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
+        <span id="slide-counter" class="slide-counter">01 / 04</span>
       </div>
       <span class="slider-disclaimer">Spec work · produced to demonstrate capability, not under client engagement.</span>
     </div>
@@ -2435,14 +2449,17 @@
   var _workSliderOuter = document.querySelector('.work-slider-outer');
 
   function workSliderUpdate() {
+    var slides = document.querySelectorAll('.work-slide');
     document.getElementById('work-slider').style.transform = 'translateX(-' + (workSlideIdx * 100) + '%)';
-    document.querySelectorAll('.work-slide').forEach(function(s, i) {
+    slides.forEach(function(s, i) {
       s.style.pointerEvents = i === workSlideIdx ? '' : 'none';
     });
     document.querySelectorAll('.slider-dot').forEach(function(d, i) {
       d.classList.toggle('active', i === workSlideIdx);
     });
-    _workSliderOuter.style.height = document.querySelectorAll('.work-slide')[workSlideIdx].offsetHeight + 'px';
+    var counter = document.getElementById('slide-counter');
+    if (counter) counter.textContent = ('0' + (workSlideIdx + 1)).slice(-2) + ' / ' + ('0' + slides.length).slice(-2);
+    _workSliderOuter.style.height = slides[workSlideIdx].offsetHeight + 'px';
   }
   workSliderUpdate();
 
@@ -2465,6 +2482,81 @@
       if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
         workSliderNav(dx < 0 ? 1 : -1);
       }
+    }, { passive: true });
+  })();
+
+  // ── Formats ribbon drag-to-scroll
+  (function() {
+    var track = document.querySelector('.formats-track');
+    if (!track) return;
+    var isDragging = false, startX = 0, currentOffset = 0, halfWidth = 0;
+
+    function getTranslateX(el) {
+      var m = window.getComputedStyle(el).transform;
+      if (!m || m === 'none') return 0;
+      var parts = m.match(/matrix.*\((.+)\)/);
+      return parts ? parseFloat(parts[1].split(', ')[4]) : 0;
+    }
+
+    function wrapOffset(x, hw) {
+      var w = x % (-hw);
+      if (w > 0) w -= hw;
+      return w;
+    }
+
+    function resumeFrom(finalX) {
+      halfWidth = track.scrollWidth / 2;
+      var wrapped = wrapOffset(finalX, halfWidth);
+      var progress = wrapped / (-halfWidth);
+      var delay = -(progress * 40);
+      track.style.animation = 'none';
+      track.offsetHeight; // force reflow
+      track.style.animation = '';
+      track.style.animationDelay = delay + 's';
+    }
+
+    track.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      halfWidth = track.scrollWidth / 2;
+      startX = e.clientX;
+      currentOffset = getTranslateX(track);
+      track.classList.add('dragging');
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var newX = wrapOffset(currentOffset + (e.clientX - startX), halfWidth);
+      track.style.transform = 'translateX(' + newX + 'px)';
+    });
+
+    document.addEventListener('mouseup', function(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('dragging');
+      var finalX = currentOffset + (e.clientX - startX);
+      track.style.transform = '';
+      resumeFrom(finalX);
+    });
+
+    // Touch
+    track.addEventListener('touchstart', function(e) {
+      halfWidth = track.scrollWidth / 2;
+      startX = e.touches[0].clientX;
+      currentOffset = getTranslateX(track);
+      track.classList.add('dragging');
+    }, { passive: true });
+
+    track.addEventListener('touchmove', function(e) {
+      var newX = wrapOffset(currentOffset + (e.touches[0].clientX - startX), halfWidth);
+      track.style.transform = 'translateX(' + newX + 'px)';
+    }, { passive: true });
+
+    track.addEventListener('touchend', function(e) {
+      track.classList.remove('dragging');
+      var finalX = currentOffset + (e.changedTouches[0].clientX - startX);
+      track.style.transform = '';
+      resumeFrom(finalX);
     }, { passive: true });
   })();
 
