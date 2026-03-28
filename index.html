@@ -375,7 +375,9 @@
     }
     .ad-meta-brand { display: none; }
     .ad-meta-sep   { display: none; }
-    .ad-meta-fmt   { color: var(--muted); }
+    .ad-meta-fmt   { display: flex; gap: 5px; }
+    .ad-meta-size  { color: #2C2C2A; }
+    .ad-meta-name  { color: var(--muted); }
     .ad-stage {
       background: #111;
       overflow: hidden;
@@ -901,7 +903,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Peech</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">970×250 Billboard</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">970×250</span><span class="ad-meta-name">Billboard</span></span>
         </div>
         <div class="ad-stage" style="width:970px; height:250px; flex-shrink:0;" id="stage-p-970">
           <button class="replay-btn" onclick="replayAd('stage-p-970')">↺ replay</button>
@@ -1131,7 +1133,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Peech</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">728×90 Leaderboard</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">728×90</span><span class="ad-meta-name">Leaderboard</span></span>
         </div>
         <div class="ad-stage" style="width:728px; height:90px; flex-shrink:0;" id="stage-p-728">
           <button class="replay-btn" onclick="replayAd('stage-p-728')">↺ replay</button>
@@ -1308,7 +1310,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Peech</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">300×600 Half Page</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">300×600</span><span class="ad-meta-name">Half Page</span></span>
         </div>
         <div class="ad-stage" style="width:300px; height:600px; flex-shrink:0;" id="stage-p3-600">
           <button class="replay-btn" onclick="replayAd('stage-p3-600')">↺ replay</button>
@@ -1515,7 +1517,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Casper</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">300×250 Medium Rectangle</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">300×250</span><span class="ad-meta-name">Medium Rectangle</span></span>
         </div>
         <div class="ad-stage" style="width:300px; height:250px; flex-shrink:0;" id="stage-c1-250">
           <button class="replay-btn" onclick="replayAd('stage-c1-250')">↺ replay</button>
@@ -1567,7 +1569,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Casper</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">300×600 Half Page</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">300×600</span><span class="ad-meta-name">Half Page</span></span>
         </div>
         <div class="ad-stage" style="width:300px; height:600px; flex-shrink:0;" id="stage-c3-600">
           <button class="replay-btn" onclick="replayAd('stage-c3-600')">↺ replay</button>
@@ -1622,7 +1624,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Casper</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">320×50 Mobile Banner</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">320×50</span><span class="ad-meta-name">Mobile Banner</span></span>
         </div>
         <div class="ad-stage" style="width:320px; height:50px; flex-shrink:0;" id="stage-c3-320">
           <button class="replay-btn" onclick="replayAd('stage-c3-320')">↺ replay</button>
@@ -1679,7 +1681,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Magic Spoon</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">300×600 Half Page</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">300×600</span><span class="ad-meta-name">Half Page</span></span>
         </div>
         <div class="ad-stage" style="width:300px; height:600px; flex-shrink:0;" id="stage-ms1-600">
           <button class="replay-btn" onclick="replayAd('stage-ms1-600')">↺ replay</button>
@@ -1829,7 +1831,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Magic Spoon</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">320×50 Mobile Banner</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">320×50</span><span class="ad-meta-name">Mobile Banner</span></span>
         </div>
         <div class="ad-stage" style="width:320px; height:50px; flex-shrink:0;" id="stage-ms1-320">
           <button class="replay-btn" onclick="replayAd('stage-ms1-320')">↺ replay</button>
@@ -1931,7 +1933,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">Magic Spoon</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">728×90 Leaderboard</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">728×90</span><span class="ad-meta-name">Leaderboard</span></span>
         </div>
         <div class="ad-stage" style="width:728px; height:90px; flex-shrink:0;" id="stage-ms2-728">
           <button class="replay-btn" onclick="replayAd('stage-ms2-728')">↺ replay</button>
@@ -2053,7 +2055,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">West Elm</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">160×600 Wide Skyscraper</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">160×600</span><span class="ad-meta-name">Wide Skyscraper</span></span>
         </div>
         <div class="ad-stage" style="width:160px; height:600px; flex-shrink:0;" id="stage-we1-160">
           <button class="replay-btn" onclick="replayAd('stage-we1-160')">↺ replay</button>
@@ -2100,7 +2102,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">West Elm</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">320×50 Mobile Banner</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">320×50</span><span class="ad-meta-name">Mobile Banner</span></span>
         </div>
         <div class="ad-stage" style="width:320px; height:50px; flex-shrink:0;" id="stage-we2-320">
           <button class="replay-btn" onclick="replayAd('stage-we2-320')">↺ replay</button>
@@ -2143,7 +2145,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">West Elm</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">728×90 Leaderboard</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">728×90</span><span class="ad-meta-name">Leaderboard</span></span>
         </div>
         <div class="ad-stage" style="width:728px; height:90px; flex-shrink:0;" id="stage-we3-728">
           <button class="replay-btn" onclick="replayAd('stage-we3-728')">↺ replay</button>
@@ -2195,7 +2197,7 @@
         <div class="ad-meta">
           <span class="ad-meta-brand">West Elm</span>
           <span class="ad-meta-sep">·</span>
-          <span class="ad-meta-fmt">160×600 Wide Skyscraper</span>
+          <span class="ad-meta-fmt"><span class="ad-meta-size">160×600</span><span class="ad-meta-name">Wide Skyscraper</span></span>
         </div>
         <div class="ad-stage" style="width:160px; height:600px; flex-shrink:0;" id="stage-we3-160">
           <button class="replay-btn" onclick="replayAd('stage-we3-160')">↺ replay</button>
