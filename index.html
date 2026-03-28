@@ -362,7 +362,8 @@
     }
     .slider-dot.active { background: var(--text); transform: scale(1.5); }
 
-    .ads-stack { display: flex; flex-direction: column; gap: 48px; }
+    .ads-stack { display: flex; flex-direction: row; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+    .ad-thumb { position: relative; overflow: hidden; flex-shrink: 0; border-radius: 4px; }
     .ad-block { display: flex; flex-direction: column; gap: 14px; }
     .ad-meta {
       display: flex;
@@ -2463,6 +2464,34 @@
       replayAd(s.id);
     });
   }
+
+  // ── Gallery scale: wrap each ad-stage in a sized thumb, apply transform: scale()
+  function wrapAdsWithScale() {
+    document.querySelectorAll('.ad-stage[id]').forEach(function(stage) {
+      var w = parseInt(stage.style.width) || 300;
+      var h = parseInt(stage.style.height) || 250;
+      var scale = Math.min(380 / w, 300 / h);
+      var dispW = Math.round(w * scale);
+      var dispH = Math.round(h * scale);
+
+      var thumb = document.createElement('div');
+      thumb.className = 'ad-thumb';
+      thumb.style.width  = dispW + 'px';
+      thumb.style.height = dispH + 'px';
+
+      stage.style.transform = 'scale(' + scale + ')';
+      stage.style.transformOrigin = 'top left';
+
+      var btn = stage.querySelector('.replay-btn');
+      stage.parentNode.insertBefore(thumb, stage);
+      thumb.appendChild(stage);
+      if (btn) thumb.appendChild(btn); // move btn outside scaled area
+
+      var adBlock = thumb.closest('.ad-block');
+      if (adBlock && w >= 700) adBlock.style.flexBasis = '100%';
+    });
+  }
+  wrapAdsWithScale();
 
   // ── Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
