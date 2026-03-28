@@ -85,13 +85,21 @@
       white-space: nowrap;
     }
     .nav-cta:hover { background: #FF6B00; color: #fff; }
+    .nav-text-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-text-link:hover { color: var(--accent); }
 
     /* ── MAIN ── */
     main {
       flex: 1;
       display: flex;
       align-items: center;
-      padding: 160px 36px 100px;
+      padding: 200px 36px 100px;
     }
     .contact-inner {
       max-width: var(--max);
@@ -323,6 +331,10 @@
     </svg>
     <span class="nav-wordmark" style="letter-spacing:0.15em">Creative Concepts</span>
   </a>
+  <div style="display:flex; align-items:center; gap:24px;">
+    <a href="/" class="nav-text-link">Home</a>
+    <a href="/brief" class="nav-cta">Start your project →</a>
+  </div>
 </nav>
 
 <section id="about">
