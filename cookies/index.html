@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy — Marly Creative Concepts</title>
+  <meta name="description" content="Cookie Policy for Marly Creative Concepts LLC.">
+  <link rel="icon" href="/mcc-logo-icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #FAFAF8;
+      --text: #111110;
+      --muted: #888884;
+      --dim: #5C5C58;
+      --border: #E4E4E0;
+      --accent: #FF6B00;
+      --max: 1200px;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 36px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-icon { width: 32px; height: 32px; flex-shrink: 0; }
+    .nav-wordmark {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #FF6B00;
+      text-decoration: none;
+      background: transparent;
+      border: 1.5px solid #FF6B00;
+      padding: 8px 18px;
+      border-radius: 500px;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: #FF6B00; color: #fff; }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 36px 120px;
+    }
+    .legal-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .legal-title {
+      font-size: 48px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .legal-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-body h2 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-top: 48px;
+      margin-bottom: 14px;
+    }
+    .legal-body p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--dim);
+      margin-bottom: 16px;
+    }
+    .legal-body ul, .legal-body ol {
+      margin: 0 0 16px 20px;
+    }
+    .legal-body li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--dim);
+      margin-bottom: 6px;
+    }
+    .legal-body strong { color: var(--text); font-weight: 700; }
+    .legal-body hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .cookie-table th {
+      text-align: left;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cookie-table td {
+      padding: 10px 12px;
+      color: var(--dim);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .cookie-table td:first-child { font-family: monospace; font-size: 13px; color: var(--text); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      background: #FF6B00;
+      padding: 28px 36px;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-note { font-size: 11px; color: #fff; display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 4px; }
+    .footer-tagline { color: rgba(255,255,255,0.7); }
+    .footer-sep { color: rgba(255,255,255,0.4); }
+    .footer-copy { color: #fff; }
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .nav-wordmark { display: none; }
+      .page { padding: 48px 20px 80px; }
+      .legal-title { font-size: 32px; }
+      footer { padding: 28px 20px; }
+      .footer-inner { flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+      .footer-note { justify-content: center; }
+      .footer-sep { display: none; }
+      .cookie-table { font-size: 13px; }
+      .cookie-table th, .cookie-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg class="nav-icon" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="101.62" height="101.62" rx="15" fill="#FF6B00"/>
+      <path d="M38.3804 29.97C37.5504 29.97 36.7404 30 35.9404 30.06C34.4204 30.17 34.0704 32.28 35.4804 32.86C39.9704 34.72 42.8704 37.66 42.8704 40.96V70.57C42.8704 71.38 43.5204 72.03 44.3304 72.03H55.6304C56.4404 72.03 57.0904 71.38 57.0904 70.57V40.96C57.0904 40.85 57.0904 40.74 57.0804 40.64C57.0804 40.58 57.0804 40.53 57.0804 40.47C57.0804 40.36 57.0904 40.26 57.0904 40.15C57.0904 34.53 48.7104 29.97 38.3704 29.97H38.3804Z" fill="white"/>
+      <path d="M58.0204 30.04C58.0204 30.04 57.9604 30.04 57.9204 30.04C56.4504 30.04 55.8704 31.96 57.1204 32.73C60.6104 34.88 62.5104 38 62.5104 41.03V70.64C62.5104 71.45 63.1604 72.1 63.9704 72.1H75.2704C76.0804 72.1 76.7304 71.45 76.7304 70.64V41.03C76.7304 40.92 76.7304 40.81 76.7204 40.71C76.7204 40.65 76.7204 40.6 76.7204 40.54C76.7204 40.43 76.7304 40.33 76.7304 40.22C76.7304 34.6 68.3504 30.04 58.0104 30.04H58.0204Z" fill="white"/>
+      <path d="M28.5299 35.28C27.8699 35.14 27.1799 35.04 26.4699 34.98C25.6199 34.9 24.8799 35.58 24.8799 36.44V70.57C24.8799 71.38 25.5299 72.03 26.3399 72.03H36.2799C37.0899 72.03 37.7399 71.38 37.7399 70.57V44.07C37.7399 39.91 33.8499 36.4 28.5199 35.29L28.5299 35.28Z" fill="white"/>
+    </svg>
+    <span class="nav-wordmark">Creative Concepts</span>
+  </a>
+  <a href="/brief" class="nav-cta">Start your project →</a>
+</nav>
+
+<div class="page">
+  <p class="legal-eyebrow">Legal</p>
+  <h1 class="legal-title">Cookie Policy</h1>
+  <p class="legal-meta">Marly Creative Concepts LLC &nbsp;·&nbsp; Last updated: March 28, 2026</p>
+
+  <div class="legal-body">
+
+    <p>This Cookie Policy explains how marly.cc and its subdomains (the "Site") use cookies and similar tracking technologies. This policy supplements our <a href="/privacy">Privacy Policy</a>.</p>
+
+    <hr>
+
+    <h2>What Are Cookies</h2>
+    <p>Cookies are small text files placed on your device when you visit a website. They help site operators understand how visitors interact with their pages and are widely used across the web.</p>
+
+    <hr>
+
+    <h2>Cookies We Use</h2>
+
+    <h2 style="font-size:15px; font-weight:700; margin-top:24px; margin-bottom:10px;">Analytics Cookies (Google Analytics)</h2>
+    <p>We use Google Analytics (Measurement ID: G-NM1YHB24BE) to understand how visitors use the Site. These cookies collect information such as pages visited, time on site, traffic source, browser type, and approximate geographic location.</p>
+    <p>Google Analytics cookies do not identify you personally. Data is aggregated and used solely to improve the Site.</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Cookie</th>
+          <th>Provider</th>
+          <th>Purpose</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>_ga</td>
+          <td>Google</td>
+          <td>Distinguishes unique visitors</td>
+          <td>2 years</td>
+        </tr>
+        <tr>
+          <td>_ga_*</td>
+          <td>Google</td>
+          <td>Maintains session state</td>
+          <td>2 years</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>For more information on how Google processes this data, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</p>
+
+    <h2 style="font-size:15px; font-weight:700; margin-top:24px; margin-bottom:10px;">Essential Cookies</h2>
+    <p>The Site may use limited essential cookies required for basic functionality, such as maintaining form submission state. These cookies are strictly necessary and cannot be disabled without affecting Site functionality.</p>
+
+    <h2 style="font-size:15px; font-weight:700; margin-top:24px; margin-bottom:10px;">Cookies We Do Not Use</h2>
+    <p>We do not use advertising cookies, retargeting pixels, social media trackers, or any third-party marketing cookies.</p>
+
+    <hr>
+
+    <h2>Your Choices</h2>
+    <p>You can manage cookies in several ways:</p>
+    <ul>
+      <li><strong>Browser settings:</strong> Most browsers allow you to block, delete, or be notified about cookies. Refer to your browser's help documentation for instructions.</li>
+      <li><strong>Google Analytics opt-out:</strong> Install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-Out Browser Add-on</a> to prevent Google Analytics from collecting data about your visits.</li>
+    </ul>
+    <p>Blocking analytics cookies will not affect your ability to browse the Site or submit a project brief.</p>
+
+    <hr>
+
+    <h2>Review Portal</h2>
+    <p>The review portal at review.marly.cc does not set any cookies.</p>
+
+    <hr>
+
+    <h2>Changes</h2>
+    <p>We may update this Cookie Policy from time to time. Changes will be posted on this page with an updated date.</p>
+
+    <hr>
+
+    <h2>Contact</h2>
+    <p>Questions about our use of cookies? Contact us at <a href="mailto:hello@marly.cc">hello@marly.cc</a>.</p>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="28" height="28" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="101.62" height="101.62" rx="15" fill="rgba(255,255,255,0.25)"/>
+        <path d="M38.3804 29.97C37.5504 29.97 36.7404 30 35.9404 30.06C34.4204 30.17 34.0704 32.28 35.4804 32.86C39.9704 34.72 42.8704 37.66 42.8704 40.96V70.57C42.8704 71.38 43.5204 72.03 44.3304 72.03H55.6304C56.4404 72.03 57.0904 71.38 57.0904 70.57V40.96C57.0904 40.85 57.0904 40.74 57.0804 40.64C57.0804 40.58 57.0804 40.53 57.0804 40.47C57.0804 40.36 57.0904 40.26 57.0904 40.15C57.0904 34.53 48.7104 29.97 38.3704 29.97H38.3804Z" fill="white"/>
+        <path d="M58.0204 30.04C58.0204 30.04 57.9604 30.04 57.9204 30.04C56.4504 30.04 55.8704 31.96 57.1204 32.73C60.6104 34.88 62.5104 38 62.5104 41.03V70.64C62.5104 71.45 63.1604 72.1 63.9704 72.1H75.2704C76.0804 72.1 76.7304 71.45 76.7304 70.64V41.03C76.7304 40.92 76.7304 40.81 76.7204 40.71C76.7204 40.65 76.7204 40.6 76.7204 40.54C76.7204 40.43 76.7304 40.33 76.7304 40.22C76.7304 34.6 68.3504 30.04 58.0104 30.04H58.0204Z" fill="white"/>
+        <path d="M28.5299 35.28C27.8699 35.14 27.1799 35.04 26.4699 34.98C25.6199 34.9 24.8799 35.58 24.8799 36.44V70.57C24.8799 71.38 25.5299 72.03 26.3399 72.03H36.2799C37.0899 72.03 37.7399 71.38 37.7399 70.57V44.07C37.7399 39.91 33.8499 36.4 28.5199 35.29L28.5299 35.28Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="footer-note">
+      <span class="footer-tagline">Marly Creative Concepts</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-copy">&copy; 2026 All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

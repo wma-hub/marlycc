@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Marly Creative Concepts</title>
+  <meta name="description" content="Privacy Policy for Marly Creative Concepts LLC.">
+  <link rel="icon" href="/mcc-logo-icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #FAFAF8;
+      --text: #111110;
+      --muted: #888884;
+      --dim: #5C5C58;
+      --border: #E4E4E0;
+      --accent: #FF6B00;
+      --max: 1200px;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 36px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-icon { width: 32px; height: 32px; flex-shrink: 0; }
+    .nav-wordmark {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #FF6B00;
+      text-decoration: none;
+      background: transparent;
+      border: 1.5px solid #FF6B00;
+      padding: 8px 18px;
+      border-radius: 500px;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: #FF6B00; color: #fff; }
+
+    /* ── PAGE ── */
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 36px 120px;
+    }
+    .legal-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .legal-title {
+      font-size: 48px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .legal-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-body h2 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-top: 48px;
+      margin-bottom: 14px;
+    }
+    .legal-body h3 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .legal-body p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--dim);
+      margin-bottom: 16px;
+    }
+    .legal-body ul, .legal-body ol {
+      margin: 0 0 16px 20px;
+    }
+    .legal-body li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--dim);
+      margin-bottom: 6px;
+    }
+    .legal-body strong { color: var(--text); font-weight: 700; }
+    .legal-body hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    .legal-body table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .legal-body th {
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-body td {
+      padding: 10px 12px;
+      color: var(--dim);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #FF6B00;
+      padding: 28px 36px;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-note { font-size: 11px; color: #fff; display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: flex-end; gap: 4px; }
+    .footer-tagline { color: rgba(255,255,255,0.7); }
+    .footer-sep { color: rgba(255,255,255,0.4); }
+    .footer-copy { color: #fff; }
+
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .nav-wordmark { display: none; }
+      .page { padding: 48px 20px 80px; }
+      .legal-title { font-size: 32px; }
+      footer { padding: 28px 20px; }
+      .footer-inner { flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+      .footer-note { justify-content: center; }
+      .footer-sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg class="nav-icon" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="101.62" height="101.62" rx="15" fill="#FF6B00"/>
+      <path d="M38.3804 29.97C37.5504 29.97 36.7404 30 35.9404 30.06C34.4204 30.17 34.0704 32.28 35.4804 32.86C39.9704 34.72 42.8704 37.66 42.8704 40.96V70.57C42.8704 71.38 43.5204 72.03 44.3304 72.03H55.6304C56.4404 72.03 57.0904 71.38 57.0904 70.57V40.96C57.0904 40.85 57.0904 40.74 57.0804 40.64C57.0804 40.58 57.0804 40.53 57.0804 40.47C57.0804 40.36 57.0904 40.26 57.0904 40.15C57.0904 34.53 48.7104 29.97 38.3704 29.97H38.3804Z" fill="white"/>
+      <path d="M58.0204 30.04C58.0204 30.04 57.9604 30.04 57.9204 30.04C56.4504 30.04 55.8704 31.96 57.1204 32.73C60.6104 34.88 62.5104 38 62.5104 41.03V70.64C62.5104 71.45 63.1604 72.1 63.9704 72.1H75.2704C76.0804 72.1 76.7304 71.45 76.7304 70.64V41.03C76.7304 40.92 76.7304 40.81 76.7204 40.71C76.7204 40.65 76.7204 40.6 76.7204 40.54C76.7204 40.43 76.7304 40.33 76.7304 40.22C76.7304 34.6 68.3504 30.04 58.0104 30.04H58.0204Z" fill="white"/>
+      <path d="M28.5299 35.28C27.8699 35.14 27.1799 35.04 26.4699 34.98C25.6199 34.9 24.8799 35.58 24.8799 36.44V70.57C24.8799 71.38 25.5299 72.03 26.3399 72.03H36.2799C37.0899 72.03 37.7399 71.38 37.7399 70.57V44.07C37.7399 39.91 33.8499 36.4 28.5199 35.29L28.5299 35.28Z" fill="white"/>
+    </svg>
+    <span class="nav-wordmark">Creative Concepts</span>
+  </a>
+  <a href="/brief" class="nav-cta">Start your project →</a>
+</nav>
+
+<div class="page">
+  <p class="legal-eyebrow">Legal</p>
+  <h1 class="legal-title">Privacy Policy</h1>
+  <p class="legal-meta">Marly Creative Concepts LLC &nbsp;·&nbsp; Last updated: March 28, 2026</p>
+
+  <div class="legal-body">
+
+    <p>Marly Creative Concepts LLC ("Marly," "we," "us," or "our") operates the website marly.cc and related subdomains, including review.marly.cc (collectively, the "Site"). This Privacy Policy explains what information we collect, how we use it, and your choices regarding that information.</p>
+    <p>By using the Site, you agree to the collection and use of information as described in this policy.</p>
+
+    <hr>
+
+    <h2>Information We Collect</h2>
+
+    <h3>Information You Provide Directly</h3>
+    <p>When you submit a project brief through our intake form at marly.cc/brief or contact us through the Site, you may provide:</p>
+    <ul>
+      <li>Your name and email address</li>
+      <li>Company or brand name</li>
+      <li>Brand assets and creative direction details (logos, color codes, typography, URLs)</li>
+      <li>Campaign goals, copy, and project specifications</li>
+    </ul>
+    <p>Form submissions are processed through Formspree, a third-party form backend. Formspree's privacy practices are governed by their own privacy policy at <a href="https://formspree.io/legal/privacy-policy" target="_blank">formspree.io/legal/privacy-policy</a>.</p>
+
+    <h3>Information Collected Automatically</h3>
+    <p>When you visit the Site, we automatically collect certain information through Google Analytics (Measurement ID: G-NM1YHB24BE), including:</p>
+    <ul>
+      <li>Pages visited and time spent on pages</li>
+      <li>Referring website or source</li>
+      <li>Browser type, device type, and screen resolution</li>
+      <li>Approximate geographic location (city/region level, not precise)</li>
+      <li>Interactions with Site content</li>
+    </ul>
+    <p>Google Analytics uses cookies and similar technologies to collect this data. Google's data practices are described in their privacy policy at <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>.</p>
+
+    <h3>Review Portal</h3>
+    <p>If you are a client accessing work-in-progress materials at review.marly.cc, that subdomain does not collect any personal data beyond what is logged by the hosting provider (Vercel) in standard server logs (IP address, browser type, access timestamps). No cookies are set on the review portal. Materials displayed on the review portal are not final deliverables and remain the property of Marly Creative Concepts until formal delivery per the terms of your service agreement.</p>
+
+    <hr>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li>Respond to your inquiries and process project briefs</li>
+      <li>Deliver the services you have engaged us to perform</li>
+      <li>Understand how visitors use the Site so we can improve it</li>
+      <li>Communicate with you about your projects or our services</li>
+    </ul>
+    <p>We do not sell, rent, or share your personal information with third parties for their marketing purposes.</p>
+
+    <hr>
+
+    <h2>Cookies &amp; Tracking Technologies</h2>
+    <p>The Site uses cookies set by Google Analytics to understand visitor behavior. These cookies are small text files stored on your device that help us analyze traffic patterns and improve the Site.</p>
+    <p><strong>Types of cookies used:</strong></p>
+    <ul>
+      <li><strong>Analytics cookies</strong> (Google Analytics): Track page views, session duration, and traffic sources. These cookies do not identify you personally.</li>
+      <li><strong>Essential cookies</strong>: Limited to basic functionality required for the Site to operate (e.g., form submission state).</li>
+    </ul>
+    <p>We do not use advertising cookies, retargeting pixels, or social media tracking scripts.</p>
+    <p><strong>Your cookie choices:</strong> Most browsers allow you to block or delete cookies through their settings. You can also opt out of Google Analytics tracking by installing the Google Analytics Opt-Out Browser Add-on at <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>. Blocking analytics cookies will not affect your ability to use the Site.</p>
+
+    <hr>
+
+    <h2>Data Sharing &amp; Third Parties</h2>
+    <p>We share information only with the following service providers, strictly as needed to operate the Site and deliver our services:</p>
+    <ul>
+      <li><strong>Formspree</strong> — processes form submissions from marly.cc/brief and marly.cc/contact</li>
+      <li><strong>Google Analytics</strong> — provides website usage analytics</li>
+      <li><strong>Vercel</strong> — hosts the Site and review portal</li>
+      <li><strong>GitHub</strong> — hosts our codebase (no client personal data is stored in repositories)</li>
+    </ul>
+    <p>We may also disclose information if required by law, legal process, or to protect the rights, property, or safety of Marly Creative Concepts, our clients, or the public.</p>
+
+    <hr>
+
+    <h2>Data Retention</h2>
+    <ul>
+      <li><strong>Form submissions (active clients):</strong> Retained for the duration of the client relationship plus 12 months, then deleted.</li>
+      <li><strong>Inquiries that do not result in an engagement:</strong> Deleted within 12 months of submission.</li>
+      <li><strong>Analytics data:</strong> Retained in Google Analytics per Google's default retention settings (14 months), after which it is automatically aggregated and anonymized.</li>
+      <li><strong>Server logs:</strong> Retained by Vercel per their standard log retention policies.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> the personal information we hold about you</li>
+      <li><strong>Correct</strong> inaccurate personal information</li>
+      <li><strong>Delete</strong> your personal information</li>
+      <li><strong>Opt out</strong> of analytics tracking (see Cookies section above)</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at the email address below. We will respond within 30 days.</p>
+    <p><strong>For California residents (CCPA):</strong> We do not sell personal information. You have the right to know what personal information we collect and to request its deletion. We will not discriminate against you for exercising these rights.</p>
+    <p><strong>For EU/EEA visitors (GDPR):</strong> Our legal basis for processing your data is legitimate interest (improving our Site and services) and, where applicable, your consent (submitting a form constitutes consent to process the information you provide). You have the right to withdraw consent, access your data, request portability, or lodge a complaint with your local data protection authority.</p>
+
+    <hr>
+
+    <h2>Security</h2>
+    <p>We take reasonable measures to protect your information, including using HTTPS encryption across all Site pages and subdomains, and limiting access to personal data to those who need it to provide our services. However, no method of transmission or storage is 100% secure.</p>
+
+    <hr>
+
+    <h2>Children's Privacy</h2>
+    <p>The Site is not directed at individuals under 18. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it.</p>
+
+    <hr>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date. Your continued use of the Site after any changes constitutes your acceptance of the revised policy.</p>
+
+    <hr>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this Privacy Policy or your personal data, contact us at:</p>
+    <p><strong>Marly Creative Concepts LLC</strong><br>New York, NY<br><a href="mailto:hello@marly.cc">hello@marly.cc</a></p>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg height="24" width="auto" viewBox="0 0 593 102" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:24px;width:auto;">
+        <path d="M86.62 98.62V101.62H15V98.62H86.62ZM98.62 86.62V15C98.62 8.37261 93.2474 3.00006 86.62 3H15C8.37257 3 3 8.37257 3 15V86.62C3.00006 93.2474 8.37261 98.62 15 98.62V101.62L14.6133 101.615C6.63628 101.413 0.206811 94.9837 0.00488281 87.0067L0 86.62V15C0 6.71572 6.71572 0 15 0H86.62C94.9042 6.18482e-05 101.62 6.71576 101.62 15V86.62L101.615 87.0067C101.41 95.1122 94.7749 101.62 86.62 101.62V98.62C93.2473 98.6199 98.6199 93.2473 98.62 86.62Z" fill="white"/><path d="M38.3804 29.97C37.5504 29.97 36.7404 30 35.9404 30.06C34.4204 30.17 34.0704 32.28 35.4804 32.86C39.9704 34.72 42.8704 37.66 42.8704 40.96V70.57C42.8704 71.38 43.5204 72.03 44.3304 72.03H55.6304C56.4404 72.03 57.0904 71.38 57.0904 70.57V40.96C57.0904 40.85 57.0904 40.74 57.0804 40.64C57.0804 40.58 57.0804 40.53 57.0804 40.47C57.0804 40.36 57.0904 40.26 57.0904 40.15C57.0904 34.53 48.7104 29.97 38.3704 29.97H38.3804Z" fill="white"/><path d="M58.0204 30.04C58.0204 30.04 57.9604 30.04 57.9204 30.04C56.4504 30.04 55.8704 31.96 57.1204 32.73C60.6104 34.88 62.5104 38 62.5104 41.03V70.64C62.5104 71.45 63.1604 72.1 63.9704 72.1H75.2704C76.0804 72.1 76.7304 71.45 76.7304 70.64V41.03C76.7304 40.92 76.7304 40.81 76.7204 40.71C76.7204 40.65 76.7204 40.6 76.7204 40.54C76.7204 40.43 76.7304 40.33 76.7304 40.22C76.7304 34.6 68.3504 30.04 58.0104 30.04H58.0204Z" fill="white"/><path d="M28.5299 35.28C27.8699 35.14 27.1799 35.04 26.4699 34.98C25.6199 34.9 24.8799 35.58 24.8799 36.44V70.57C24.8799 71.38 25.5299 72.03 26.3399 72.03H36.2799C37.0899 72.03 37.7399 71.38 37.7399 70.57V44.07C37.7399 39.91 33.8499 36.4 28.5199 35.29L28.5299 35.28Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="footer-note">
+      <span class="footer-tagline">Production partner for agencies and in-house teams</span>
+      <span class="footer-sep">&nbsp;·&nbsp;</span>
+      <span class="footer-copy">© 2026 · MARLY.CC</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -421,6 +421,10 @@
     .step { display: none; }
     .step.active { display: block; }
 
+    .brief-legal { font-size: 11px; color: var(--muted); display: flex; gap: 14px; padding: 40px 0 16px; justify-content: center; flex-wrap: wrap; }
+    .brief-legal a { color: var(--muted); text-decoration: none; }
+    .brief-legal a:hover { color: var(--accent); }
+
     /* ── Responsive ── */
     @media (max-width: 480px) {
       .page { padding: 32px 16px 60px; }
@@ -957,6 +961,13 @@ initNetworks();
 initAnimLevels();
 showStep();
 </script>
+
+<div class="brief-legal">
+  <a href="/privacy">Privacy</a>
+  <a href="/terms">Terms</a>
+  <a href="/cookies">Cookies</a>
+  <a href="/refunds">Refunds</a>
+</div>
 
 </body>
 </html>
