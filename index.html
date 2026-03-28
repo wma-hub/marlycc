@@ -743,6 +743,7 @@
       .formats-grid { gap: 20px; }
       .work-slide { flex-direction: column; gap: 28px; }
       .slide-left { width: 100%; }
+      .slide-right { width: 100%; }
       .slide-client { font-size: 32px; margin-bottom: 16px; }
       .slider-controls { flex-direction: column; align-items: flex-start; gap: 16px; }
       .slider-disclaimer { order: 1; text-align: left; }
@@ -2467,10 +2468,29 @@
 
   // ── Gallery scale: wrap each ad-stage in a sized thumb, apply transform: scale()
   function wrapAdsWithScale() {
+    var isMobile = window.innerWidth <= 700;
+    var maxW = isMobile ? Math.floor(window.innerWidth / 2.2) : 380;
+    var maxH = isMobile ? 200 : 300;
+
+    // Unwrap existing thumbs so we can re-wrap with fresh scale
+    document.querySelectorAll('.ad-thumb').forEach(function(thumb) {
+      var stage = thumb.querySelector('.ad-stage');
+      var btn   = thumb.querySelector('.replay-btn');
+      if (btn && stage) stage.appendChild(btn);   // move btn back inside stage
+      if (stage) {
+        stage.style.transform = '';
+        stage.style.transformOrigin = '';
+        thumb.parentNode.insertBefore(stage, thumb);
+      }
+      var adBlock = thumb.closest('.ad-block');
+      if (adBlock) adBlock.style.flexBasis = '';
+      thumb.parentNode.removeChild(thumb);
+    });
+
     document.querySelectorAll('.ad-stage[id]').forEach(function(stage) {
       var w = parseInt(stage.style.width) || 300;
       var h = parseInt(stage.style.height) || 250;
-      var scale = Math.min(380 / w, 300 / h);
+      var scale = Math.min(maxW / w, maxH / h);
       var dispW = Math.round(w * scale);
       var dispH = Math.round(h * scale);
 
@@ -2485,13 +2505,18 @@
       var btn = stage.querySelector('.replay-btn');
       stage.parentNode.insertBefore(thumb, stage);
       thumb.appendChild(stage);
-      if (btn) thumb.appendChild(btn); // move btn outside scaled area
+      if (btn) thumb.appendChild(btn);
 
       var adBlock = thumb.closest('.ad-block');
       if (adBlock && w >= 700) adBlock.style.flexBasis = '100%';
     });
   }
   wrapAdsWithScale();
+  var _scaleResizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(_scaleResizeTimer);
+    _scaleResizeTimer = setTimeout(wrapAdsWithScale, 150);
+  });
 
   // ── Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
