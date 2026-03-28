@@ -233,17 +233,45 @@
     }
     .form-back:hover { color: var(--accent); }
 
-    /* ── ABOUT ── */
-    .section-inner { max-width: var(--max); margin: 0 auto; padding: 0 36px; }
-    #about { padding: 100px 0; }
-    .about-inner { display: flex; flex-direction: row; align-items: center; gap: 48px; }
-    .about-avatar { width: 96px; height: 96px; border-radius: 50%; background: var(--surface, #EAEDF1); flex-shrink: 0; }
-    .about-text { max-width: 520px; }
-    .about-text .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-    .about-bio { font-size: 16px; color: var(--dim); line-height: 1.65; margin: 0; }
-    @media (max-width: 700px) {
-      .about-inner { flex-direction: column; gap: 28px; }
-      .about-avatar { width: 72px; height: 72px; }
+    /* ── ABOUT HERO ── */
+    #about {
+      padding: 100px 36px 96px;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-hero {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .about-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 52px;
+    }
+    .about-lead {
+      font-size: clamp(16px, 1.6vw, 19px);
+      color: var(--dim);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 36px;
+    }
+    .about-quote {
+      font-size: clamp(38px, 5vw, 68px);
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 48px;
+      max-width: 920px;
+    }
+    .about-close {
+      font-size: clamp(16px, 1.6vw, 19px);
+      color: var(--dim);
+      line-height: 1.7;
+      max-width: 580px;
     }
 
     /* ── FOOTER ── */
@@ -298,6 +326,15 @@
   </a>
 </nav>
 
+<section id="about">
+  <div class="about-hero">
+    <p class="about-eyebrow">About</p>
+    <p class="about-lead">Founded by a design systems practitioner out of West Elm, Workhuman, and early-stage product, Marly Creative Concepts was built on a simple idea:</p>
+    <p class="about-quote">ad production shouldn't start from scratch every time.</p>
+    <p class="about-close">We specialize in animated HTML5 ad production with the kind of creative that looks like your brand hired a full team, delivered at a pace that says otherwise.</p>
+  </div>
+</section>
+
 <main>
   <div class="contact-inner">
 
@@ -334,16 +371,6 @@
 
   </div>
 </main>
-
-<section id="about">
-  <div class="section-inner about-inner">
-    <div class="about-avatar"></div>
-    <div class="about-text">
-      <p class="section-label">About</p>
-      <p class="about-bio">Founded by a design systems practitioner out of West Elm, Workhuman, and early-stage product, Marly Creative Concepts was built on a simple idea: <em>ad production shouldn't start from scratch every time.</em><br><br>We specialize in animated HTML5 ad production with the kind of creative that looks like your brand hired a full team, delivered at a pace that says otherwise.</p>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="footer-inner">
