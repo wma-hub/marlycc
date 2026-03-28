@@ -217,6 +217,19 @@
     }
     .form-submit:hover { opacity: 0.85; }
 
+    /* ── ABOUT ── */
+    .section-inner { max-width: var(--max); margin: 0 auto; padding: 0 36px; }
+    #about { padding: 100px 0; }
+    .about-inner { display: flex; flex-direction: row; align-items: center; gap: 48px; }
+    .about-avatar { width: 96px; height: 96px; border-radius: 50%; background: var(--surface, #EAEDF1); flex-shrink: 0; }
+    .about-text { max-width: 520px; }
+    .about-text .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .about-bio { font-size: 16px; color: var(--dim); line-height: 1.65; margin: 0; }
+    @media (max-width: 700px) {
+      .about-inner { flex-direction: column; gap: 28px; }
+      .about-avatar { width: 72px; height: 72px; }
+    }
+
     /* ── FOOTER ── */
     footer {
       background: #FF6B00;
@@ -296,6 +309,16 @@
 
   </div>
 </main>
+
+<section id="about">
+  <div class="section-inner about-inner">
+    <div class="about-avatar"></div>
+    <div class="about-text">
+      <p class="section-label">About</p>
+      <p class="about-bio">Marly Creative Concepts is a boutique ad production studio specializing in animated HTML5 creative. We partner with agencies and in-house teams to turn briefs into platform-ready ad units — fast, precise, and production-clean. No retainers, no bloat. Just work that ships.</p>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-inner">
