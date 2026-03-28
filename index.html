@@ -560,12 +560,36 @@
     }
     .formats-title { font-size: 64px; font-weight: 500; letter-spacing: -0.03em; }
     .formats-note  { font-size: 12px; color: var(--muted); }
-    .formats-grid  {
-      display: flex;
-      gap: 28px 36px;
-      align-items: flex-end;
-      flex-wrap: wrap;
+    .formats-grid-outer {
+      position: relative;
+      overflow: hidden;
     }
+    .formats-grid-outer::before,
+    .formats-grid-outer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .formats-grid-outer::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+    }
+    .formats-grid-outer::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg) 0%, transparent 100%);
+    }
+    .formats-track {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+      width: max-content;
+      animation: ribbon 40s linear infinite;
+    }
+    .formats-track:hover { animation-play-state: paused; }
     .fmt-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
     .fmt-box {
       border: 2px solid var(--border);
@@ -761,7 +785,6 @@
         padding: 36px 0; padding-left: 0;
       }
       .step:last-child { border-bottom: none; }
-      .formats-grid { gap: 20px; }
       .work-slide { flex-direction: column; gap: 28px; }
       .slide-left { width: 100%; }
       .slide-right { width: 100%; }
@@ -2297,73 +2320,36 @@
       <p class="section-label">Custom sizes on request</p>
       <h2 class="formats-title">Supported Formats</h2>
     </div>
-    <div class="formats-grid reveal">
-      <div class="fmt-item">
-        <div class="fmt-box f-1x1"></div>
-        <div class="fmt-name">1:1</div>
-        <div class="fmt-desc">Social / Display</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-4x5"></div>
-        <div class="fmt-name">4:5</div>
-        <div class="fmt-desc">Instagram Feed</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-9x16"></div>
-        <div class="fmt-name">9:16</div>
-        <div class="fmt-desc">Story / Reels</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-320v"></div>
-        <div class="fmt-name">320×480</div>
-        <div class="fmt-desc">Mobile Interstitial</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-16x9"></div>
-        <div class="fmt-name">16:9</div>
-        <div class="fmt-desc">Landscape / OTT</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-300h"></div>
-        <div class="fmt-name">300×600</div>
-        <div class="fmt-desc">Half Page</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-160"></div>
-        <div class="fmt-name">160×600</div>
-        <div class="fmt-desc">Wide Skyscraper</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-300"></div>
-        <div class="fmt-name">300×250</div>
-        <div class="fmt-desc">Medium Rectangle</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-336"></div>
-        <div class="fmt-name">336×280</div>
-        <div class="fmt-desc">Large Rectangle</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-250sq"></div>
-        <div class="fmt-name">250×250</div>
-        <div class="fmt-desc">Square</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-970"></div>
-        <div class="fmt-name">970×250</div>
-        <div class="fmt-desc">Billboard</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-728"></div>
-        <div class="fmt-name">728×90</div>
-        <div class="fmt-desc">Leaderboard</div>
-      </div>
-      <div class="fmt-item">
-        <div class="fmt-box f-320m"></div>
-        <div class="fmt-name">320×50</div>
-        <div class="fmt-desc">Mobile Banner</div>
-      </div>
-      <div class="fmt-more">+ more</div>
+    <div class="formats-grid-outer reveal">
+    <div class="formats-track">
+      <div class="fmt-item"><div class="fmt-box f-1x1"></div><div class="fmt-name">1:1</div><div class="fmt-desc">Social / Display</div></div>
+      <div class="fmt-item"><div class="fmt-box f-4x5"></div><div class="fmt-name">4:5</div><div class="fmt-desc">Instagram Feed</div></div>
+      <div class="fmt-item"><div class="fmt-box f-9x16"></div><div class="fmt-name">9:16</div><div class="fmt-desc">Story / Reels</div></div>
+      <div class="fmt-item"><div class="fmt-box f-320v"></div><div class="fmt-name">320×480</div><div class="fmt-desc">Mobile Interstitial</div></div>
+      <div class="fmt-item"><div class="fmt-box f-16x9"></div><div class="fmt-name">16:9</div><div class="fmt-desc">Landscape / OTT</div></div>
+      <div class="fmt-item"><div class="fmt-box f-300h"></div><div class="fmt-name">300×600</div><div class="fmt-desc">Half Page</div></div>
+      <div class="fmt-item"><div class="fmt-box f-160"></div><div class="fmt-name">160×600</div><div class="fmt-desc">Wide Skyscraper</div></div>
+      <div class="fmt-item"><div class="fmt-box f-300"></div><div class="fmt-name">300×250</div><div class="fmt-desc">Medium Rectangle</div></div>
+      <div class="fmt-item"><div class="fmt-box f-336"></div><div class="fmt-name">336×280</div><div class="fmt-desc">Large Rectangle</div></div>
+      <div class="fmt-item"><div class="fmt-box f-250sq"></div><div class="fmt-name">250×250</div><div class="fmt-desc">Square</div></div>
+      <div class="fmt-item"><div class="fmt-box f-970"></div><div class="fmt-name">970×250</div><div class="fmt-desc">Billboard</div></div>
+      <div class="fmt-item"><div class="fmt-box f-728"></div><div class="fmt-name">728×90</div><div class="fmt-desc">Leaderboard</div></div>
+      <div class="fmt-item"><div class="fmt-box f-320m"></div><div class="fmt-name">320×50</div><div class="fmt-desc">Mobile Banner</div></div>
+      <!-- duplicate for seamless loop -->
+      <div class="fmt-item"><div class="fmt-box f-1x1"></div><div class="fmt-name">1:1</div><div class="fmt-desc">Social / Display</div></div>
+      <div class="fmt-item"><div class="fmt-box f-4x5"></div><div class="fmt-name">4:5</div><div class="fmt-desc">Instagram Feed</div></div>
+      <div class="fmt-item"><div class="fmt-box f-9x16"></div><div class="fmt-name">9:16</div><div class="fmt-desc">Story / Reels</div></div>
+      <div class="fmt-item"><div class="fmt-box f-320v"></div><div class="fmt-name">320×480</div><div class="fmt-desc">Mobile Interstitial</div></div>
+      <div class="fmt-item"><div class="fmt-box f-16x9"></div><div class="fmt-name">16:9</div><div class="fmt-desc">Landscape / OTT</div></div>
+      <div class="fmt-item"><div class="fmt-box f-300h"></div><div class="fmt-name">300×600</div><div class="fmt-desc">Half Page</div></div>
+      <div class="fmt-item"><div class="fmt-box f-160"></div><div class="fmt-name">160×600</div><div class="fmt-desc">Wide Skyscraper</div></div>
+      <div class="fmt-item"><div class="fmt-box f-300"></div><div class="fmt-name">300×250</div><div class="fmt-desc">Medium Rectangle</div></div>
+      <div class="fmt-item"><div class="fmt-box f-336"></div><div class="fmt-name">336×280</div><div class="fmt-desc">Large Rectangle</div></div>
+      <div class="fmt-item"><div class="fmt-box f-250sq"></div><div class="fmt-name">250×250</div><div class="fmt-desc">Square</div></div>
+      <div class="fmt-item"><div class="fmt-box f-970"></div><div class="fmt-name">970×250</div><div class="fmt-desc">Billboard</div></div>
+      <div class="fmt-item"><div class="fmt-box f-728"></div><div class="fmt-name">728×90</div><div class="fmt-desc">Leaderboard</div></div>
+      <div class="fmt-item"><div class="fmt-box f-320m"></div><div class="fmt-name">320×50</div><div class="fmt-desc">Mobile Banner</div></div>
+    </div>
     </div>
   </div>
 </section>
