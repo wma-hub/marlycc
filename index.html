@@ -209,6 +209,25 @@
     }
     .carousel-track-outer {
       overflow: hidden;
+      position: relative;
+    }
+    .carousel-track-outer::before,
+    .carousel-track-outer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .carousel-track-outer::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+    }
+    .carousel-track-outer::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg) 0%, transparent 100%);
     }
     .carousel-track {
       display: flex;
@@ -851,7 +870,7 @@
         <div class="step-num">01</div>
         <div class="step-name">Brief</div>
         <div class="step-time">Skip the kickoff</div>
-        <p class="step-desc">Send your brand kit, copy, and target sizes. A short form, a Loom, a Notion link. Whatever's fastest. We'll take it from there.</p>
+        <p class="step-desc">Send your brand kit, copy, and target sizes. Submit our brief, share a Loom or a Notion link, whatever's fastest. We'll take it from there.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">02</div>
@@ -863,7 +882,7 @@
         <div class="step-num">03</div>
         <div class="step-name">Review</div>
         <div class="step-time">Live in-browser</div>
-        <p class="step-desc">You get a private link to preview every ad running live, exactly how it'll look in the wild. No screenshots, no slide decks. Most clients are in market within 72 hours of briefing.</p>
+        <p class="step-desc">You get a private link to preview every ad running live, exactly how it'll look in the wild, no screenshots or slide decks. Most clients are in market within 72 hours of briefing.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">04</div>
@@ -2263,7 +2282,7 @@
           <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M1 1L8 7.5L1 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
-      <span class="slider-disclaimer">Spec work — produced to demonstrate capability, not under client engagement.</span>
+      <span class="slider-disclaimer">Spec work · produced to demonstrate capability, not under client engagement.</span>
     </div>
 
   </div><!-- /section-inner -->
