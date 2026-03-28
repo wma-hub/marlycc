@@ -32,7 +32,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0a; col
 /* ── Header ── */
 header { padding: 28px 48px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
 .header-left { flex: 1; }
-.ds-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 10px; }
+.ds-label { margin-bottom: 10px; }
 .campaign-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; line-height: 1.08; color: #fff; letter-spacing: -0.03em; }
 .campaign-meta { margin-top: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .meta-pill { display: inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 400; padding: 5px 12px; border-radius: 100px; }
@@ -356,9 +356,12 @@ main { max-width: 1200px; margin: 0 auto; padding: 56px 48px 80px; }
 @keyframes p3bb-lineGrow { to{width:100%;} }
 
 /* ── Footer ── */
-footer { max-width: 1200px; margin: 0 auto; padding: 32px 48px 48px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; }
-.footer-left { font-size: 11px; color: rgba(255,255,255,0.18); line-height: 1.6; }
-.footer-right { font-size: 11px; color: rgba(255,255,255,0.12); text-align: right; line-height: 1.6; }
+footer{background:#FF6B00;margin-top:3rem;padding:20px 36px}
+.rv-footer-inner{display:flex;justify-content:space-between;align-items:center;max-width:960px;margin:0 auto}
+.rv-footer-logo img{height:22px;width:auto;display:block}
+.rv-footer-tagline{font-size:11px;color:#fff}
+.rv-footer-legal{font-size:11px;color:rgba(255,255,255,0.6);display:flex;gap:16px}
+.rv-footer-legal a{color:rgba(255,255,255,0.6);text-decoration:none}
 
 /* ════════════════════════════════════════════════
    SET 1 · AWARENESS
@@ -517,7 +520,7 @@ footer { max-width: 1200px; margin: 0 auto; padding: 32px 48px 48px; border-top:
 <!-- ══════════ HEADER ══════════ -->
 <header>
   <div class="header-left">
-    <div class="ds-label">Marly Creative Concepts · Ad Review</div>
+    <div class="ds-label"><img src="/assets/logos/mcc-logo-wordmark-default.svg" alt="Marly Creative Concepts" style="height:22px;width:auto;display:block"></div>
     <div class="campaign-title">Process Mining ROI Accelerator</div>
     <div class="campaign-meta">
       <span class="meta-pill"><strong>Client</strong> Peech · peech.tech</span>
@@ -1134,14 +1137,15 @@ footer { max-width: 1200px; margin: 0 auto; padding: 32px 48px 48px; border-top:
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
-  <div class="footer-left">
-    Marly Creative Concepts — Wilson Ma, 2026<br>
-    Client: Peech · Process Mining ROI Accelerator — Q2 Lead Gen
-  </div>
-  <div class="footer-right">
-    First concepts · Full 3-set campaign · Prepared for client review<br>
-    March 24, 2026<br>
-    <a href="https://review.marly.cc/peech/process-mining-roi" style="color:rgba(255,107,0,0.5);text-decoration:none;font-weight:600;">review.marly.cc/peech/process-mining-roi</a>
+  <div class="rv-footer-inner">
+    <div class="rv-footer-logo"><img src="/assets/logos/mcc-logo-wordmark-defwhite.svg" alt="Marly Creative Concepts"></div>
+    <span class="rv-footer-tagline">Production partner for agencies and in-house teams</span>
+    <div class="rv-footer-legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/refunds">Refunds</a>
+    </div>
   </div>
 </footer>
 
