@@ -259,7 +259,7 @@
       letter-spacing: 0.04em;
     }
     /* ── WORK SLIDER ──────────────────────────────── */
-    .work-slider-outer { position: relative; overflow: hidden; width: 100%; }
+    .work-slider-outer { position: relative; overflow: hidden; width: 100%; transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
     .work-slider {
       display: flex;
       width: 100%;
@@ -2427,6 +2427,8 @@
     workSliderUpdate();
   }
 
+  var _workSliderOuter = document.querySelector('.work-slider-outer');
+
   function workSliderUpdate() {
     document.getElementById('work-slider').style.transform = 'translateX(-' + (workSlideIdx * 100) + '%)';
     document.querySelectorAll('.work-slide').forEach(function(s, i) {
@@ -2435,6 +2437,7 @@
     document.querySelectorAll('.slider-dot').forEach(function(d, i) {
       d.classList.toggle('active', i === workSlideIdx);
     });
+    _workSliderOuter.style.height = document.querySelectorAll('.work-slide')[workSlideIdx].offsetHeight + 'px';
   }
   workSliderUpdate();
 
@@ -2514,6 +2517,8 @@
     });
   }
   wrapAdsWithScale();
+  // Re-sync height after scale wrapping changes slide dimensions
+  _workSliderOuter.style.height = document.querySelectorAll('.work-slide')[workSlideIdx].offsetHeight + 'px';
   var _scaleResizeTimer;
   window.addEventListener('resize', function() {
     clearTimeout(_scaleResizeTimer);
