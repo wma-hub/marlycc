@@ -57,6 +57,7 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
+    .nav-icon-mobile { display: none; }
     .nav-logo {
       display: flex;
       align-items: center;
@@ -311,6 +312,7 @@
     @media (max-width: 700px) {
       nav { padding: 16px 20px; }
       .nav-wordmark { display: none; }
+      .nav-icon-mobile { display: block; }
       main { padding: 60px 20px 80px; align-items: flex-start; }
       .about-lead, .about-close, .contact-body { font-size: 16px; line-height: 25px; }
       .about-lead br, .about-close br { display: none; }
@@ -327,7 +329,8 @@
 
 <nav id="nav">
   <a href="/" class="nav-logo">
-    <img src="/assets/logos/mcc-logo-wordmark-default.svg" alt="Marly Creative Concepts" height="28">
+    <img class="nav-wordmark" src="/assets/logos/mcc-logo-wordmark-default.svg" alt="Marly Creative Concepts" height="28">
+    <img class="nav-icon-mobile" src="/assets/logos/mcc-logo-icon-orange.svg" alt="Marly Creative Concepts" height="28">
   </a>
   <div style="display:flex; align-items:center; gap:24px;">
     <a href="/" class="nav-text-link">Home</a>
