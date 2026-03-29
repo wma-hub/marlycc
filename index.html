@@ -2476,14 +2476,12 @@
       if (!stack) return;
 
       // Reset previous scaling so measurements are accurate
-      stack.style.transform = '';
-      stack.style.transformOrigin = '';
-      container.style.height = '';
+      stack.style.zoom = '';
 
       var containerWidth = container.clientWidth;
       if (!containerWidth) return;
 
-      var stackRect = stack.getBoundingClientRect();
+      var stackLeft = stack.getBoundingClientRect().left;
       var blocks = Array.from(stack.querySelectorAll(':scope > .ad-block'));
       if (!blocks.length) return;
 
@@ -2500,7 +2498,7 @@
       Object.keys(rows).forEach(function(top) {
         var row = rows[top];
         var lastRect = row[row.length - 1].getBoundingClientRect();
-        maxRight = Math.max(maxRight, lastRect.right - stackRect.left);
+        maxRight = Math.max(maxRight, lastRect.right - stackLeft);
       });
 
       // Only scale if the widest row fills at least 80% of the container.
@@ -2508,12 +2506,8 @@
       if (maxRight <= 0 || maxRight >= containerWidth - 1) return;
       if (maxRight < containerWidth * 0.8) return;
 
-      var scale = containerWidth / maxRight;
-      var naturalHeight = stack.offsetHeight;
-
-      stack.style.transform = 'scale(' + scale + ')';
-      stack.style.transformOrigin = 'top left';
-      container.style.height = Math.ceil(naturalHeight * scale) + 'px';
+      // zoom scales both visual and layout dimensions — no manual height adjustment needed.
+      stack.style.zoom = containerWidth / maxRight;
     });
   }
 
