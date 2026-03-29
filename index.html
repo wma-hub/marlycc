@@ -815,6 +815,17 @@
       .contact-q { font-size: 48px; }
     }
 
+/* ── About (contact) section ── */
+.ac-eyebrow { font-size: 10px; font-weight: 400; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); margin-bottom: 52px; }
+.ac-lead { font-size: 20px; font-weight: 400; color: var(--dim); line-height: 31px; max-width: 780px; margin-bottom: 36px; }
+.ac-quote { font-size: clamp(38px, 5vw, 68px); font-weight: 500; font-style: normal; letter-spacing: -0.03em; line-height: 1.05; color: #111111; margin-bottom: 48px; max-width: 920px; }
+.ac-close { font-size: 20px; font-weight: 400; color: var(--dim); line-height: 31px; max-width: 780px; }
+@media (max-width: 700px) {
+  #about-contact { padding: 60px 36px 80px !important; }
+  .ac-lead, .ac-close { font-size: 16px; line-height: 25px; }
+  .ac-lead br, .ac-close br { display: none; }
+}
+
         </style>
 </head>
 <body>
@@ -851,7 +862,7 @@
 
 
 <!-- ▌LOGO CAROUSEL -->
-<section id="clients">
+<section id="clients" style="display:none">
   <div class="clients-inner">
     <p class="clients-label">Brands we've worked with</p>
     <div class="carousel-track-outer">
@@ -890,6 +901,14 @@
       </div>
     </div>
   </div>
+</section>
+
+<section id="about-contact" style="padding: 84px 36px 96px; max-width: 1200px; margin: 0 auto;">
+  <p class="ac-eyebrow">About</p>
+  <p class="ac-lead">Founded by a product design systems specialist out of<br> West Elm, Workhuman, and early-stage product,<br> Marly Creative Concepts was built on a simple idea:</p>
+  <p class="ac-quote">Ad production shouldn't start from scratch <span style="font-weight:900;font-style:italic;color:#FF6B00">every time.</span></p>
+  <hr style="border:none;border-top:2px solid #FF6B00;width:48px;margin:0 0 48px">
+  <p class="ac-close">We specialize in animated HTML5 ad production with the<br> kind of creative that looks like your brand hired a full team,<br> delivered at a pace that says otherwise.</p>
 </section>
 
 <hr class="divider" id="divider-clients">
