@@ -2467,6 +2467,52 @@
 
   var _workSliderOuter = document.querySelector('.work-slider-outer');
 
+  // Scale each slide's ads-stack so its widest row fills the slide-right container.
+  // Runs at init and on resize — applies automatically to any future slides added.
+  function scaleAdsStacks() {
+    document.querySelectorAll('.slide-right').forEach(function(container) {
+      var stack = container.querySelector('.ads-stack');
+      if (!stack) return;
+
+      // Reset previous scaling so measurements are accurate
+      stack.style.transform = '';
+      stack.style.transformOrigin = '';
+      container.style.height = '';
+
+      var containerWidth = container.clientWidth;
+      if (!containerWidth) return;
+
+      var stackRect = stack.getBoundingClientRect();
+      var blocks = Array.from(stack.querySelectorAll(':scope > .ad-block'));
+      if (!blocks.length) return;
+
+      // Group blocks by row (same top position = same row)
+      var rows = {};
+      blocks.forEach(function(block) {
+        var top = Math.round(block.getBoundingClientRect().top);
+        if (!rows[top]) rows[top] = [];
+        rows[top].push(block);
+      });
+
+      // Find the right edge of the widest row relative to the stack's left edge
+      var maxRight = 0;
+      Object.keys(rows).forEach(function(top) {
+        var row = rows[top];
+        var lastRect = row[row.length - 1].getBoundingClientRect();
+        maxRight = Math.max(maxRight, lastRect.right - stackRect.left);
+      });
+
+      if (maxRight <= 0 || maxRight >= containerWidth - 1) return;
+
+      var scale = containerWidth / maxRight;
+      var naturalHeight = stack.offsetHeight;
+
+      stack.style.transform = 'scale(' + scale + ')';
+      stack.style.transformOrigin = 'top left';
+      container.style.height = Math.ceil(naturalHeight * scale) + 'px';
+    });
+  }
+
   function workSliderUpdate() {
     var slides = document.querySelectorAll('.work-slide');
     document.getElementById('work-slider').style.transform = 'translateX(-' + (workSlideIdx * 100) + '%)';
@@ -2480,7 +2526,14 @@
     if (counter) counter.textContent = ('0' + (workSlideIdx + 1)).slice(-2) + ' / ' + ('0' + slides.length).slice(-2);
     _workSliderOuter.style.height = slides[workSlideIdx].offsetHeight + 'px';
   }
+
+  scaleAdsStacks();
   workSliderUpdate();
+
+  window.addEventListener('resize', function() {
+    scaleAdsStacks();
+    workSliderUpdate();
+  }, { passive: true });
 
   // Touch swipe support
   (function() {
