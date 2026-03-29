@@ -2503,9 +2503,11 @@
         maxRight = Math.max(maxRight, lastRect.right - stackLeft);
       });
 
-      // Only scale if the widest row fills at least 80% of the container.
-      // Below that threshold the ads are too small for their format and scaling looks inflated.
-      if (maxRight <= 0 || maxRight >= containerWidth - 1) return;
+      // Skip if no measurement or already a perfect fit.
+      // Skip upscaling when the widest row is under 80% of the container (e.g. Casper's small formats).
+      // Downscaling (ads wider than container) is always allowed — required on mobile.
+      if (maxRight <= 0) return;
+      if (Math.abs(maxRight - containerWidth) < 1) return;
       if (maxRight < containerWidth * 0.8) return;
 
       // zoom scales both visual and layout dimensions — no manual height adjustment needed.
