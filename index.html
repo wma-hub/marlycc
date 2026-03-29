@@ -281,6 +281,7 @@
     .work-slider-outer { position: relative; overflow: hidden; width: 100%; transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
     .work-slider {
       display: flex;
+      align-items: flex-start;
       width: 100%;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       will-change: transform;
@@ -2502,7 +2503,10 @@
         maxRight = Math.max(maxRight, lastRect.right - stackRect.left);
       });
 
+      // Only scale if the widest row fills at least 80% of the container.
+      // Below that threshold the ads are too small for their format and scaling looks inflated.
       if (maxRight <= 0 || maxRight >= containerWidth - 1) return;
+      if (maxRight < containerWidth * 0.8) return;
 
       var scale = containerWidth / maxRight;
       var naturalHeight = stack.offsetHeight;
