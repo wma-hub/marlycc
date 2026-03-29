@@ -2487,20 +2487,15 @@
       var blocks = Array.from(stack.querySelectorAll(':scope > .ad-block'));
       if (!blocks.length) return;
 
-      // Group blocks by row (same top position = same row)
-      var rows = {};
-      blocks.forEach(function(block) {
-        var top = Math.round(block.getBoundingClientRect().top);
-        if (!rows[top]) rows[top] = [];
-        rows[top].push(block);
-      });
-
-      // Find the right edge of the widest row relative to the stack's left edge
+      // Measure .ad-stage elements (have explicit pixel widths, flex-shrink:0 in their style).
+      // .ad-block wrappers are flex items with flex-shrink:1 — on narrow viewports they shrink
+      // to the container width, making the measurement appear as a "perfect fit" and skipping zoom.
+      // .ad-stage always reflects the ad's natural unscaled size.
       var maxRight = 0;
-      Object.keys(rows).forEach(function(top) {
-        var row = rows[top];
-        var lastRect = row[row.length - 1].getBoundingClientRect();
-        maxRight = Math.max(maxRight, lastRect.right - stackLeft);
+      blocks.forEach(function(block) {
+        var stage = block.querySelector('.ad-stage');
+        if (!stage) return;
+        maxRight = Math.max(maxRight, stage.getBoundingClientRect().right - stackLeft);
       });
 
       // Skip if no measurement or already a perfect fit.
