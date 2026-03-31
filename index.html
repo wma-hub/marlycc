@@ -5903,7 +5903,7 @@
 }
 #stage-linear-970-250 .img-zone {
   position:absolute;
-  right:0;top:0;bottom:0;
+  right:-32px;top:0;bottom:0;
   width:42%;
   overflow:hidden;
   z-index:1;
@@ -5951,6 +5951,7 @@
   letter-spacing:0;
   margin-bottom:10px;
   max-width:480px;
+  white-space:nowrap;
 }
 #stage-linear-970-250 .subhead {
   font-size:18px;
@@ -5959,6 +5960,10 @@
   color:#8A8F98;
   letter-spacing:0.01em;
   max-width:440px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
 }
 #stage-linear-970-250 .cta-wrap {
   position:absolute;
@@ -6316,7 +6321,7 @@
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:14px 16px 18px;
+  padding:54px 16px 18px;
 }
 #stage-linear-160-600 .ambient {
   position:absolute;inset:0;
