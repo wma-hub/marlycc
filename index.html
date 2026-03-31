@@ -5934,9 +5934,13 @@
 }
 #stage-linear-970-250 .text-block {
   position:absolute;
-  top:70px;
+  top:52px;
   left:20px;
   right:16px;
+  bottom:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 #stage-linear-970-250 .headline {
   font-size:32px;
@@ -5949,7 +5953,7 @@
   max-width:480px;
 }
 #stage-linear-970-250 .subhead {
-  font-size:15px;
+  font-size:18px;
   font-weight:400;
   line-height:1.4;
   color:#8A8F98;
@@ -5958,7 +5962,8 @@
 }
 #stage-linear-970-250 .cta-wrap {
   position:absolute;
-  bottom:20px;right:24px;
+  bottom:20px;right:20px;
+  z-index:3;
 }
 #stage-linear-970-250 .cta {
   display:inline-block;
@@ -6009,11 +6014,11 @@
       <div class="subhead seq3">Linear Agents handle triage, write specs, and close issues — so your team stays focused on what matters.</div>
     </div>
 
-    <!-- CTA: bottom-left -->
-    <div class="cta-wrap seq4">
-      <div class="cta">Try Linear Agents</div>
-    </div>
+  </div>
 
+  <!-- CTA: bottom-right -->
+  <div class="cta-wrap seq4">
+    <div class="cta">Try Linear Agents</div>
   </div>
 
   <a class="click-overlay" href="https://linear.app/agents" target="_blank"></a>
@@ -6227,18 +6232,19 @@
 }
 #stage-linear-300-250 .cta-wrap {
   position:absolute;
-  bottom:16px;right:12px;
+  bottom:37px;right:12px;
+  z-index:3;
 }
 #stage-linear-300-250 .cta {
   display:inline-block;
   background:#5E6AD2;
   color:#fff;
   font-family:'Inter',sans-serif;
-  font-size:12px;
+  font-size:9px;
   font-weight:500;
   letter-spacing:0.02em;
-  padding:8px 20px;
-  border-radius:6px;
+  padding:6px 15px;
+  border-radius:5px;
   white-space:nowrap;
   -webkit-font-smoothing:antialiased;
 }
@@ -6274,15 +6280,15 @@
 
     <!-- Text: headline + subhead, vertically centered in content minus CTA -->
     <div class="text-block">
-      <div class="headline seq2">Build software with AI teammates.</div>
+      <div class="headline seq2">Build<br>software<br>with AI teammates.</div>
       <div class="subhead seq3">Linear Agents handle triage, write specs, and close issues.</div>
     </div>
 
-    <!-- CTA: absolute bottom-left -->
-    <div class="cta-wrap seq4">
-      <div class="cta">Try Linear Agents</div>
-    </div>
+  </div>
 
+  <!-- CTA: bottom-right -->
+  <div class="cta-wrap seq4">
+    <div class="cta">Try Linear Agents</div>
   </div>
 
   <!-- Full-unit click-through -->
@@ -6310,7 +6316,7 @@
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:14px 12px 18px;
+  padding:14px 16px 18px;
 }
 #stage-linear-160-600 .ambient {
   position:absolute;inset:0;
@@ -6329,7 +6335,7 @@
   margin-bottom:14px;
 }
 #stage-linear-160-600 .img-zone {
-  width:136px;
+  width:128px;
   flex:1;
   min-height:140px;
   max-height:220px;
@@ -6347,6 +6353,7 @@
   flex-shrink:0;
   width:100%;
   text-align:center;
+  margin-top:-24px;
   margin-bottom:14px;
 }
 #stage-linear-160-600 .headline {
