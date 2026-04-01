@@ -485,6 +485,7 @@
         <button class="chip" data-val="returning">Yes, returning client</button>
         <button class="chip" data-val="new">No, first time</button>
       </div>
+      <p class="hint" id="returningHint" style="display:none;margin-top:8px;">We already have your brand on file. If anything has changed (new logo, updated colors, additional fonts), reply to your confirmation email with the updated assets.</p>
     </div>
   </div>
 
@@ -525,7 +526,7 @@
   <!-- ═══════════ STEP 2: Campaign brief ═══════════ -->
   <div class="step" id="step-campaign">
     <div class="section-header">
-      <div class="row"><span class="section-num" id="campaignNum">2</span><h2>Campaign brief</h2></div>
+      <div class="row"><span class="section-num" id="campaignNum">3</span><h2>Campaign brief</h2></div>
       <p class="desc">Details for this specific ad set. The more context, the faster we can deliver.</p>
     </div>
 
@@ -586,11 +587,38 @@
       <label>Animation style</label>
       <p class="hint">How much motion do you want in the ads?</p>
       <div class="anim-stack" id="animLevel"></div>
+      <div class="field" style="margin-top:14px;margin-bottom:0;">
+        <label>Animation notes</label>
+        <textarea id="animationNotes" placeholder="Any specific references, motion styles, or examples to follow?"></textarea>
+      </div>
     </div>
 
     <div class="field">
       <label>Ad network(s)</label>
+      <p class="hint">Where will these ads run? (e.g., Google Display Network, Meta, programmatic open web, specific publishers)</p>
       <div class="chip-group" id="networks"></div>
+    </div>
+
+    <div class="field">
+      <label>Ad server or DSP</label>
+      <p class="hint">Where does your team upload ads for trafficking? This determines how we configure click tracking in your files.</p>
+      <select id="adServer" style="width:100%;padding:9px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);font-size:14px;font-family:inherit;color:#111111;background:white;outline:none;cursor:pointer;">
+        <option value="">Select…</option>
+        <option value="cm360">Google Campaign Manager (CM360)</option>
+        <option value="dv360">DV360</option>
+        <option value="ttd">The Trade Desk</option>
+        <option value="amazon-dsp">Amazon DSP</option>
+        <option value="sizmek">Sizmek</option>
+        <option value="not-sure">Not sure — our media team handles this</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" id="adServerOther" placeholder="Platform name" style="display:none;margin-top:8px;width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(0,0,0,0.12);font-size:15px;font-family:inherit;color:#111111;background:white;outline:none;">
+    </div>
+
+    <div class="field">
+      <label>Platform requirements</label>
+      <p class="hint">Any technical constraints from your ad server or publisher? (e.g., file size limits, specific click tracking format, required naming conventions)</p>
+      <textarea id="platformReqs" style="min-height:60px;"></textarea>
     </div>
 
     <div class="field">
@@ -653,9 +681,11 @@ const AD_SIZES = [
 const GOALS = ['Brand awareness','Product launch','Retargeting','Seasonal / promo','Event / announcement','Evergreen / always-on'];
 const NETWORKS = ['Google Display Network','Programmatic (DV360, TTD, etc.)','Meta / Instagram','Connected TV','Other / unsure'];
 const ANIM_LEVELS = [
-  { id: 'standard', name: 'Standard', desc: 'Clean entrance transitions and fade effects. Ideal for most campaigns.' },
-  { id: 'dynamic',  name: 'Dynamic',  desc: 'Sequenced motion, layered reveals, kinetic typography. Great for product launches.' },
-  { id: 'high-impact', name: 'High-impact', desc: 'Rich, immersive animation with complex choreography. Premium placements and hero units.' },
+  { id: 'subtle',         name: 'Subtle',         desc: 'Simple fades and entrance animations.' },
+  { id: 'moderate',       name: 'Moderate',        desc: 'Sequenced motion, layered transitions.' },
+  { id: 'high-energy',    name: 'High energy',     desc: 'Full animation, dynamic movement.' },
+  { id: 'match-existing', name: 'Match existing',  desc: 'Reference my previous ads or brand examples.' },
+  { id: 'not-sure',       name: 'Not sure',        desc: 'Surprise me.' },
 ];
 
 // ── State ──
@@ -665,7 +695,7 @@ let isNew = null;
 let selectedGoals = [];
 let selectedSizes = [];
 let selectedNetworks = [];
-let animLevel = 'standard';
+let animLevel = 'subtle';
 
 // ── Step sequence (dynamic based on isNew) ──
 function getSteps() {
@@ -749,6 +779,7 @@ document.querySelectorAll('#isNew .chip').forEach(btn => {
   btn.onclick = () => {
     isNew = btn.dataset.val === 'new';
     document.querySelectorAll('#isNew .chip').forEach(b => b.classList.toggle('selected', b === btn));
+    document.getElementById('returningHint').style.display = isNew ? 'none' : '';
     validate();
   };
 });
@@ -781,6 +812,9 @@ function validate() {
   document.getElementById(id).addEventListener('input', validate);
 });
 document.getElementById('adSetCount').addEventListener('change', validate);
+document.getElementById('adServer').addEventListener('change', function() {
+  document.getElementById('adServerOther').style.display = this.value === 'other' ? '' : 'none';
+});
 
 // ── Navigation ──
 function showStep() {
@@ -865,7 +899,15 @@ function buildReview() {
   out += line('Imagery notes:', val('imageryNotes')) + '\n';
   const animName = ANIM_LEVELS.find(a => a.id === animLevel)?.name || '—';
   out += line('Animation:', animName) + '\n';
+  const animNotesVal = val('animationNotes');
+  if (animNotesVal) out += line('Anim. notes:', animNotesVal) + '\n';
   out += line('Network(s):', selectedNetworks.join(', ')) + '\n';
+  const adServerEl = document.getElementById('adServer');
+  const adServerDisplay = adServerEl.value === 'other'
+    ? `Other: ${val('adServerOther')}`
+    : (adServerEl.options[adServerEl.selectedIndex]?.text || '—');
+  out += line('Ad server/DSP:', adServerDisplay) + '\n';
+  out += line('Platform reqs:', val('platformReqs')) + '\n';
   out += line('Deadline:', val('deadline')) + '\n';
   const notes = val('additionalNotes');
   if (notes) out += `\nAdditional notes:\n  ${notes}\n`;
@@ -896,7 +938,11 @@ async function submitBrief() {
     landingUrl: val('landingUrl'),
     imageryNotes: val('imageryNotes'),
     animationLevel: animLevel,
+    animationNotes: val('animationNotes'),
     networks: selectedNetworks.join(', '),
+    adServer: document.getElementById('adServer').value,
+    adServerOther: val('adServerOther'),
+    platformReqs: val('platformReqs'),
     deadline: val('deadline'),
     additionalNotes: val('additionalNotes'),
     _fullBrief: document.getElementById('reviewText').textContent,
